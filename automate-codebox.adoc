@@ -1,0 +1,16 @@
+---
+sidebar: sidebar 
+permalink: automate-codebox.html 
+keywords: automation, code automation, automate, codebox 
+summary: 'Avec Codebox, vous pouvez automatiser le déploiement d"hôtes, la création de bases de données et bien plus encore.' 
+---
+= Automatisez les tâches de charge de travail EDA avec Codebox
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Codebox vous permet d'automatiser la création de projets et les opérations de protection des données. Codebox est un copilote d'infrastructure en tant que code (IaC) qui vous aide à générer du code pour exécuter toutes les opérations prises en charge par Workload Factory.
+
+Apprenez-en davantage sur link:https://docs.netapp.com/us-en/workload-setup-admin/codebox-automation.html["Automatisation de la boîte à codes"^] et comment l'utiliser.

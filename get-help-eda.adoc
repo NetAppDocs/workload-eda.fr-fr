@@ -1,0 +1,165 @@
+---
+sidebar: sidebar 
+permalink: get-help-eda.html 
+keywords: help, ticket, open support case, support, netapp support, technical support, call support, phone number, open ticket, web ticket, open an issue 
+summary: 'NetApp propose une assistance pour Workload Factory et ses services cloud de différentes manières. De nombreuses options d"auto-assistance gratuites sont disponibles 24h/24 et 7j/7, telles que des articles de base de connaissances (KB) et un forum communautaire. Votre inscription au service d"assistance inclut une assistance technique à distance via un système de tickets en ligne.' 
+---
+= Obtenez de l'aide concernant Workload Factory pour l'EDA.
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp propose une assistance pour Workload Factory et ses services cloud de différentes manières. De nombreuses options d'auto-assistance gratuites sont disponibles 24h/24 et 7j/7, telles que des articles de base de connaissances (KB) et un forum communautaire. Votre inscription au service d'assistance inclut une assistance technique à distance via un système de tickets en ligne.
+
+
+
+== Obtenez de l'aide pour FSx pour ONTAP
+
+Pour obtenir une assistance technique concernant FSx for ONTAP, son infrastructure ou toute solution utilisant ce service, reportez-vous à la section « Obtenir de l’aide » de la documentation Workload Factory relative à ce produit.
+
+link:https://docs.netapp.com/us-en/storage-management-fsx-ontap/start/concept-fsx-aws.html#getting-help["Amazon FSx pour ONTAP"^]
+
+Pour bénéficier d'une assistance technique spécifique à Workload Factory et à ses solutions et services de stockage, utilisez les options d'assistance décrites ci-dessous.
+
+
+
+== Utiliser les options d'auto-assistance
+
+Ces options sont disponibles gratuitement, 24 heures sur 24, 7 jours sur 7 :
+
+* Documentation
++
+La documentation de Workload Factory que vous consultez actuellement.
+
+* https://kb.netapp.com["Base de connaissances"^]
++
+Consultez la base de connaissances de Workload Factory pour trouver des articles utiles pour résoudre les problèmes.
+
+* http://community.netapp.com/["Communautés"^]
++
+Rejoignez la communauté Workload Factory pour suivre les discussions en cours ou en créer de nouvelles.
+
+
+
+
+
+== Créer un dossier auprès du support NetApp
+
+En plus des options d’auto-assistance ci-dessus, vous pouvez travailler avec un spécialiste du support NetApp pour résoudre tout problème après avoir activé le support.
+
+.Avant de commencer
+Pour utiliser la fonctionnalité *Créer un dossier*, vous devez d'abord vous inscrire au support. Associez vos identifiants du site de support NetApp à votre compte Workload Factory. link:support-registration.html["Apprenez comment vous inscrire pour bénéficier de l'assistance"].
+
+.Mesures
+. Dans le coin supérieur droit de la console Workload Factory, sélectionnez *Aide > Support*.
++
+Sélectionner cette option ouvre la NetApp Console dans un nouvel onglet du navigateur et charge le tableau de bord d'assistance.
+
+. Sur la page *Ressources*, choisissez l'une des options disponibles sous Support technique :
++
+.. Sélectionnez *Appelez-nous* si vous souhaitez parler à quelqu'un au téléphone. Vous serez redirigé vers une page sur netapp.com qui répertorie les numéros de téléphone que vous pouvez appeler.
+.. Sélectionnez *Créer un dossier* pour ouvrir un ticket avec un spécialiste du support NetApp :
++
+*** *Service* : Sélectionnez *Workload Factory*.
+*** *Priorité du cas* : Choisissez la priorité du cas, qui peut être Faible, Moyenne, Élevée ou Critique.
++
+Pour en savoir plus sur ces priorités, passez votre souris sur l’icône d’information à côté du nom du champ.
+
+*** *Description du problème* : Fournissez une description détaillée de votre problème, y compris tous les messages d'erreur applicables ou les étapes de dépannage que vous avez effectuées.
+*** *Adresses e-mail supplémentaires* : saisissez des adresses e-mail supplémentaires si vous souhaitez informer quelqu'un d'autre de ce problème.
+*** *Pièce jointe (facultatif)* : Téléchargez jusqu'à cinq pièces jointes, une à la fois.
++
+Les pièces jointes sont limitées à 25 Mo par fichier. Les extensions de fichiers suivantes sont prises en charge : txt, log, pdf, jpg/jpeg, rtf, doc/docx, xls/xlsx et csv.
+
+
+
+
+
++
+image:https://raw.githubusercontent.com/NetAppDocs/workload-family/main/media/screenshot-create-case.png["Capture d'écran du formulaire Créer un cas qui vous permet de créer un cas auprès du support NetApp ."]
+
+
+
+.Après avoir terminé
+Une fenêtre contextuelle apparaîtra avec votre numéro de dossier d'assistance. Un spécialiste du support NetApp examinera votre cas et vous répondra dans les plus brefs délais.
+
+Pour un historique de vos demandes d'assistance, vous pouvez sélectionner *Paramètres > Chronologie* et rechercher les actions nommées « créer une demande d'assistance ». Un bouton à l’extrême droite vous permet de développer l’action pour voir les détails.
+
+Il est possible que vous rencontriez le message d'erreur suivant lorsque vous essayez de créer un dossier :
+
+« Vous n'êtes pas autorisé à créer un dossier contre le service sélectionné »
+
+Cette erreur pourrait signifier que le compte NSS et la société d'enregistrement auxquels il est associé ne sont pas la même société d'enregistrement que celle du numéro de série du compte NetApp Console (c.-à-d. 960xxxx) ou le numéro de série du système. Vous pouvez demander de l'aide en utilisant l'une des options suivantes :
+
+* Utilisez le chat intégré au produit
+* Soumettez un cas non technique à https://mysupport.netapp.com/site/help[]
+
+
+
+
+== Gérez vos demandes d'assistance (Aperçu)
+
+Vous pouvez consulter et gérer les demandes d'assistance actives et résolues directement depuis la NetApp Console. Vous pouvez gérer les dossiers associés à votre compte NSS et à votre entreprise.
+
+La gestion des cas est disponible en aperçu. Nous prévoyons d’affiner cette expérience et d’ajouter des améliorations dans les prochaines versions. Veuillez nous envoyer vos commentaires en utilisant le chat intégré au produit.
+
+Notez ce qui suit :
+
+* Le tableau de bord de gestion des cas en haut de la page offre deux vues :
++
+** La vue de gauche montre le nombre total de dossiers ouverts au cours des 3 derniers mois par le compte utilisateur NSS que vous avez fourni.
+** La vue de droite affiche le nombre total de dossiers ouverts au cours des 3 derniers mois au niveau de votre entreprise en fonction de votre compte utilisateur NSS.
+
+
++
+Les résultats du tableau reflètent les cas liés à la vue que vous avez sélectionnée.
+
+* Vous pouvez ajouter ou supprimer des colonnes d'intérêt et filtrer le contenu des colonnes telles que Priorité et Statut. D'autres colonnes fournissent simplement des capacités de tri.
++
+Consultez les étapes ci-dessous pour plus de détails.
+
+* Au niveau de chaque cas, nous offrons la possibilité de mettre à jour les notes du cas ou de fermer un cas qui n'est pas déjà au statut Fermé ou En attente de fermeture.
+
+
+.Mesures
+. Dans le coin supérieur droit de la console Workload Factory, sélectionnez *Aide > Support*.
++
+Sélectionner cette option ouvre la NetApp Console dans un nouvel onglet du navigateur et charge le tableau de bord d'assistance.
+
+. Sélectionnez *Gestion des cas* et si vous y êtes invité, ajoutez votre compte NSS à la NetApp Console.
++
+La page *Gestion des cas* affiche les cas ouverts liés au compte NSS associé à votre compte utilisateur de la NetApp Console . Il s'agit du même compte NSS qui apparaît en haut de la page *Gestion NSS*.
+
+. Modifiez éventuellement les informations qui s'affichent dans le tableau :
++
+** Sous *Cas de l'organisation*, sélectionnez *Afficher* pour afficher tous les cas associés à votre entreprise.
+** Modifiez la plage de dates en choisissant une plage de dates exacte ou en choisissant une période différente.
++
+image:https://raw.githubusercontent.com/NetAppDocs/workload-family/main/media/screenshot-case-management-date-range.png["Une capture d'écran de l'option au-dessus du tableau sur la page Gestion des cas qui vous permet de choisir une plage de dates exacte ou les 7 derniers jours, 30 derniers jours ou 3 derniers mois."]
+
+** Filtrer le contenu des colonnes.
++
+image:https://raw.githubusercontent.com/NetAppDocs/workload-family/main/media/screenshot-case-management-filter.png["Une capture d'écran de l'option de filtre dans la colonne Statut qui vous permet de filtrer les cas correspondant à un statut spécifique tel qu'Actif ou Fermé."]
+
+** Modifiez les colonnes qui apparaissent dans le tableau en sélectionnantimage:https://raw.githubusercontent.com/NetAppDocs/workload-family/main/media/icon-table-columns.png["L'icône plus qui apparaît dans le tableau"] et ensuite choisir les colonnes que vous souhaitez afficher.
++
+image:https://raw.githubusercontent.com/NetAppDocs/workload-family/main/media/screenshot-case-management-columns.png["Une capture d'écran qui montre les colonnes que vous pouvez afficher dans le tableau."]
+
+
+
+. Gérer un dossier existant en sélectionnantimage:https://raw.githubusercontent.com/NetAppDocs/workload-family/main/media/icon-table-action.png["Une icône avec trois points qui apparaît dans la dernière colonne du tableau"] et en sélectionnant l’une des options disponibles :
++
+** *Voir le cas* : Afficher tous les détails sur un cas spécifique.
+** *Mettre à jour les notes du cas* : fournissez des détails supplémentaires sur votre problème ou sélectionnez *Télécharger des fichiers* pour joindre jusqu'à un maximum de cinq fichiers.
++
+Les pièces jointes sont limitées à 25 Mo par fichier. Les extensions de fichiers suivantes sont prises en charge : txt, log, pdf, jpg/jpeg, rtf, doc/docx, xls/xlsx et csv.
+
+** *Fermer le dossier* : Fournissez des détails sur les raisons pour lesquelles vous fermez le dossier et sélectionnez *Fermer le dossier*.
+
+
++
+image:https://raw.githubusercontent.com/NetAppDocs/workload-family/main/media/screenshot-case-management-actions.png["Une capture d'écran qui montre les actions que vous pouvez entreprendre après avoir sélectionné le menu dans la dernière colonne du tableau."]
+
+

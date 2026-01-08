@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: version-projects.html 
+keywords: snapshot, clone, project, protect, API, version, versions, versioning 
+summary: 'Gérez les versions de vos projets EDA à l"aide d"instantanés et de clones.' 
+---
+= Gérer les versions de NetApp Workload Factory pour les projets EDA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Travaillez avec différentes versions de vos projets EDA en créant des instantanés et des clones à la demande directement depuis Workload Factory. Les instantanés et les clones d'un projet sont stockés dans le système de fichiers associé au projet lors de sa création. Vous pouvez également gérer les instantanés et les clones à l'aide de https://console.workloads.netapp.com/api-doc["API REST Workload Factory"^].
+
+
+
+== Créer un instantané d'un projet
+
+Vous pouvez créer un instantané d'un projet en suivant ces étapes.
+
+.Mesures
+. Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
+. Sélectionnez le menu image:workloads-menu-icon.png["L'icône du menu hamburger permet d'accéder aux charges de travail telles que le stockage, l'analyse de données d'entreprise (EDA), l'intelligence artificielle (IA), les bases de données, VMware et l'administration."] puis sélectionnez *EDA*.
+. Sélectionnez *CI/CD*.
+. Sélectionnez *Accéder à la page Projets*.
+. Sur la page Projets, sélectionnez image:icon-action.png["le bouton d'option"] pour le projet dont vous souhaitez prendre un instantané.
+. Dans le menu qui s'affiche, sélectionnez *Créer un instantané*.
+. Dans la boîte de dialogue *Créer un instantané*, choisissez un nom pour l'instantané et sélectionnez *Créer*.
+
+
+
+
+== Créer un clone d'un projet
+
+Clonez un projet EDA à partir d'un instantané en suivant ces étapes. Lorsque vous créez un clone, un nouveau volume modifiable est créé pour contenir ce clone.
+
+.Mesures
+. Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
+. Sélectionnez le menu image:workloads-menu-icon.png["L'icône du menu hamburger permet d'accéder aux charges de travail telles que le stockage, l'analyse de données d'entreprise (EDA), l'intelligence artificielle (IA), les bases de données, VMware et l'administration."] puis sélectionnez *EDA*.
+. Sélectionnez *CI/CD*.
+. Sélectionnez *Accéder à la page Projets*.
+. Sur la page Projets, sélectionnez image:icon-action.png["le bouton d'option"] pour le projet que vous souhaitez cloner.
+. Dans le menu qui s'affiche, sélectionnez *Créer un clone*.
+. Dans la boîte de dialogue *Créer un clone*, procédez comme suit :
++
+.. Saisissez un nom pour le clone.
++
+Le nom par défaut du clone est le nom du projet suivi de la date et de l'heure actuelles.
+
+.. Sélectionnez un instantané à utiliser comme base pour le clone.
+.. Sélectionnez *Créer*.
+
+
+
+
+.Résultat
+Workload Factory crée un nouveau clone du projet, et ce clone apparaît comme un nouveau projet sur la page Projets.

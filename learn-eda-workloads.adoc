@@ -1,0 +1,90 @@
+---
+sidebar: sidebar 
+permalink: learn-eda-workloads.html 
+keywords: software builders, development, benefits, eda, electronic design automation, perforce integration, ci, cd 
+summary: 'Découvrez comment utiliser l"intégration Perforce dans NetApp Workload Factory pour EDA.' 
+---
+= Découvrez l'intégration de Perforce dans NetApp Workload Factory pour EDA.
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+L'intégration de Perforce aux pipelines CI/CD améliore le processus de développement en automatisant les compilations, les tests et les déploiements, ce qui permet une livraison de logiciels plus rapide et plus fiable.
+
+L'intégration continue et le déploiement continu (CI/CD) dans EDA sont un outil de création rapide d'environnements de construction pour les développeurs de logiciels. Il permet une mise en place rapide d'environnements de développement personnels, ce qui représente un gain de temps et permet aux développeurs de travailler en libre-service tout en donnant aux équipes DevOps les moyens de conserver le contrôle de l'infrastructure. Grâce à l'intégration continue et à la livraison continue (CI/CD), les développeurs de logiciels peuvent créer rapidement des espaces de travail sans avoir besoin de stockage de données spécialisé ni de comprendre l'infrastructure de développement.
+
+
+
+== Qu'est-ce que l'CI/CD ?
+
+L'utilisation de l'intégration continue et de la livraison continue (CI/CD) permet de rationaliser la façon dont les développeurs gèrent et interagissent avec les différentes versions de leurs logiciels. Il fonctionne avec Perforce Helix Core pour cloner instantanément les versions logicielles et créer des espaces de travail pour le développement, l'assurance qualité et l'intégration continue/la livraison continue.
+
+Vous pouvez facilement créer un projet et lui attribuer un volume qui représente votre environnement logiciel et ses artefacts. Lors de la mise à jour de votre logiciel, vous pouvez prendre des instantanés du volume, capturant ainsi l'état de votre logiciel à ce moment précis. Vous pouvez accéder instantanément à n'importe quelle version du logiciel sans resynchronisation, ce qui vous permet de gagner du temps et des ressources.
+
+Grâce aux fonctionnalités de snapshot et de clonage de NetApp ONTAP, vous pouvez accéder rapidement aux différentes versions de votre logiciel, ce qui vous permet de développer et de publier des mises à jour plus rapidement. Pour plus d'informations sur Workload Factory, consultez la documentation. link:https://docs.netapp.com/us-en/workload-setup-admin/workload-factory-overview.html["Présentation de Workload Factory"^].
+
+
+
+== Fonctionnalités CI/CD
+
+* Créer, modifier et supprimer des projets. Voir link:manage-projects.html["Gérer des projets"].
+* Créer des instantanés des versions logicielles définies. Voir link:version-projects.html["Gérer les versions du projet"].
+* Créer et supprimer des espaces de travail (à partir de clones). Voir link:create-workspaces.html["Créer un espace de travail"].
+* Créez des politiques d'accès pour contrôler l'accès à un projet.
+* Analysez le taux d'utilisation des capacités de chaque projet.
+* Contrôlez les limites de taille des clones et leur conservation pour chaque projet.
+* Intégrer des systèmes de contrôle de version tels que Perforce. Voir link:integrate-perforce.html["Intégration avec Perforce"].
+
+
+
+
+== Projets et espaces de travail dans EDA
+
+Vous pouvez créer un projet et lui attribuer un volume qui représente votre environnement logiciel et ses artefacts. À chaque création d'une nouvelle version du logiciel, vous devez resynchroniser les données du volume et créer un instantané du projet pour marquer l'état du volume comme une version connue. Le volume source du projet peut faire l'objet de mises à jour continues et comporter plusieurs instantanés pour marquer les différentes versions. Chaque instantané peut être utilisé immédiatement comme clone instantané, comme un référentiel modifiable dédié ou partagé, mis à la disposition des développeurs, des processus d'assurance qualité ou de compilation. Dans le contexte d'une version logicielle spécifique, un clone est un espace de travail.
+
+
+
+== Automatisation avec Workload Factory Codebox
+
+Workload Factory introduit une automatisation intégrée avec _Codebox_. Codebox offre les avantages d'automatisation suivants :
+
+* *Génération d'extraits de code* : Les extraits d'infrastructure en tant que code (IaC) sont générés lors de la création de ressources, permettant une intégration transparente avec les flux de travail d'orchestration existants.
+* *Copilote Infrastructure-as-code* : Codebox est un copilote Infrastructure-as-code (IaC) qui aide les développeurs et les équipes DevOps à générer du code pour exécuter toute opération prise en charge par Workload Factory.
+* *Visionneuse de code et catalogue d'automatisation* : Codebox fournit une visionneuse de code pour une analyse rapide de l'automatisation et un catalogue d'automatisation pour une réutilisation future rapide.
+
+
+
+
+== Coût
+
+L'utilisation des fonctionnalités CI/CD de Workload Factory est gratuite.
+
+
+
+== Licences
+
+Aucune licence spéciale de NetApp n'est requise pour utiliser les fonctionnalités CI/CD de Workload Factory.
+
+
+
+== Régions
+
+L'EDA est prise en charge dans toutes les régions commerciales où FSx pour ONTAP est pris en charge. https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/["Afficher les régions Amazon prises en charge."^]
+
+Les régions AWS suivantes ne sont pas prises en charge :
+
+* régions de Chine
+* Régions GovCloud (États-Unis)
+* Nuage secret
+* Nuage top secret
+
+
+
+
+== Obtenir de l'aide
+
+Amazon FSx for NetApp ONTAP est une solution AWS propriétaire. Pour obtenir de l'aide, utilisez le Centre de support de votre console de gestion AWS pour ouvrir un ticket. Sélectionnez « FSx pour ONTAP» et la catégorie, puis fournissez les informations requises.
+
+Pour toute question d'ordre général concernant Workload Factory ou les applications et services Workload Factory, veuillez consulter : link:get-help-eda.html["Obtenez de l'aide pour l'EDA de Workload Factory"].

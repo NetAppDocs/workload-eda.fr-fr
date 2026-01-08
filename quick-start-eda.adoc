@@ -1,0 +1,52 @@
+---
+sidebar: sidebar 
+permalink: quick-start-eda.html 
+keywords: requirements, permissions, eda, builders, quick start, electronic design automation 
+summary: Les bases de données possèdent trois modes différents qui ont des exigences différentes. 
+---
+= Démarrage rapide pour EDA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Commencez par créer un projet EDA. Les administrateurs et les chefs d'équipe peuvent utiliser EDA pour administrer les projets et les espaces de travail des équipes de développeurs.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"] Connectez-vous à Workload Factory
+[role="quick-margin-para"]
+Vous devrez https://docs.netapp.com/us-en/workload-setup-admin/sign-up-saas.html["Créez un compte auprès de Workload Factory"^] et connectez-vous en utilisant l'un des https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]Ajouter des identifiants et des autorisations
+[role="quick-margin-para"]
+Choisissez les politiques d'autorisation qui correspondent à vos besoins.
+
+[role="quick-margin-para"]
+Si vous choisissez de ne pas accorder d'autorisations, vous pouvez commencer à utiliser Workload Factory for EDA pour copier des exemples de code partiellement complétés.
+
+[role="quick-margin-para"]
+Si vous choisissez d'accorder des autorisations, vous devrez ajouter manuellement des informations d'identification à un compte, ce qui comprend la sélection des capacités de charge de travail, telles que l'EDA et l'IA, et la création des politiques IAM pour les autorisations requises.
+
+[role="quick-margin-para"]
+https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html["Apprenez comment ajouter des identifiants et des autorisations"^].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"] Configurez votre environnement pour répondre aux exigences EDA
+[role="quick-margin-para"]
+Vous aurez besoin d'un système de fichiers FSx pour ONTAP déployé et détecté, contenant au moins un volume configuré comme partage NFS.
+
+[role="quick-margin-para"]
+link:requirements-eda.html["Apprenez-en davantage sur les exigences de l'EDA"^].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"] Configurer le tableau de bord du projet
+[role="quick-margin-para"]
+Configurez le tableau de bord du projet pour surveiller l'état du système, les performances et l'utilisation du stockage, ce qui vous permettra d'optimiser efficacement votre environnement EDA.
+
+[role="quick-margin-para"]
+link:task-configure-dashboard.html["Apprenez à configurer le tableau de bord du projet"^].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"] Intégrer avec d'autres services
+[role="quick-margin-para"]
+Intégrez EDA à d'autres services tels qu'un portail de services ou Perforce Helix Core à l'aide de l'API REST Workload Factory.
+
+[role="quick-margin-para"]
+link:integrate-perforce.html["Découvrez comment intégrer EDA à Perforce"^].

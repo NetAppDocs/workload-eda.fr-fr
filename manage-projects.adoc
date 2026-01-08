@@ -1,0 +1,134 @@
+---
+sidebar: sidebar 
+permalink: manage-projects.html 
+keywords: Microsoft SQL Server instance, server instance, manage host, view host, database host, database instance, manage, unmanage 
+summary: Gérez les instances Microsoft SQL Server dans Workload Factory pour les bases de données. 
+---
+= Gérer les projets EDA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez gérer les projets EDA pour contrôler la manière dont votre code et vos artefacts sont gérés pour chaque projet dans NetApp Workload Factory for EDA.
+
+
+
+== Créer un projet
+
+Vous pouvez créer un nouveau projet EDA afin de tirer parti des fonctionnalités de protection des données de votre système de fichiers Amazon FSX pour NetApp ONTAP pour votre code et vos artefacts. .Mesures
+
+. Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
+. Sélectionnez le menu image:workloads-menu-icon.png["L'icône du menu hamburger permet d'accéder aux charges de travail telles que le stockage, l'analyse de données d'entreprise (EDA), l'intelligence artificielle (IA), les bases de données, VMware et l'administration."] puis sélectionnez *EDA*.
+. Sélectionnez *CI/CD*.
+. Sélectionnez *Créer un projet*.
+. Sur la page Créer un projet, veuillez fournir les informations suivantes :
++
+.. *Nom du projet* : Veuillez saisir un nom pour le projet.
+.. *Description* : Veuillez saisir une description du projet.
+.. *Système de fichiers* : Veuillez fournir les informations suivantes :
++
+... *Identifiants* : Sélectionnez les identifiants Amazon AWS à utiliser. EDA utilise ces informations d'identification pour découvrir les systèmes de fichiers FSx pour ONTAP que vous pouvez utiliser avec ce projet et pour créer des clones et des instantanés de projets.
+... *Région* : Sélectionnez la région dans laquelle se trouve ce système de fichiers FSx pour ONTAP .
+... *Système de fichiers FSx pour ONTAP * : Sélectionnez un système de fichiers FSx pour ONTAP à utiliser avec ce projet.
++
+Vous ne pouvez sélectionner que les systèmes de fichiers configurés avec un lien. https://docs.netapp.com/us-en/workload-fsx-ontap/links-overview.html["En savoir plus sur les liens"^].
+
+... *Choisissez un volume* : Sélectionnez un volume sur lequel stocker le projet ; EDA utilise ce volume comme dépôt de logiciels.
++
+Vous ne pouvez sélectionner que les volumes configurés comme partage NFS.
+
+
+
+.. *Politiques opérationnelles* : Définir des limites pour les clones de projets :
++
+... *Durée maximale de conservation en jours* : Saisissez le nombre maximal de jours pendant lesquels un clone doit être conservé. Au bout de ce nombre de jours, Workload Factory supprime le clone.
+... *Nombre maximal de clones par utilisateur ou groupe* : Saisissez le nombre maximal de clones pouvant être provisionnés pour un utilisateur ou un groupe.
+... *Taille maximale du clone en Gio* : Saisissez la taille maximale en Gio d’un clone de projet.
+
+
+.. *Politiques d'accès* : Accorder explicitement l'accès au projet à des utilisateurs ou groupes spécifiques :
++
+... *Périmètre d'application de la politique* : Saisissez des adresses IP individuelles ou des plages d'adresses IP pour limiter l'accès au projet à ces seules adresses IP ou plages.
++
+Par exemple: `172.16.0.0/24`
+
+... *Identifiants d'utilisateur ou de groupe* : Saisissez les identifiants d'utilisateur ou de groupe pour limiter l'accès au projet à ces seuls utilisateurs ou groupes.
++
+Par exemple: `User1234`
+
+
+
+
+
+. Sélectionnez *Créer*.
+
+
+.Résultat
+Le projet est créé et apparaît dans la liste des projets sur la page Projets.
+
+
+
+== Consulter les projets existants
+
+Vous pouvez consulter les projets existants créés dans NetApp Workload Factory pour EDA en suivant ces étapes.
+
+.Mesures
+. Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
+. Sélectionnez le menu image:workloads-menu-icon.png["L'icône du menu hamburger permet d'accéder aux charges de travail telles que le stockage, l'analyse de données d'entreprise (EDA), l'intelligence artificielle (IA), les bases de données, VMware et l'administration."] puis sélectionnez *EDA*.
+. Sélectionnez *CI/CD*.
+. Sélectionnez *Accéder à la page Projets*.
+. Consultez la liste des projets existants sur la page Projets.
+
+
+
+
+== Modifier un projet
+
+Vous pouvez modifier les paramètres d'un projet à tout moment.
+
+.Mesures
+. Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
+. Sélectionnez le menu image:workloads-menu-icon.png["L'icône du menu hamburger permet d'accéder aux charges de travail telles que le stockage, l'analyse de données d'entreprise (EDA), l'intelligence artificielle (IA), les bases de données, VMware et l'administration."] puis sélectionnez *EDA*.
+. Sélectionnez *CI/CD*.
+. Sélectionnez *Accéder à la page Projets*.
+. Sur la page Projets, sélectionnez image:icon-action.png["le bouton d'option"] pour le projet que vous souhaitez modifier.
+. Apportez les modifications nécessaires à la configuration du projet.
+. Sélectionnez *Enregistrer*.
+
+
+
+
+== Afficher les espaces de travail d'un projet
+
+Un clone ou un instantané d'un projet est appelé espace de travail. Lorsque vous créez un espace de travail, celui-ci est conservé aussi longtemps que le permet la politique d'exploitation du projet. Vous pouvez consulter les espaces de travail existants d'un projet en suivant ces étapes.
+
+.Mesures
+. Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
+. Sélectionnez le menu image:workloads-menu-icon.png["L'icône du menu hamburger permet d'accéder aux charges de travail telles que le stockage, l'analyse de données d'entreprise (EDA), l'intelligence artificielle (IA), les bases de données, VMware et l'administration."] puis sélectionnez *EDA*.
+. Sélectionnez *CI/CD*.
+. Sélectionnez *Accéder à la page Projets*.
+. Sur la page Projets, choisissez un projet et sélectionnez *Afficher*.
+. Consultez l'état et les détails de tous les espaces de travail de ce projet.
+. Si vous voyez des alertes ou des avertissements pour un espace de travail, survolez l'icône d'alerte ou d'avertissement pour en voir la raison.
+
+
+
+
+== Supprimer un projet
+
+Vous pouvez supprimer un projet lorsqu'il n'est plus nécessaire en suivant ces étapes.
+
+.Mesures
+. Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
+. Sélectionnez le menu image:workloads-menu-icon.png["L'icône du menu hamburger permet d'accéder aux charges de travail telles que le stockage, l'analyse de données d'entreprise (EDA), l'intelligence artificielle (IA), les bases de données, VMware et l'administration."] puis sélectionnez *EDA*.
+. Sélectionnez *CI/CD*.
+. Sélectionnez *Accéder à la page Projets*.
+. Sur la page Projets, sélectionnez image:icon-action.png["le bouton d'option"] pour le projet que vous souhaitez supprimer.
+. Sélectionnez *Supprimer*.
+. Dans la boîte de dialogue de confirmation, sélectionnez *Supprimer*.
+
+
+.Résultat
+Le projet est supprimé, et tout code ou artefact associé au projet est supprimé du volume. Des instantanés et des clones du projet sont conservés.

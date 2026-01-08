@@ -1,0 +1,60 @@
+---
+settings:
+  name: EDA workloads
+  internal:
+    pdf_enabled: true
+    termcheck_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  rss_page: whats-new.html
+  release_notes_autogen:
+    release_notes_repo: workload-relnotes
+  langs: fr-fr,us-en,de-de,es-es,it-it,pt-br,ja-jp,ko-kr,zh-cn,zh-tw
+sidebar:
+  entries:
+  - title: Documentation sur les charges de travail EDA
+    url: "/index.html"
+  - title: Notes de version
+    entries:
+    - title: Quoi de neuf
+      url: "/whats-new.html"
+    - title: Limitations connues
+      url: "/known-limitations.html"
+  - title: Commencer
+    entries:
+    - title: Découvrez NetApp Workload Factory pour EDA.
+      url: "/learn-eda.html"
+    - title: Démarrage rapide
+      url: "/quick-start-eda.html"
+  - title: Utilisez le tableau de bord du projet
+    entries:
+    - title: Utilisez le tableau de bord
+      url: "/task-configure-dashboard.html"
+  - title: Utiliser l'intégration Perforce
+    entries:
+    - title: Découvrez l'intégration de Perforce
+      url: "/learn-eda-workloads.html"
+    - title: Exigences
+      url: "/requirements-eda.html"
+    - title: Gérer des projets
+      url: "/manage-projects.html"
+    - title: Gérer les versions du projet
+      url: "/version-projects.html"
+    - title: Créer un espace de travail
+      url: "/create-workspaces.html"
+    - title: Automatisez avec Codebox
+      url: "/automate-codebox.html"
+    - title: Intégration avec Perforce
+      url: "/integrate-perforce.html"
+  - title: Connaissances et soutien
+    entries:
+    - title: Inscrivez-vous pour obtenir de l'aide
+      url: "/support-registration.html"
+    - title: Obtenir de l'aide
+      url: "/get-help-eda.html"
+  - title: Mentions légales
+    url: "/legal-notices.html"
+product-family:
+  name: NetApp Workload Factory
+  repo: workload-family

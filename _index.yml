@@ -1,0 +1,41 @@
+---
+indexpage:
+  title: Documentation NetApp Workload Factory pour EDA
+  lead: Rationalisez vos opérations de stockage EDA dans NetApp Workload Factory en
+    optimisant les performances, en intégrant votre IaC pour automatiser les paramètres
+    de stockage et en garantissant un fonctionnement optimal.
+  tiles:
+  - title: Commencer
+    links:
+    - title: Notes de version
+      url: "/whats-new.html"
+    - title: Découvrez NetApp Workload Factory pour EDA.
+      url: "/learn-eda.html"
+    - title: Démarrage rapide
+      url: "/quick-start-eda.html"
+  - title: Utilisez le tableau de bord du projet
+    links:
+    - title: Utilisez le tableau de bord
+      url: "/task-configure-dashboard.html"
+  - title: Utiliser l'intégration Perforce
+    links:
+    - title: Découvrez l'intégration de Perforce
+      url: "/learn-eda-workloads.html"
+    - title: Exigences
+      url: "/requirements-eda.html"
+    - title: Automatisez avec Codebox
+      url: "/automate-codebox.html"
+  - title: Connaissances et soutien
+    links:
+    - title: Inscrivez-vous pour obtenir de l'aide
+      url: "/support-registration.html"
+    - title: Obtenir de l'aide
+      url: "/get-help-eda.html"
+  - title: Blogs et communauté
+    links:
+    - title: NetApp Console
+      url: https://www.netapp.com/console
+    - title: NetApp Data Services
+      url: https://www.netapp.com/data-services/
+    - title: Communauté NetApp
+      url: https://community.netapp.com/

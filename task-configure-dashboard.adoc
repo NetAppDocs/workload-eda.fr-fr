@@ -1,0 +1,70 @@
+---
+sidebar: sidebar 
+permalink: task-configure-dashboard.html 
+keywords: configure, dashboard, AWS tags, CloudWatch, FSx for ONTAP, Workload Factory, EDA, electronic design automation 
+summary: Configurez votre tableau de bord EDA en ajoutant des balises pour collecter les indicateurs. 
+---
+= Utilisez le tableau de bord
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Lors de votre première connexion à EDA, vous pouvez utiliser le tableau de bord pour observer l'utilisation des projets sur vos systèmes de fichiers et volumes FSx for ONTAP . Le tableau de bord comprend plusieurs filtres par défaut que vous pouvez utiliser pour personnaliser les informations affichées. De plus, vous pouvez créer et appliquer vos propres balises AWS pour organiser et filtrer les données en fonction de vos besoins métier spécifiques.
+
+Le tableau de bord vous permet de surveiller l'utilisation du stockage en termes de capacité allouée, de capacité utilisée, de débit et d'IOPS.
+
+Les métriques CloudWatch collectées comprennent :
+
+* Capacité provisionnée : Métrique au niveau du volume représentant la capacité de stockage provisionnée.
+* Capacité utilisée : métrique de volume représentant le stockage utilisé.
+* Débit moyen/maximum : calculé comme la moyenne ou le maximum de la somme des DataReadBytes et des DataWriteBytes sur la période spécifiée.
+* IOPS moyennes/maximales : calculées comme la moyenne ou le maximum de la somme des DataReadOperations, DataWriteOperations et MetadataOperations sur la période spécifiée.
+
+
+
+
+== Configurer le tableau de bord
+
+Pour utiliser efficacement le tableau de bord, configurez les balises AWS sur vos volumes FSx pour ONTAP en fonction des besoins de votre entreprise, par exemple des balises représentant des projets ou des unités commerciales. Pour plus de détails, voir <<Configurer les filtres personnalisés>>.
+
+Les balises AWS sont des métadonnées pour vos ressources AWS. Ils vous aident à catégoriser vos ressources AWS de différentes manières, par exemple par projet, application ou unité commerciale. Pour plus de détails sur le balisage, voir https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html["Que sont les tags ?"^] et  https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html["Référence de l'API de balisage des groupes de ressources AWS"^].
+
+Une fois configurées, sur la page *Configuration des balises*, indiquez les noms des clés de balise AWS et les libellés correspondants à afficher dans votre tableau de bord.
+
+Lorsque ces balises sont appliquées, Workload Factory commence à collecter et à afficher les métriques CloudWatch pertinentes.
+
+Votre tableau de bord devient un outil dynamique pour organiser, suivre les coûts et filtrer les ressources en fonction des besoins de votre organisation.
+
+
+
+=== Configurer les filtres personnalisés
+
+. Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
+. Sélectionnez le menu image:workloads-menu-icon.png["L'icône du menu hamburger permet d'accéder aux charges de travail telles que le stockage, l'analyse de données d'entreprise (EDA), l'intelligence artificielle (IA), les bases de données, VMware et l'administration."] puis sélectionnez *EDA*.
++
+Si vous n'avez pas encore configuré votre tableau de bord, vous serez automatiquement invité à le faire.
+
+. Pour chaque filtre requis, ajoutez un nom d'étiquette de filtre et le nom de la clé de balise AWS que vous souhaitez lui associer.
+. Sélectionnez *Appliquer*.
+. Pour visualiser vos modifications après avoir appliqué des étiquettes ou des filtres, sélectionnez l'icône d'actualisation sur le tableau de bord. Le tableau de bord dynamique, configuré avec les nouveaux filtres, s'affiche dans le tableau de bord de vos projets EDA.
+. Pour modifier ultérieurement la configuration du tableau de bord, sélectionnez *Configurer*.
+
+
+
+
+=== Filtrer le tableau de bord
+
+Vous pouvez filtrer les informations affichées sur le tableau de bord en sélectionnant un ou plusieurs des filtres par défaut suivants, ainsi que tous les filtres personnalisés que vous avez créés :
+
+* Informations d'identification
+* Région
+* Système de fichiers
+* Type de volume
+* Période
+
+
+Une fois vos filtres sélectionnés, cliquez sur l'icône d'actualisation pour mettre à jour les informations du tableau de bord.
+
+Pour obtenir une explication des informations affichées sur une carte, sélectionnez l'icône d'information correspondante.

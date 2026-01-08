@@ -1,0 +1,50 @@
+---
+permalink: legal-notices.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Mentions légales relatives à NetApp Workload Factory pour EDA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Les mentions légales donnent accès aux déclarations de droits d'auteur, aux marques de commerce, aux brevets, et plus encore.
+
+
+
+== Droits d'auteur
+
+link:https://www.netapp.com/company/legal/copyright/["https://www.netapp.com/company/legal/copyright/"^]
+
+
+
+== Marques déposées
+
+NETAPP, le logo NETAPP et les marques listées sur la page des marques déposées de NetApp sont des marques déposées de NetApp, Inc. Les autres noms de sociétés et de produits peuvent être des marques déposées de leurs propriétaires respectifs.
+
+link:https://www.netapp.com/company/legal/trademarks/["https://www.netapp.com/company/legal/trademarks/"^]
+
+
+
+== Brevets
+
+La liste actualisée des brevets détenus par NetApp est disponible à l'adresse suivante :
+
+link:https://www.netapp.com/pdf.html?item=/media/11887-patentspage.pdf["https://www.netapp.com/pdf.html?item=/media/11887-patentspage.pdf"^]
+
+
+
+== Politique de confidentialité
+
+link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.com/company/legal/privacy-policy/"^]
+
+
+
+== Open source
+
+Les fichiers d'avis fournissent des informations sur les droits d'auteur et les licences tiers utilisés dans les logiciels NetApp .
+
+https://docs.netapp.com/us-en/workload-family/media/workload-factory-notice.pdf["NetApp Workload Factory"^]
