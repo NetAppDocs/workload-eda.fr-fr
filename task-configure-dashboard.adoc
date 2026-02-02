@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: task-configure-dashboard.html 
-keywords: configure, dashboard, AWS tags, CloudWatch, FSx for ONTAP, Workload Factory, EDA, electronic design automation 
-summary: Configurez votre tableau de bord EDA en ajoutant des balises pour collecter les indicateurs. 
+keywords: configure, dashboard, AWS tags, CloudWatch, FSx for ONTAP, Workload Factory, EDA, electronic design automation, volume details, top volumes, capacity utilization, throughput utilization, IOPS utilization 
+summary: Configurez votre tableau de bord EDA en ajoutant des balises pour collecter les indicateurs. Personnalisez les filtres avec des options de sélection unique ou multiple pour répondre aux besoins de votre entreprise. 
 ---
 = Utilisez le tableau de bord
 :allow-uri-read: 
@@ -11,9 +11,9 @@ summary: Configurez votre tableau de bord EDA en ajoutant des balises pour colle
 
 
 [role="lead"]
-Lors de votre première connexion à EDA, vous pouvez utiliser le tableau de bord pour observer l'utilisation des projets sur vos systèmes de fichiers et volumes FSx for ONTAP . Le tableau de bord comprend plusieurs filtres par défaut que vous pouvez utiliser pour personnaliser les informations affichées. De plus, vous pouvez créer et appliquer vos propres balises AWS pour organiser et filtrer les données en fonction de vos besoins métier spécifiques.
+Lors de votre première connexion à EDA, vous pouvez utiliser le tableau de bord pour observer l'utilisation des projets sur vos systèmes de fichiers et volumes FSx for ONTAP. Le tableau de bord comprend plusieurs filtres par défaut que vous pouvez utiliser pour personnaliser les informations affichées. De plus, vous pouvez créer jusqu'à cinq filtres personnalisés basés sur vos balises AWS, avec des options de sélection unique ou multiple, afin d'organiser et de filtrer les données selon vos besoins métier spécifiques.
 
-Le tableau de bord vous permet de surveiller l'utilisation du stockage en termes de capacité allouée, de capacité utilisée, de débit et d'IOPS.
+Le tableau de bord vous aide à surveiller l'utilisation du stockage pour la capacité allouée, la capacité utilisée, le débit et les IOPS. Pour une surveillance proactive des performances de latence, voir link:task-monitor-latency.html["Surveiller la latence du volume"].
 
 Les métriques CloudWatch collectées comprennent :
 
@@ -27,7 +27,7 @@ Les métriques CloudWatch collectées comprennent :
 
 == Configurer le tableau de bord
 
-Pour utiliser efficacement le tableau de bord, configurez les balises AWS sur vos volumes FSx pour ONTAP en fonction des besoins de votre entreprise, par exemple des balises représentant des projets ou des unités commerciales. Pour plus de détails, voir <<Configurer les filtres personnalisés>>.
+Pour utiliser efficacement le tableau de bord, configurez jusqu'à cinq balises AWS sur vos volumes FSx for ONTAP en fonction de vos besoins métier, par exemple des balises représentant des projets ou des unités commerciales. Pour plus de détails, voir <<Configurer les filtres personnalisés>>.
 
 Les balises AWS sont des métadonnées pour vos ressources AWS. Ils vous aident à catégoriser vos ressources AWS de différentes manières, par exemple par projet, application ou unité commerciale. Pour plus de détails sur le balisage, voir https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html["Que sont les tags ?"^] et  https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html["Référence de l'API de balisage des groupes de ressources AWS"^].
 
@@ -41,13 +41,29 @@ Votre tableau de bord devient un outil dynamique pour organiser, suivre les coû
 
 === Configurer les filtres personnalisés
 
+Vous pouvez configurer jusqu'à cinq filtres personnalisés basés sur vos balises AWS. Chaque filtre personnalisé requiert trois éléments : un nom d'étiquette de filtre, un nom de clé de balise AWS et un type de sélection (sélection unique ou multiple). Si vous ne configurez aucun filtre personnalisé, les filtres par défaut (système de fichiers, type de volume et plage horaire) restent disponibles afin que vous puissiez toujours consulter et interagir avec vos tableaux de bord.
+
 . Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
 . Sélectionnez le menu image:workloads-menu-icon.png["L'icône du menu hamburger permet d'accéder aux charges de travail telles que le stockage, l'analyse de données d'entreprise (EDA), l'intelligence artificielle (IA), les bases de données, VMware et l'administration."] puis sélectionnez *EDA*.
 +
 Si vous n'avez pas encore configuré votre tableau de bord, vous serez automatiquement invité à le faire.
 
-. Pour chaque filtre requis, ajoutez un nom d'étiquette de filtre et le nom de la clé de balise AWS que vous souhaitez lui associer.
+. Sélectionnez *+ Add filters*.
+. Pour chaque filtre personnalisé que vous souhaitez créer (jusqu'à cinq), fournissez ce qui suit :
++
+** *Nom de l’étiquette du filtre* : Le nom affiché dans le tableau de bord.
+** *Nom de la clé de balise AWS* : La clé de balise de ressource AWS qui correspond à ce filtre.
+** *Sélection multiple* : Choisissez si ce filtre autorise la sélection unique ou la sélection multiple. Lorsque vous sélectionnez *Sélection multiple*, vous pouvez sélectionner plusieurs valeurs pour ce filtre simultanément. La sélection unique vous limite à la sélection d’une seule valeur à la fois.
++
+
+NOTE: Les filtres apparaissent sur le tableau de bord dans l'ordre où vous les configurez. Pensez à organiser vos filtres les plus utilisés en premier pour un accès plus facile.
+
+
+
 . Sélectionnez *Appliquer*.
++
+Vous pouvez supprimer un filtre personnalisé en sélectionnant l'icône de la corbeille à côté de ce filtre avant d'appliquer vos modifications.
+
 . Pour visualiser vos modifications après avoir appliqué des étiquettes ou des filtres, sélectionnez l'icône d'actualisation sur le tableau de bord. Le tableau de bord dynamique, configuré avec les nouveaux filtres, s'affiche dans le tableau de bord de vos projets EDA.
 . Pour modifier ultérieurement la configuration du tableau de bord, sélectionnez *Configurer*.
 
@@ -56,7 +72,9 @@ Si vous n'avez pas encore configuré votre tableau de bord, vous serez automatiq
 
 === Filtrer le tableau de bord
 
-Vous pouvez filtrer les informations affichées sur le tableau de bord en sélectionnant un ou plusieurs des filtres par défaut suivants, ainsi que tous les filtres personnalisés que vous avez créés :
+Vous pouvez filtrer les informations affichées sur le tableau de bord à l'aide d'une combinaison de filtres par défaut et de tout filtre personnalisé que vous avez créé.
+
+Les filtres par défaut suivants sont toujours disponibles :
 
 * Informations d'identification
 * Région
@@ -65,6 +83,59 @@ Vous pouvez filtrer les informations affichées sur le tableau de bord en sélec
 * Période
 
 
+Les filtres personnalisés que vous configurez s'affichent sur le tableau de bord en plus de ces filtres par défaut. Lorsque vous utilisez des filtres :
+
+* Les filtres à sélection multiple vous permettent de sélectionner simultanément plusieurs valeurs afin d'élargir votre vue. Par exemple, vous pouvez sélectionner plusieurs projets pour afficher des métriques combinées.
+* Les  vous limitent à sélectionner une seule valeur à la fois, utile lorsque vous devez vous concentrer sur une ressource ou une catégorie spécifique.
+
+
 Une fois vos filtres sélectionnés, cliquez sur l'icône d'actualisation pour mettre à jour les informations du tableau de bord.
 
 Pour obtenir une explication des informations affichées sur une carte, sélectionnez l'icône d'information correspondante.
+
+
+
+== Afficher les détails du volume
+
+Le tableau de bord propose deux modes d'affichage pour vous aider à analyser vos indicateurs de stockage : Total view et Volume view. Vous pouvez basculer entre ces modes à l'aide des onglets disponibles sur le tableau de bord.
+
+
+
+=== Vue totale
+
+La vue Totale (par défaut) affiche les métriques agrégées de tous les volumes correspondant à vos filtres sélectionnés. Cette vue offre une vue d'ensemble de vos performances de stockage globales, en présentant la capacité, les IOPS et le débit combinés.
+
+
+
+=== Vue du volume
+
+La vue Volume affiche les performances de chaque volume au fil du temps, en présentant les 10 volumes les plus importants pour chaque indicateur. Cette vue vous aide à identifier les volumes spécifiques qui influencent l'utilisation des ressources et à observer leur comportement sur la période sélectionnée.
+
+Pour passer à la vue Volume, sélectionnez l'onglet *Volume* sur le tableau de bord.
+
+
+
+==== Indicateurs de volume affichés
+
+Lorsque vous sélectionnez la vue Volume, le tableau de bord affiche les 10 volumes principaux parmi votre nombre total de volumes. * *Capacité utilisée du volume* : Affiche les volumes ayant la capacité utilisée actuelle la plus élevée. * *IOPS* : Affiche les volumes ayant la moyenne d'IOPS la plus élevée pendant la période sélectionnée. * *Débit* : Affiche les volumes ayant le débit moyen le plus élevé pendant la période sélectionnée.
+
+
+NOTE: Le tableau de bord n'affiche que les 10 premiers volumes pour chaque indicateur. Si vous avez plus de 10 volumes, certains volumes pourraient ne pas être affichés dans la vue détaillée.
+
+Lorsque les mêmes volumes apparaissent dans les indicateurs *Volume used capacity*, *IOPS* et *Throughput*, le tableau de bord utilise un code couleur cohérent dans la légende pour faciliter le suivi de volumes spécifiques dans différents indicateurs.
+
+L'axe horizontal affiche la plage de temps, tandis qu'une légende indique tous les volumes (jusqu'à 10) représentés dans le graphique.
+
+
+
+==== Données de volume interactives
+
+Vous pouvez survoler n'importe quelle ligne de volume dans les graphiques pour afficher des informations détaillées :
+
+*Capacité utilisée du volume* : Affiche le nom du volume, la capacité utilisée à ce point dans le temps et la capacité allouée.
+
+*IOPS* : Affiche le nom du volume, la moyenne des IOPS pour la plage horaire et le maximum des IOPS pour la plage horaire.
+
+*Débit*: Affiche le nom du volume, le débit moyen pour la plage horaire et le débit maximal pour la plage horaire.
+
+Ces données interactives vous aident à analyser les tendances de performance des volumes et à identifier les goulots d'étranglement potentiels ou les opportunités d'optimisation.

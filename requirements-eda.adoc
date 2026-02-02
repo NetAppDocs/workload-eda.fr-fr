@@ -19,6 +19,9 @@ Identifiants et autorisations AWS:: Vous devez ajouter des informations d'identi
 
 Les permissions en mode _basique_ et en mode _lecture seule_ ne sont pas prises en charge pour le moment.
 
+
+NOTE: Les identifiants AWS sont également requis pour utiliser la fonctionnalité de surveillance de la latence, qui collecte des métriques CloudWatch pour l’analyse des performances des volumes. link:task-monitor-latency.html["Découvrez la surveillance de la latence"].
+
 https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html["Découvrez comment ajouter des informations d'identification AWS à Workload Factory"^]
 
 Système de fichiers FSx pour ONTAP:: Vous avez besoin d'au moins un système de fichiers FSx pour ONTAP :

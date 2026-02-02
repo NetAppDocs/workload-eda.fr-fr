@@ -31,6 +31,10 @@ sidebar:
     entries:
     - title: Utilisez le tableau de bord
       url: "/task-configure-dashboard.html"
+  - title: Surveiller la latence du volume
+    entries:
+    - title: Surveiller la latence du volume
+      url: "/task-monitor-latency.html"
   - title: Utiliser l'intégration Perforce
     entries:
     - title: Découvrez l'intégration de Perforce

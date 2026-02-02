@@ -1,0 +1,176 @@
+---
+sidebar: sidebar 
+permalink: task-monitor-latency.html 
+keywords: latency analysis, CloudWatch alarms, volume latency, read latency, write latency, critical events, warning events, latency thresholds, IOPS thresholds, latency monitoring, FSx for ONTAP 
+summary: 'Surveillez et analysez les performances de latence du volume avec des seuils configurables pour les événements d"avertissement et critiques afin d"identifier de manière proactive les goulots d"étranglement des performances.' 
+---
+= Surveiller la latence du volume
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+L'analyse de latence vous permet de surveiller proactivement les performances des volumes en suivant les métriques de latence de lecture et d'écriture sur vos systèmes de fichiers FSx for ONTAP. Configurez des seuils personnalisables pour les événements d'avertissement et critiques afin d'identifier les goulots d'étranglement potentiels avant qu'ils n'impactent vos charges de travail EDA.
+
+
+
+== Aperçu
+
+L'analyse de latence collecte et surveille CloudWatch métriques pour les opérations de lecture et d'écriture de volumes. Lorsque les seuils de latence et d'IOPS sont dépassés pour tous les points de données dans une plage de temps spécifiée, le système génère des alertes qui apparaissent dans le tableau des événements de latence. Cela vous permet de :
+
+* Identifier les volumes présentant une dégradation des performances.
+* Distinguer entre les problèmes de performance de niveau avertissement et ceux de niveau critique.
+* Suivez l'évolution de la latence au fil du temps pour optimiser les configurations de stockage.
+* Prenez des mesures proactives avant que la latence n'affecte les performances de la charge de travail.
+
+
+
+
+== Avant de commencer
+
+Pour utiliser l'analyse de latence, vous devez avoir configuré des identifiants AWS dans Workload Factory. Cette fonctionnalité nécessite l'accès aux métriques CloudWatch pour tous les volumes FSx for ONTAP associés à vos identifiants AWS.
+
+Si vous n'avez pas configuré les informations d'identification AWS, consultez link:https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html["Ajouter les identifiants AWS"^].
+
+
+
+== Configurer les seuils de latence
+
+Vous pouvez configurer des seuils pour les événements d'avertissement et critiques. Chaque type d'événement comprend des seuils distincts pour les opérations de lecture et d'écriture. Le système évalue ces seuils en continu et génère des alertes lorsque les conditions sont remplies.
+
+
+NOTE: Vous devez définir des seuils d'événements critiques supérieurs aux seuils d'événements d'avertissement pour garantir une remontée d'alertes correcte. Sinon, vous ne pouvez pas enregistrer votre configuration.
+
+.À propos de cette tâche
+Pour qu'une alerte soit déclenchée, les seuils de latence et d'IOPS doivent être dépassés pour tous les points de données dans l'intervalle de temps spécifié. Cette logique à double condition permet de réduire les faux positifs en garantissant que la latence élevée est maintenue sous une charge importante.
+
+.Mesures
+. Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
+. Sélectionnez le menu image:workloads-menu-icon.png["L'icône du menu hamburger"] et sélectionnez ensuite *EDA*.
+. Dans le menu EDA, sélectionnez *Latency*.
+. Sur la page de configuration de la latence EDA, configurez les seuils suivants :
++
+** *Événements d’avertissement*
++
+*** *Seuil de latence de lecture* : Saisissez le seuil de latence en millisecondes. Par défaut : 6 ms.
+*** *Seuil IOPS de lecture* : Saisissez le seuil IOPS en opérations par seconde. Par défaut : 100 ops/sec.
+*** *Plage de temps de lecture* : Saisissez la plage de temps en minutes (5-20). Par défaut : 10 minutes.
+*** *Seuil de latence d'écriture* : Saisissez le seuil de latence en millisecondes. Par défaut : 8 ms.
+*** *Seuil d'IOPS d'écriture* : Saisissez le seuil d'IOPS en opérations par seconde. Par défaut : 100 ops/sec.
+*** *Plage de temps d’écriture* : Entrez la plage de temps en minutes (5-20). Par défaut : 10 minutes.
+
+
+** *Événements critiques*
++
+*** *Seuil de latence de lecture* : Saisissez le seuil de latence en millisecondes. Par défaut : 12 ms.
+*** *Seuil IOPS de lecture* : Saisissez le seuil IOPS en opérations par seconde. Par défaut : 100 ops/sec.
+*** *Plage de temps de lecture* : Saisissez la plage de temps en minutes (5-20). Par défaut : 10 minutes.
+*** *Seuil de latence d'écriture* : Saisissez le seuil de latence en millisecondes. Par défaut : 15 ms.
+*** *Seuil d'IOPS d'écriture* : Saisissez le seuil d'IOPS en opérations par seconde. Par défaut : 100 ops/sec.
+*** *Plage de temps d’écriture* : Entrez la plage de temps en minutes (5-20). Par défaut : 10 minutes.
+
+
+
+
+. Sélectionnez *Appliquer*.
+
+
+.Résultat
+Workload Factory commence à collecter les métriques de latence pour tous les volumes FSx for ONTAP associés à vos identifiants AWS. Les métriques sont collectées au moins toutes les 20 minutes. Le tableau des événements de latence affiche tous les volumes qui dépassent les seuils que vous avez configurés.
+
+
+
+== Comprendre les alertes
+
+La fonction d'analyse de latence utilise des alarmes CloudWatch pour surveiller les performances du volume. Comprendre comment les alertes sont déclenchées vous aide à configurer les seuils appropriés et à interpréter les résultats.
+
+
+
+=== Métriques collectées
+
+Le système collecte les indicateurs CloudWatch suivants pour chaque volume :
+
+* *Seuil de latence de lecture* : Calculé comme 1000 * m2/(m1+0,000001) où m1 = DataReadOperations et m2 = DataReadOperationTime
+* *Seuil de latence d'écriture* : Calculé comme 1000 * m2/(m1+0,000001) où m1 = DataWriteOperations et m2 = DataWriteOperationTime
+
+
+
+
+=== Conditions de déclenchement d'alerte
+
+Une alerte est déclenchée lorsque toutes les conditions suivantes sont réunies :
+
+* Le seuil de latence est dépassé pour le type d'opération (lecture ou écriture).
+* Le seuil d'IOPS est dépassé pour le type d'opération.
+* Les deux conditions persistent pour tous les points de données dans la plage horaire configurée.
+
+
+Par exemple, avec les seuils d'avertissement par défaut, une alerte de lecture ne se déclenche que si la latence de lecture dépasse 6 ms ET si les IOPS de lecture dépassent 100 ops/sec pour tous les points de données sur une période de 10 minutes.
+
+
+
+=== Gravité de l'événement
+
+* *Événements d'alerte* : Indiquent une latence élevée qui pourrait nécessiter une attention.
+* *Événements critiques* : Indiquent une latence sévère qui nécessite une enquête immédiate.
+
+
+
+
+== Afficher les événements de latence
+
+Le tableau des événements de latence affiche tous les événements d'avertissement et critiques détectés au cours des dernières 72 heures. Utilisez ce tableau pour surveiller les performances des volumes et identifier les volumes qui nécessitent une optimisation.
+
+.Informations complémentaires
+* Seule la dernière violation pour chaque volume apparaît dans le tableau. Si un volume subit plusieurs violations, seul l'événement le plus récent est affiché.
+* Les événements sont automatiquement supprimés après 72 heures.
+* Le tableau affiche un maximum de 200 événements. Les événements les plus anciens sont supprimés au fur et à mesure que de nouveaux événements sont ajoutés.
+
+
+.Mesures
+. Dans l'onglet *Latence*, consultez le tableau des événements de latence.
+. Consultez les informations pour chaque événement, notamment :
++
+** *Gravité* : Indique si l’événement est Critical ou Warning.
+** *Nom du volume* : Le nom du volume concerné.
+** *Volume ID* : L’ID du volume concerné.
+** *Système de fichiers* : Le système de fichiers FSx for ONTAP contenant le volume.
+** *Heure de détection* : Lorsque la brèche a été détectée
+** *Latence médiane* : La valeur médiane de la latence pendant la période de breach.
+
+
+. Pour trier le tableau, sélectionnez l'en-tête d'une colonne. Par défaut, les événements critiques apparaissent en premier triés par heure, suivis des événements d'avertissement triés par heure.
+. Pour rejeter un ou plusieurs événements, sélectionnez *Rejeter* à côté de chaque événement.
+. Pour ajouter des colonnes au tableau, sélectionnez l'icône de colonne, choisissez les colonnes et sélectionnez *Appliquer*.
+
+
+
+
+== Gérer la configuration de la latence
+
+Après la configuration initiale, vous pouvez modifier vos seuils.
+
+.Mesures
+. Sur la page *Latency*, sélectionnez *Edit*.
+. Modifiez les valeurs de seuil selon vos besoins.
++
+
+NOTE: Veillez à ce que les seuils critiques restent supérieurs aux seuils d'alerte. Le système affiche une erreur si vous configurez des seuils critiques inférieurs aux seuils d'alerte.
+
+. Sélectionnez *Apply* pour enregistrer vos modifications.
+
+
+
+
+== Meilleures pratiques
+
+Tenez compte de ces recommandations lors de la configuration et de l'utilisation de l'analyse de latence :
+
+* *Définissez des seuils réalistes* : configurez les seuils en fonction des exigences de votre charge de travail. Les valeurs par défaut constituent un point de départ mais peuvent nécessiter un ajustement pour votre environnement spécifique.
+* *Commencez par des seuils d'avertissement* : Utilisez les événements d'avertissement pour établir des attentes de performance de base avant d'affiner les seuils critiques.
+* *Considérez soigneusement les intervalles de temps* : des intervalles plus courts (5-10 minutes) détectent les problèmes plus rapidement mais peuvent générer plus d’alertes. Des intervalles plus longs (15-20 minutes) réduisent les faux positifs mais peuvent retarder la détection.
+* *Surveillez les tendances* : Examinez régulièrement le tableau des événements de latence pour identifier des schémas ou des problèmes récurrents qui pourraient indiquer des problèmes de configuration sous-jacents.
+* *Coordonnez les seuils d'IOPS et de latence* : la logique à double condition signifie que les deux doivent être dépassés. Définir des seuils d'IOPS très élevés peut empêcher les alertes même lorsque la latence est problématique.
+* *Examinez les événements rejetés* : Passez périodiquement en revue les raisons pour lesquelles les événements ont été rejetés afin d’identifier des opportunités d’ajustement des seuils ou d’amélioration de l’infrastructure.
+
