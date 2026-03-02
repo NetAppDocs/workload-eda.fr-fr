@@ -1,41 +1,106 @@
 ---
 sidebar: sidebar 
 permalink: task-monitor-latency.html 
-keywords: latency analysis, CloudWatch alarms, volume latency, read latency, write latency, critical events, warning events, latency thresholds, IOPS thresholds, latency monitoring, FSx for ONTAP 
-summary: 'Surveillez et analysez les performances de latence du volume avec des seuils configurables pour les événements d"avertissement et critiques afin d"identifier de manière proactive les goulots d"étranglement des performances.' 
+keywords: latency analysis, CloudWatch alarms, volume latency, read latency, write latency, critical events, warning events, latency thresholds, IOPS thresholds, latency monitoring, FSx for ONTAP, root cause analysis, QoS delay center, automated analysis, latency troubleshooting 
+summary: 'Surveillez et analysez les performances de latence du volume avec des seuils configurables pour les événements d"avertissement et critiques. Utilisez une analyse de base automatisée pour identifier et résoudre de manière proactive les goulots d"étranglement des performances.' 
 ---
-= Surveiller la latence du volume
+= Surveillez la latence du volume dans les charges de travail EDA
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
 
 
 [role="lead"]
-L'analyse de latence vous permet de surveiller proactivement les performances des volumes en suivant les métriques de latence de lecture et d'écriture sur vos systèmes de fichiers FSx for ONTAP. Configurez des seuils personnalisables pour les événements d'avertissement et critiques afin d'identifier les goulots d'étranglement potentiels avant qu'ils n'impactent vos charges de travail EDA.
+En tant qu'administrateur informatique ou DevOps engineer gérant des charges de travail EDA, vous pouvez utiliser l'analyse de latence pour surveiller de manière proactive les performances des volumes en suivant les métriques de latence de lecture et d'écriture sur vos systèmes de fichiers FSx for ONTAP. Configurez des seuils personnalisables pour les événements d'avertissement et critiques afin d'identifier les goulots d'étranglement potentiels de performance avant qu'ils n'impactent le temps d'exécution des simulations et le délai de mise sur le marché. Lorsque des événements de latence sont détectés, une analyse de base automatisée aide à identifier la cause première.
 
 
 
 == Aperçu
 
-L'analyse de latence collecte et surveille CloudWatch métriques pour les opérations de lecture et d'écriture de volumes. Lorsque les seuils de latence et d'IOPS sont dépassés pour tous les points de données dans une plage de temps spécifiée, le système génère des alertes qui apparaissent dans le tableau des événements de latence. Cela vous permet de :
+Une latence élevée impacte directement la durée d'exécution des simulations et le délai de mise sur le marché de vos projets EDA. Des volumes non sains peuvent entraîner une dégradation significative des performances, engendrant des retards de production coûteux. L'analyse de latence vous aide à identifier, diagnostiquer et corriger de manière proactive les problèmes opérationnels sur l'ensemble de votre infrastructure de stockage avant qu'ils n'affectent vos charges de travail.
+
+L'analyse de latence collecte et surveille CloudWatch métriques pour les opérations de lecture et d'écriture de volumes. Lorsque les seuils de latence et d'IOPS sont dépassés pour tous les points de données dans une plage de temps spécifiée, le système génère des alertes qui apparaissent dans le tableau des événements de latence.
+
+Lorsque des événements de latence sont détectés, le système effectue automatiquement une analyse de base à l'aide des métriques du centre de délai QoS ONTAP pour identifier la source de la latence.
+
+Cela vous permet de :
 
 * Identifier les volumes présentant une dégradation des performances.
 * Distinguer entre les problèmes de performance de niveau avertissement et ceux de niveau critique.
+* Analysez automatiquement la cause première des problèmes de latence.
+
+
 * Suivez l'évolution de la latence au fil du temps pour optimiser les configurations de stockage.
 * Prenez des mesures proactives avant que la latence n'affecte les performances de la charge de travail.
 
 
 
 
-== Avant de commencer
+== Exigences
 
-Pour utiliser l'analyse de latence, vous devez avoir configuré des identifiants AWS dans Workload Factory. Cette fonctionnalité nécessite l'accès aux métriques CloudWatch pour tous les volumes FSx for ONTAP associés à vos identifiants AWS.
+Pour utiliser les fonctionnalités de surveillance et d'analyse de la latence, assurez-vous de respecter les exigences suivantes :
+
+Identifiants et autorisations AWS:: Vous devez ajouter des identifiants AWS à Workload Factory avec des autorisations de lecture/écriture. La fonctionnalité de surveillance de la latence nécessite l'accès aux métriques CloudWatch pour tous les volumes FSx for ONTAP associés à vos identifiants AWS.
++
+--
+Les autorisations en mode _Basic_ et en mode _read-only_ ne sont pas prises en charge pour la surveillance de la latence.
 
 Si vous n'avez pas configuré les informations d'identification AWS, consultez link:https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html["Ajouter les identifiants AWS"^].
+
+--
+
+
+Système de fichiers FSx pour ONTAP:: Vous devez disposer d'au moins un système de fichiers FSx for ONTAP avec des volumes déployés dans votre environnement AWS. La fonctionnalité de surveillance de la latence collecte automatiquement les métriques de tous les volumes associés à vos identifiants AWS configurés.
+Lien vers FSx pour ONTAP:: Pour obtenir des informations à partir d'une analyse de base, vous devez associer un lien à votre système de fichiers FSx for ONTAP. Si aucun lien n'est déjà associé, sélectionnez *Associer un lien* dans EDA, choisissez de créer un nouveau lien ou d'associer un lien existant, puis sélectionnez *Continuer* pour accéder automatiquement à la page de création de lien dans Storage workloads.
++
+--
+Pour obtenir des instructions sur la création et l'association de liens, voir link:https://docs.netapp.com/us-en/workload-fsx-ontap/create-link.html["Créer un lien"^].
+
+--
+
+
+
+
+== Comprendre les alertes
+
+La fonction d'analyse de latence utilise des alarmes CloudWatch pour surveiller les performances du volume. Comprendre comment les alertes sont déclenchées vous aide à configurer les seuils appropriés et à interpréter les résultats.
+
+
+
+=== Métriques collectées
+
+Le système collecte les indicateurs CloudWatch suivants pour chaque volume :
+
+* *Seuil de latence de lecture* : Calculé comme 1000 * m2/(m1+0,000001) où m1 = DataReadOperations et m2 = DataReadOperationTime
+* *Seuil de latence d'écriture* : Calculé comme 1000 * m2/(m1+0,000001) où m1 = DataWriteOperations et m2 = DataWriteOperationTime
+
+
+
+
+=== Conditions de déclenchement d'alerte
+
+Une alerte est déclenchée lorsque toutes les conditions suivantes sont réunies :
+
+* Le seuil de latence est dépassé pour le type d'opération (lecture ou écriture).
+* Le seuil d'IOPS est dépassé pour le type d'opération.
+* Les deux conditions persistent pour tous les points de données dans la plage horaire configurée.
+
+
+Par exemple, avec les seuils d'avertissement par défaut, une alerte de lecture ne se déclenche que si la latence de lecture dépasse 6 ms ET si les IOPS de lecture dépassent 100 ops/sec pour tous les points de données sur une période de 10 minutes.
+
+
+
+=== Gravité de l'événement
+
+* *Événements d'alerte* : Indiquent une latence élevée qui pourrait nécessiter une attention.
+* *Événements critiques* : Indiquent une latence sévère qui nécessite une enquête immédiate.
+
 
 
 
 == Configurer les seuils de latence
+
+La configuration de seuils de latence appropriés vous permet de recevoir des notifications en temps opportun lorsque des volumes rencontrent des problèmes de performance. En définissant à la fois des seuils d'avertissement et des seuils critiques, vous pouvez distinguer les problèmes nécessitant une attention de ceux exigeant une action immédiate, ce qui vous permet de gérer plus efficacement votre parc de stockage et d'éviter que les problèmes de performance n'impactent les charges de travail en production.
 
 Vous pouvez configurer des seuils pour les événements d'avertissement et critiques. Chaque type d'événement comprend des seuils distincts pour les opérations de lecture et d'écriture. Le système évalue ces seuils en continu et génère des alertes lorsque les conditions sont remplies.
 
@@ -81,48 +146,10 @@ Workload Factory commence à collecter les métriques de latence pour tous les v
 
 
 
-== Comprendre les alertes
-
-La fonction d'analyse de latence utilise des alarmes CloudWatch pour surveiller les performances du volume. Comprendre comment les alertes sont déclenchées vous aide à configurer les seuils appropriés et à interpréter les résultats.
-
-
-
-=== Métriques collectées
-
-Le système collecte les indicateurs CloudWatch suivants pour chaque volume :
-
-* *Seuil de latence de lecture* : Calculé comme 1000 * m2/(m1+0,000001) où m1 = DataReadOperations et m2 = DataReadOperationTime
-* *Seuil de latence d'écriture* : Calculé comme 1000 * m2/(m1+0,000001) où m1 = DataWriteOperations et m2 = DataWriteOperationTime
-
-
-
-
-=== Conditions de déclenchement d'alerte
-
-Une alerte est déclenchée lorsque toutes les conditions suivantes sont réunies :
-
-* Le seuil de latence est dépassé pour le type d'opération (lecture ou écriture).
-* Le seuil d'IOPS est dépassé pour le type d'opération.
-* Les deux conditions persistent pour tous les points de données dans la plage horaire configurée.
-
-
-Par exemple, avec les seuils d'avertissement par défaut, une alerte de lecture ne se déclenche que si la latence de lecture dépasse 6 ms ET si les IOPS de lecture dépassent 100 ops/sec pour tous les points de données sur une période de 10 minutes.
-
-
-
-=== Gravité de l'événement
-
-* *Événements d'alerte* : Indiquent une latence élevée qui pourrait nécessiter une attention.
-* *Événements critiques* : Indiquent une latence sévère qui nécessite une enquête immédiate.
-
-
-
-
 == Afficher les événements de latence
 
-Le tableau des événements de latence affiche tous les événements d'avertissement et critiques détectés au cours des dernières 72 heures. Utilisez ce tableau pour surveiller les performances des volumes et identifier les volumes qui nécessitent une optimisation.
+En tant qu'administrateur gérant plusieurs systèmes de fichiers et volumes, le tableau des événements de latence offre une vue centralisée de tous les problèmes de performance nécessitant votre attention. Le tableau affiche tous les événements d'avertissement et critiques détectés au cours des 72 dernières heures. Chaque événement inclut les résultats d'une analyse de base automatisée dans la colonne Détails, vous aidant à identifier rapidement la cause première des problèmes de latence et à prioriser les efforts de remédiation sur l'ensemble de votre infrastructure.
 
-.Informations complémentaires
 * Seule la dernière violation pour chaque volume apparaît dans le tableau. Si un volume subit plusieurs violations, seul l'événement le plus récent est affiché.
 * Les événements sont automatiquement supprimés après 72 heures.
 * Le tableau affiche un maximum de 200 événements. Les événements les plus anciens sont supprimés au fur et à mesure que de nouveaux événements sont ajoutés.
@@ -138,11 +165,37 @@ Le tableau des événements de latence affiche tous les événements d'avertisse
 ** *Système de fichiers* : Le système de fichiers FSx for ONTAP contenant le volume.
 ** *Heure de détection* : Lorsque la brèche a été détectée
 ** *Latence médiane* : La valeur médiane de la latence pendant la période de breach.
+** *Détails* : Résultats d’analyse de base automatisée identifiant la source de latence et les actions recommandées.
 
 
 . Pour trier le tableau, sélectionnez l'en-tête d'une colonne. Par défaut, les événements critiques apparaissent en premier triés par heure, suivis des événements d'avertissement triés par heure.
 . Pour rejeter un ou plusieurs événements, sélectionnez *Rejeter* à côté de chaque événement.
 . Pour ajouter des colonnes au tableau, sélectionnez l'icône de colonne, choisissez les colonnes et sélectionnez *Appliquer*.
+
+
+
+
+== Comprendre l'analyse de base
+
+L'analyse de base vous permet d'identifier rapidement la cause première des problèmes de latence sans investigation manuelle. Lorsqu'un événement de latence est détecté, Workload Factory effectue automatiquement une analyse de base à l'aide des métriques du centre de délai QoS d'ONTAP. L'analyse identifie le composant à l'origine de la latence et fournit des recommandations concrètes dans la colonne Détails du tableau des événements de latence, vous permettant de comprendre la cause première.
+
+
+NOTE: De légères différences peuvent exister entre les valeurs de latence issues de l'analyse QoS ONTAP et des données CloudWatch, en raison des différentes méthodologies de collecte. L'analyse de base utilise les données ONTAP pour l'identification de la cause première.
+
+
+
+=== Scénarios d'analyse
+
+L'analyse de base évalue plusieurs composantes de latence et fournit des recommandations spécifiques en fonction des résultats pour chaque scénario :
+
+* *FlexCache®* : Latence par opération d'E/S pour les opérations FlexCache
+* *Pool de capacité* : Latence par opération d'E/S pour les opérations du pool de capacité
+* *QoS min*: Latence par opération d'E/S pour le plancher du groupe de stratégies QoS
+* *QoS max*: Latence par opération d’E/S pour le plafond du groupe de stratégies QoS
+* *Disque* : Latence par opération d’E/S dans le sous-système de stockage
+* *Données* : Latence par opération d’E/S dans le système de fichiers WAFL, qui inclut des tâches telles que le traitement par le CPU, les mises à jour des métadonnées et la gestion du cache
+* *Cluster* : Latence par opération d'E/S sur les nœuds connectés en interne d'un cluster
+* *Autre* : Latence par opération d’E/S sur FSx pour ONTAP subsystèmes
 
 
 

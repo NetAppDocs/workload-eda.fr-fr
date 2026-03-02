@@ -13,14 +13,18 @@ indexpage:
       url: "/learn-eda.html"
     - title: Démarrage rapide
       url: "/quick-start-eda.html"
-  - title: Utilisez le tableau de bord du projet
+  - title: Aperçu du stockage EDA
     links:
-    - title: Utilisez le tableau de bord
-      url: "/task-configure-dashboard.html"
-  - title: Surveiller la latence du volume
+    - title: Gérer les opérations de stockage EDA
+      url: "/task-use-overview-dashboard.html"
+  - title: Analyse de la latence FSx
     links:
-    - title: Surveiller la latence du volume
+    - title: Surveillez la latence du volume FSx
       url: "/task-monitor-latency.html"
+  - title: Analyse de l'utilisation du projet
+    links:
+    - title: Analyser l'utilisation du stockage du projet
+      url: "/task-configure-dashboard.html"
   - title: Utiliser l'intégration Perforce
     links:
     - title: Découvrez l'intégration de Perforce

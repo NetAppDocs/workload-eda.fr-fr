@@ -19,7 +19,8 @@ Workload Factory for EDA fournit des tableaux de bord, des frameworks d'automati
 
 Il offre les services suivants :
 
-* link:task-configure-dashboard.html["Tableau de bord des projets EDA"]: offre une vue centralisée de la consommation de stockage sur vos systèmes de fichiers FSx for ONTAP pour vous aider à planifier, à évaluer les coûts et à collecter des informations sur l'utilisation du stockage dans vos projets.
-* link:task-monitor-latency.html["Surveillance de la latence"]: surveille de manière proactive les performances de latence de lecture et d'écriture des volumes avec des seuils d'avertissement et d'événements critiques configurables pour identifier les goulots d'étranglement potentiels des performances.
+* link:task-use-overview-dashboard.html["Tableau de bord de présentation"]: offre une vue centralisée du cluster pour vous aider à surveiller la santé, la capacité et le débit du cluster FSx for ONTAP, à déterminer où placer les nouveaux volumes et à prendre des décisions éclairées concernant l'évolutivité de la capacité et du débit.
+* link:task-monitor-latency.html["Analyse de la latence FSx"]: surveille de manière proactive les performances de latence de lecture et d'écriture des volumes avec des seuils d'avertissement et d'événements critiques configurables. Inclut une analyse de base automatisée utilisant les métriques du centre de délai QoS ONTAP.
+* link:task-configure-dashboard.html["Tableau de bord du projet"]: offre une vue centralisée de la consommation de stockage sur vos systèmes de fichiers FSx for ONTAP pour vous aider à planifier, évaluer les coûts et collecter des informations sur l'utilisation du stockage dans vos projets.
 * link:learn-eda-workloads.html["CI/CD"]: rationalise et réduit le temps de compilation des logiciels en tirant parti des capacités de clonage de volumes FSx pour ONTAP .
 

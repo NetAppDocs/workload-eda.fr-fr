@@ -2,16 +2,18 @@
 sidebar: sidebar 
 permalink: task-configure-dashboard.html 
 keywords: configure, dashboard, AWS tags, CloudWatch, FSx for ONTAP, Workload Factory, EDA, electronic design automation, volume details, top volumes, capacity utilization, throughput utilization, IOPS utilization 
-summary: Configurez votre tableau de bord EDA en ajoutant des balises pour collecter les indicateurs. Personnalisez les filtres avec des options de sélection unique ou multiple pour répondre aux besoins de votre entreprise. 
+summary: Configurez le tableau de bord du projet EDA en ajoutant des balises pour collecter les indicateurs. Personnalisez les filtres avec des options de sélection unique ou multiple pour répondre aux besoins de votre entreprise. 
 ---
-= Utilisez le tableau de bord
+= Utilisez le tableau de bord du projet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
 
 
 [role="lead"]
-Lors de votre première connexion à EDA, vous pouvez utiliser le tableau de bord pour observer l'utilisation des projets sur vos systèmes de fichiers et volumes FSx for ONTAP. Le tableau de bord comprend plusieurs filtres par défaut que vous pouvez utiliser pour personnaliser les informations affichées. De plus, vous pouvez créer jusqu'à cinq filtres personnalisés basés sur vos balises AWS, avec des options de sélection unique ou multiple, afin d'organiser et de filtrer les données selon vos besoins métier spécifiques.
+En tant qu'administrateur informatique ou chef de projet supervisant les charges de travail EDA, vous pouvez utiliser l'onglet Projet pour observer et analyser l'utilisation des projets sur vos systèmes de fichiers et volumes FSx for ONTAP. Le tableau de bord vous aide à planifier la capacité, à évaluer les coûts et à prendre des décisions fondées sur les données concernant l'allocation des ressources. Vous pouvez créer jusqu'à cinq filtres personnalisés basés sur vos balises AWS, avec des options de sélection unique ou multiple, afin d'organiser et de filtrer les données selon vos besoins métier spécifiques, tels que les projets, les équipes ou les applications.
+
+Le tableau de bord offre une visibilité sur les modèles d'utilisation du stockage, vous aidant à identifier les projets gourmands en ressources, à suivre les coûts et à optimiser l'allocation du stockage avant que des problèmes de capacité ou de performance n'impactent vos simulations EDA.
 
 Le tableau de bord vous aide à surveiller l'utilisation du stockage pour la capacité allouée, la capacité utilisée, le débit et les IOPS. Pour une surveillance proactive des performances de latence, voir link:task-monitor-latency.html["Surveiller la latence du volume"].
 
@@ -27,9 +29,11 @@ Les métriques CloudWatch collectées comprennent :
 
 == Configurer le tableau de bord
 
+La configuration de filtres personnalisés vous permet de visualiser les indicateurs organisés selon la structure de votre entreprise—tels que par projet, équipe ou application. Cette organisation vous aide à suivre les coûts avec précision, à identifier quels projets consomment le plus de ressources et à prendre des décisions éclairées concernant l'allocation des ressources et la planification du budget.
+
 Pour utiliser efficacement le tableau de bord, configurez jusqu'à cinq balises AWS sur vos volumes FSx for ONTAP en fonction de vos besoins métier, par exemple des balises représentant des projets ou des unités commerciales. Pour plus de détails, voir <<Configurer les filtres personnalisés>>.
 
-Les balises AWS sont des métadonnées pour vos ressources AWS. Ils vous aident à catégoriser vos ressources AWS de différentes manières, par exemple par projet, application ou unité commerciale. Pour plus de détails sur le balisage, voir https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html["Que sont les tags ?"^] et  https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html["Référence de l'API de balisage des groupes de ressources AWS"^].
+Les balises AWS sont des métadonnées pour vos ressources AWS. Elles vous aident à catégoriser vos ressources AWS de différentes manières, par exemple par projet, application ou unité commerciale. Pour plus de détails sur le balisage, voir  https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html["Que sont les tags ?"^] et  https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html["Référence de l'API de balisage des groupes de ressources AWS"^].
 
 Une fois configurées, sur la page *Configuration des balises*, indiquez les noms des clés de balise AWS et les libellés correspondants à afficher dans votre tableau de bord.
 
@@ -41,10 +45,16 @@ Votre tableau de bord devient un outil dynamique pour organiser, suivre les coû
 
 === Configurer les filtres personnalisés
 
+
+NOTE: Seul le premier administrateur à accéder au tableau de bord du projet peut configurer, ajouter ou supprimer des filtres personnalisés. Tous les autres utilisateurs, y compris les administrateurs suivants, ont un accès en lecture seule aux filtres.
+
+Les filtres personnalisés vous permettent d'organiser les données de votre tableau de bord en fonction du fonctionnement de votre organisation. En alignant les filtres sur la structure de vos projets, vos équipes ou vos centres de coûts, vous pouvez accéder rapidement aux données spécifiques dont vous avez besoin sans naviguer à travers des informations non pertinentes. Cela rend la planification de la capacité, le suivi des coûts et la surveillance des performances plus efficaces.
+
 Vous pouvez configurer jusqu'à cinq filtres personnalisés basés sur vos balises AWS. Chaque filtre personnalisé requiert trois éléments : un nom d'étiquette de filtre, un nom de clé de balise AWS et un type de sélection (sélection unique ou multiple). Si vous ne configurez aucun filtre personnalisé, les filtres par défaut (système de fichiers, type de volume et plage horaire) restent disponibles afin que vous puissiez toujours consulter et interagir avec vos tableaux de bord.
 
 . Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
 . Sélectionnez le menu image:workloads-menu-icon.png["L'icône du menu hamburger permet d'accéder aux charges de travail telles que le stockage, l'analyse de données d'entreprise (EDA), l'intelligence artificielle (IA), les bases de données, VMware et l'administration."] puis sélectionnez *EDA*.
+. Sélectionnez *Project*.
 +
 Si vous n'avez pas encore configuré votre tableau de bord, vous serez automatiquement invité à le faire.
 
@@ -72,6 +82,8 @@ Vous pouvez supprimer un filtre personnalisé en sélectionnant l'icône de la c
 
 === Filtrer le tableau de bord
 
+Le filtrage vous permet de vous concentrer sur des sous-ensembles spécifiques de vos ressources de stockage, facilitant ainsi l'analyse des tendances, l'identification des problèmes et la génération de rapports pour les parties prenantes. En combinant plusieurs filtres, vous pouvez répondre à des questions métier précises comme « Quelle quantité de stockage mon équipe projet ASIC utilise-t-elle ? » ou « Quels volumes dans la région US-West ont le plus d'IOPS ? »
+
 Vous pouvez filtrer les informations affichées sur le tableau de bord à l'aide d'une combinaison de filtres par défaut et de tout filtre personnalisé que vous avez créé.
 
 Les filtres par défaut suivants sont toujours disponibles :
@@ -97,19 +109,21 @@ Pour obtenir une explication des informations affichées sur une carte, sélecti
 
 == Afficher les détails du volume
 
+Comprendre les performances des volumes, tant agrégés qu'individuels, vous permet de prendre des décisions éclairées concernant la planification de la capacité et l'optimisation des performances. La vue Total présente les tendances générales, tandis que la vue Volume vous aide à identifier les volumes spécifiques qui pourraient nécessiter une attention particulière, une optimisation ou des ressources supplémentaires.
+
 Le tableau de bord propose deux modes d'affichage pour vous aider à analyser vos indicateurs de stockage : Total view et Volume view. Vous pouvez basculer entre ces modes à l'aide des onglets disponibles sur le tableau de bord.
 
 
 
 === Vue totale
 
-La vue Totale (par défaut) affiche les métriques agrégées de tous les volumes correspondant à vos filtres sélectionnés. Cette vue offre une vue d'ensemble de vos performances de stockage globales, en présentant la capacité, les IOPS et le débit combinés.
+La vue Totale (par défaut) affiche les métriques agrégées de tous les volumes correspondant à vos filtres sélectionnés. Cette vue offre une vue d'ensemble de haut niveau des performances globales de votre stockage, en présentant les métriques combinées de capacité, d'IOPS et de débit. Utilisez cette vue pour comprendre les tendances générales, planifier les besoins futurs en capacité et rendre compte de la consommation totale des ressources par projet ou équipe.
 
 
 
 === Vue du volume
 
-La vue Volume affiche les performances de chaque volume au fil du temps, en présentant les 10 volumes les plus importants pour chaque indicateur. Cette vue vous aide à identifier les volumes spécifiques qui influencent l'utilisation des ressources et à observer leur comportement sur la période sélectionnée.
+La vue Volume affiche les performances de chaque volume au fil du temps, en présentant les 10 volumes principaux pour chaque indicateur. Cette vue vous aide à identifier les volumes spécifiques qui génèrent l'utilisation des ressources et à observer leur comportement sur la période sélectionnée. Utilisez cette vue pour trouver les goulots d'étranglement de performance, identifier les volumes qui pourraient nécessiter un redimensionnement ou déterminer quels projets ou charges de travail consomment le plus de ressources.
 
 Pour passer à la vue Volume, sélectionnez l'onglet *Volume* sur le tableau de bord.
 
@@ -129,6 +143,8 @@ L'axe horizontal affiche la plage de temps, tandis qu'une légende indique tous 
 
 
 ==== Données de volume interactives
+
+Les données interactives affichées au survol fournissent des indicateurs précis à des moments spécifiques, vous aidant à corréler les variations de performance avec des événements ou des périodes particulières. Ces informations détaillées sont précieuses pour résoudre les problèmes de performance, valider les efforts d’optimisation ou expliquer les modèles d’utilisation des ressources aux parties prenantes.
 
 Vous pouvez survoler n'importe quelle ligne de volume dans les graphiques pour afficher des informations détaillées :
 
