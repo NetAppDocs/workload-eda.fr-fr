@@ -17,10 +17,10 @@ Connexion et compte Workload Factory:: Vous devrez https://docs.netapp.com/us-en
 Identifiants et autorisations AWS:: Vous devez ajouter des informations d'identification AWS à Workload Factory avec des autorisations de lecture/écriture, ce qui signifie que vous utiliserez Workload Factory en mode _lecture/écriture_ pour l'EDA.
 
 
-Les permissions en mode _basique_ et en mode _lecture seule_ ne sont pas prises en charge pour le moment.
+Les permissions en mode _Basique_ et en mode _Lecture seule_ ne sont pas prises en charge pour le moment.
 
 
-NOTE: Les identifiants AWS sont également requis pour utiliser la fonctionnalité de surveillance de la latence, qui collecte des métriques CloudWatch pour l’analyse des performances des volumes. link:task-monitor-latency.html["Découvrez la surveillance de la latence"].
+NOTE: Les identifiants AWS sont également requis pour utiliser la fonctionnalité de surveillance de la latence, qui collecte CloudWatch metrics pour l’analyse des performances des volumes. Pour activer l’analyse optionnelle par agent d’IA pour les scénarios de latence complexes, vous devez également fournir un ARN de modèle Amazon Bedrock. link:task-monitor-latency.html["Découvrez la surveillance de la latence"].
 
 https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html["Découvrez comment ajouter des informations d'identification AWS à Workload Factory"^]
 

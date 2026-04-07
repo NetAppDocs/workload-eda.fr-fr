@@ -46,7 +46,7 @@ Votre tableau de bord devient un outil dynamique pour organiser, suivre les coû
 === Configurer les filtres personnalisés
 
 
-NOTE: Seul le premier administrateur à accéder au tableau de bord du projet peut configurer, ajouter ou supprimer des filtres personnalisés. Tous les autres utilisateurs, y compris les administrateurs suivants, ont un accès en lecture seule aux filtres.
+NOTE: Seul le premier administrateur à accéder au tableau de bord du projet peut configurer, ajouter ou supprimer des filtres personnalisés. Tous les autres utilisateurs, y compris les administrateurs suivants, disposent d'un accès en lecture seule aux filtres.
 
 Les filtres personnalisés vous permettent d'organiser les données de votre tableau de bord en fonction du fonctionnement de votre organisation. En alignant les filtres sur la structure de vos projets, vos équipes ou vos centres de coûts, vous pouvez accéder rapidement aux données spécifiques dont vous avez besoin sans naviguer à travers des informations non pertinentes. Cela rend la planification de la capacité, le suivi des coûts et la surveillance des performances plus efficaces.
 

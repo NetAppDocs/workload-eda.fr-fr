@@ -19,8 +19,8 @@ Workload Factory for EDA fournit des tableaux de bord, des frameworks d'automati
 
 Il offre les services suivants :
 
-* link:task-use-overview-dashboard.html["Tableau de bord de présentation"]: offre une vue centralisée du cluster pour vous aider à surveiller la santé, la capacité et le débit du cluster FSx for ONTAP, à déterminer où placer les nouveaux volumes et à prendre des décisions éclairées concernant l'évolutivité de la capacité et du débit.
-* link:task-monitor-latency.html["Analyse de la latence FSx"]: surveille de manière proactive les performances de latence de lecture et d'écriture des volumes avec des seuils d'avertissement et d'événements critiques configurables. Inclut une analyse de base automatisée utilisant les métriques du centre de délai QoS ONTAP.
+* link:task-use-overview-dashboard.html["Tableau de bord général"]: fournit une vue centralisée du cluster pour vous aider à surveiller l'état, la capacité et le débit du cluster FSx for ONTAP, à déterminer où placer les nouveaux volumes, à prendre des décisions éclairées sur l'évolutivité de la capacité et du débit, et à recevoir des recommandations de capacité automatisées.
 * link:task-configure-dashboard.html["Tableau de bord du projet"]: offre une vue centralisée de la consommation de stockage sur vos systèmes de fichiers FSx for ONTAP pour vous aider à planifier, évaluer les coûts et collecter des informations sur l'utilisation du stockage dans vos projets.
+* link:task-monitor-latency.html["Analyse de la latence FSx"]: surveille de manière proactive les performances de latence en lecture et en écriture des volumes, avec des seuils d’avertissement et d’événements critiques configurables. Inclut une analyse de base automatisée utilisant les métriques du centre de délai QoS d’ONTAP et une analyse optionnelle par agent IA pour les scénarios complexes nécessitant une identification plus approfondie des causes profondes.
 * link:learn-eda-workloads.html["CI/CD"]: rationalise et réduit le temps de compilation des logiciels en tirant parti des capacités de clonage de volumes FSx pour ONTAP .
 

@@ -37,23 +37,23 @@ Vous aurez besoin d'un système de fichiers FSx pour ONTAP déployé et détect�
 [role="quick-margin-para"]
 link:requirements-eda.html["Apprenez-en davantage sur les exigences de l'EDA"^].
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"] Activer le tableau de bord de synthèse
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]Activer le tableau de bord Vue d'ensemble
 [role="quick-margin-para"]
-Activez le tableau de bord de synthèse pour surveiller l'état, la capacité et le débit de vos clusters FSx for ONTAP. Acceptez l'invite de consentement pour autoriser Workload Factory à commencer à collecter les métriques CloudWatch.
+Activez le tableau de bord Vue d'ensemble pour surveiller l'état, la capacité et le débit de vos clusters FSx for ONTAP. Acceptez l'invite de consentement pour autoriser Workload Factory à commencer à collecter les métriques CloudWatch.
 
 [role="quick-margin-para"]
-link:task-use-overview-dashboard.html["Découvrez comment activer le tableau de bord de synthèse"^].
+link:task-use-overview-dashboard.html["Découvrez comment activer le tableau de bord Overview"^].
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]Configurer le tableau de bord du projet
 [role="quick-margin-para"]
-Configurez le tableau de bord du projet pour surveiller l'état du système, les performances et l'utilisation du stockage, ce qui vous permettra d'optimiser efficacement votre environnement EDA.
+Configurez le tableau de bord du projet pour surveiller l'état du système, les performances et l'utilisation du stockage, ce qui vous permet d'optimiser efficacement votre environnement EDA.
 
 [role="quick-margin-para"]
-link:task-configure-dashboard.html["Apprenez à configurer le tableau de bord du projet"^].
+link:task-configure-dashboard.html["Découvrez comment configurer le tableau de bord du projet"^].
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]Configurer l'analyse de latence FSx
 [role="quick-margin-para"]
-Définissez des seuils de latence pour identifier et résoudre proactivement les problèmes de performance avant qu'ils n'affectent la durée d'exécution de la simulation. Configurez des alertes d'avertissement et critiques, et tirez parti de l'analyse de base automatisée.
+Définissez des seuils de latence pour identifier et résoudre proactivement les problèmes de performance avant qu'ils n'affectent la durée d'exécution de la simulation. Configurez des alertes d'avertissement et critiques, tirez parti de l'analyse de base automatisée et activez éventuellement l'analyse par agent IA pour les scénarios complexes en configurant un ARN de modèle Amazon Bedrock.
 
 [role="quick-margin-para"]
 link:task-monitor-latency.html["Apprenez à configurer la surveillance de la latence"^].

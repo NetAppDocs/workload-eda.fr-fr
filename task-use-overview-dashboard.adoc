@@ -2,36 +2,36 @@
 sidebar: sidebar 
 permalink: task-use-overview-dashboard.html 
 keywords: cluster overview, cluster dashboard, FSx for ONTAP, cluster health, cluster usage, capacity, throughput, IOPS, EMS events, latency events, performance widgets, clusters table, volume placement, scale up, scale down, CloudWatch metrics, CSV export 
-summary: 'Utilisez le tableau de bord de synthèse pour surveiller l"état, la capacité et le débit de vos clusters FSx for ONTAP. Visualisez l"utilisation du cluster à grande échelle et prenez des décisions éclairées concernant le placement des volumes et l"évolutivité de la capacité.' 
+summary: 'Utilisez le tableau de bord Vue d"ensemble pour surveiller l"état, la capacité et le débit de vos systèmes de fichiers FSx for ONTAP. Visualisez l"utilisation du stockage à grande échelle et prenez des décisions éclairées concernant le placement des volumes et l"évolutivité de la capacité.' 
 ---
-= Utilisez le tableau de bord de synthèse dans les charges de travail EDA
+= Utilisez le tableau de bord Vue d'ensemble dans les charges de travail EDA
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
 
 
 [role="lead"]
-En tant qu'administrateur informatique gérant des charges de travail EDA sur des dizaines de systèmes de fichiers FSx for ONTAP, vous pouvez utiliser le tableau de bord de synthèse pour répondre aux questions opérationnelles quotidiennes courantes concernant l'état de vos clusters. Utilisez-le pour déterminer où placer de nouveaux volumes ou tâches, comprendre l'utilisation du cluster à grande échelle et prendre des décisions éclairées concernant l'évolutivité de la capacité et du débit à la hausse ou à la baisse.
+En tant qu'administrateur informatique gérant des charges de travail EDA sur plusieurs systèmes de fichiers FSx for ONTAP (clusters ONTAP), vous pouvez utiliser le tableau de bord Vue d'ensemble pour évaluer rapidement l'état et l'utilisation du cluster. Utilisez-le pour décider où placer de nouveaux volumes ou tâches, identifier les candidats au déplacement de volumes ou de SVM, et déterminer quand augmenter l'évolutivité de la capacité ou le débit.
 
 
 
 == Aperçu
 
-Le tableau de bord de synthèse offre une vue centralisée du cluster qui vous aide à comprendre rapidement l'utilisation du cluster en termes de capacité, de débit et d'IOPS, et à déterminer où placer de nouveaux volumes ou déplacer des volumes et SVM existants.
+Le tableau de bord Vue d'ensemble offre une vue centralisée de vos clusters FSx for ONTAP, notamment de leur capacité et de leur débit. Utilisez-le pour placer de nouveaux volumes, rééquilibrer les charges de travail et planifier l'augmentation de la capacité ou du débit.
 
 Le tableau de bord comprend :
 
-* *État de santé du cluster* : Informations résumées en haut du tableau de bord qui mettent en évidence la latence, la disponibilité et la protection, les événements de sécurité et les recommandations de capacité pour l’ensemble de vos clusters.
-* *Tableau des clusters* : Un tableau détaillé et consultable présentant les indicateurs d’utilisation et de performance de chaque cluster FSx for ONTAP, avec prise en charge du filtrage, du tri, de la pagination et de l’exportation CSV.
+* *État de santé du cluster* : Informations résumées en haut du tableau de bord mettant en évidence les événements de latence, l’utilisation des SSD et les recommandations de capacité, ainsi que les événements ONTAP EMS sur vos systèmes de fichiers.
+* *Tableau des clusters* : Un tableau détaillé et consultable présentant les indicateurs d’utilisation et de performance de chaque cluster, avec prise en charge du filtrage, du tri, de la pagination et de l’exportation CSV.
 
 
 
 
 == Exigences
 
-Avant d'utiliser le tableau de bord de synthèse, assurez-vous de respecter les exigences suivantes :
+Avant d'utiliser le tableau de bord, assurez-vous de respecter les exigences suivantes :
 
-Identifiants AWS avec autorisations de consultation:: Vous devez disposer d'identifiants AWS configurés dans Workload Factory avec au moins des autorisations de lecture (affichage) pour General Storage. Les identifiants configurés en mode _Basic_ ne sont pas pris en charge.
+Identifiants AWS avec autorisations de consultation:: Vous devez configurer les informations d'identification AWS dans Workload Factory avec au moins des autorisations de lecture (affichage) pour General Storage. _Basic_ credentials ne sont pas prises en charge.
 +
 --
 Si vous n'avez pas configuré d'identifiants avec des autorisations de consultation, vous êtes redirigé vers la page de configuration des identifiants AWS lorsque vous ouvrez l'onglet Overview.
@@ -39,7 +39,7 @@ Si vous n'avez pas configuré d'identifiants avec des autorisations de consultat
 Si vous n'avez pas configuré les informations d'identification AWS, consultez link:https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html["Ajouter les identifiants AWS"^].
 
 --
-Activer le tableau de bord EDA:: Une fois les informations d'identification avec autorisations de consultation confirmées, vous devez activer le tableau de bord de Workload Factory pour commencer à collecter les métriques CloudWatch pour vos systèmes de fichiers FSx for ONTAP.
+Activer le tableau de bord:: Une fois que Workload Factory a confirmé les informations d'identification avec les autorisations de consultation, vous devez activer le tableau de bord pour commencer à collecter des métriques CloudWatch pour vos systèmes de fichiers FSx for ONTAP.
 
 
 
@@ -55,13 +55,13 @@ NOTE: La collecte des métriques peut prendre un certain temps après que vous a
 
 
 .Résultat
-Workload Factory commence à collecter les métriques CloudWatch pour tous les systèmes de fichiers FSx for ONTAP associés à vos identifiants AWS configurés. Le tableau de bord de présentation s'actualise au fur et à mesure que les métriques sont disponibles. Une notification s'affiche si la collecte est toujours en cours.
+Workload Factory commence à collecter les métriques CloudWatch pour tous les systèmes de fichiers FSx for ONTAP associés à vos identifiants AWS configurés. Le tableau de bord se remplit au fur et à mesure que les métriques deviennent disponibles. Une notification s'affiche si la collecte est toujours en cours.
 
 
 
 == Filtrer le tableau de bord
 
-Utilisez les filtres situés en haut du tableau de bord de synthèse pour vous concentrer sur les systèmes de fichiers pertinents pour votre tâche actuelle. Il s'agit de filtres au niveau de Workload Factory qui s'appliquent à la fois aux informations sur la latence et aux événements ONTAP, ainsi qu'au tableau des clusters.
+Utilisez les filtres en haut du tableau de bord pour vous concentrer sur des systèmes de fichiers spécifiques. Ces filtres s'appliquent aux sections relatives à la latence, à l'utilisation et aux événements ONTAP, ainsi qu'au tableau des clusters.
 
 Filtres disponibles :
 
@@ -69,41 +69,87 @@ Filtres disponibles :
 * *Compte AWS* : Filtrez par un ou plusieurs comptes AWS associés à vos informations d’identification configurées.
 
 
-Lorsque vous mettez à jour les sélections de filtre, toutes les informations sont actualisées pour n'afficher que les systèmes de fichiers et les clusters correspondants.
+Lorsque vous mettez à jour les sélections de filtre, toutes les informations sont actualisées pour n'afficher que les systèmes de fichiers correspondants.
 
 
 
 == État de santé du cluster
 
-En haut du tableau de bord de synthèse, une vue résumée de l'activité des événements et de l'état de santé de vos clusters filtrés est affichée. Ces informations ne sont affichées que lorsqu'au moins un lien FSx for ONTAP est associé à vos systèmes de fichiers. Si aucun lien n'est disponible, les informations sont masquées.
+En haut du tableau de bord, un aperçu de l'état et de l'activité de vos systèmes de fichiers filtrés est affiché. Ces informations ne sont affichées que si au moins un lien FSx for ONTAP est associé à vos systèmes de fichiers. Si aucun lien n'est disponible, les informations sont masquées.
+
+* *Latence* : Affiche le nombre d’événements de latence détectés sur les systèmes de fichiers concernés.
+* *Utilisation* : Affiche l’état d’utilisation du SSD et identifie les systèmes de fichiers avec des recommandations de capacité active.
+* *Événements ONTAP* : Affiche le nombre d’événements EMS détectés, classés par capacité, disponibilité et protection, et sécurité et autres.
+
 
 
 
 === Latence
 
-La section Latence affiche le nombre d'événements de latence détectés sur les systèmes de fichiers concernés.
+Affiche le nombre d'événements de latence détectés sur les systèmes de fichiers concernés.
 
-* Ce nombre reflète les événements de latence générés par la fonctionnalité link:task-monitor-latency.html["Analyse de la latence FSx"].
-* La sélection de *Review* permet d'accéder à l'onglet *Latency*.
+* Lorsque vous sélectionnez *Review*, l'onglet *Latence* s'affiche.
 * Vous pouvez consulter les informations de latence uniquement si vous avez activé la surveillance de la latence. Si vous n'avez pas configuré de seuils de latence, sélectionnez *Configurer*. Pour plus d'informations sur la surveillance de la latence, voir link:task-monitor-latency.html["Analyse de la latence FSx"^].
 
 
 
 
-=== Capacité
+=== Utilisation
 
-La section Capacité affiche le nombre de messages EMS relatifs aux problèmes de capacité, ainsi que le nombre de file systems affectés.
+Affiche le nombre de systèmes de fichiers concernés comportant au moins un cluster dont l'utilisation des SSD dépasse 80 %, ainsi que le nombre de systèmes de fichiers pour lesquels des recommandations de capacité sont en cours. Cela vous permet d'identifier rapidement les systèmes de fichiers susceptibles de nécessiter une intervention sur leur capacité.
 
-Les événements EMS surveillés incluent, sans s'y limiter :
 
-* Agrégat presque plein
-* Agrégat complet
-* Volume presque plein
-* Volume plein
-* Réserve de Snapshot presque pleine
-* Réserve Snapshot pleine
+
+==== Recommandations de capacité
+
+Workload Factory exécute automatiquement un algorithme de recommandation de capacité pour chaque système de fichiers FSx for ONTAP visible dans votre inventaire EDA. L'algorithme effectue une analyse toutes les 24 heures et identifie les cas où des ajustements de capacité SSD sont recommandés.
+
+Lorsqu'une recommandation est identifiée :
+
+* Vous recevez une notification immédiate (courriel ou WAD), selon vos paramètres de notification Workload Factory. Les notifications sont envoyées dès qu'une recommandation est identifiée, sans attendre le récapitulatif hebdomadaire.
+* Un indicateur lumineux apparaît dans la ligne du tableau Clusters pour tout système de fichiers faisant l'objet d'une recommandation active.
+* Le nombre total de systèmes de fichiers faisant l'objet de recommandations actives est affiché. Cela permet de s'assurer que les recommandations restent visibles même si le système de fichiers ne figure pas sur la première page du tableau.
+
+
+
+
+==== Consulter et appliquer les recommandations de capacité
+
+.Mesures
+. Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
+. Sélectionnez le menu image:workloads-menu-icon.png["L'icône du menu hamburger"] et sélectionnez ensuite *EDA*.
+. Sélectionnez l’onglet *Overview*.
+. Dans le tableau *Clusters*, repérez un système de fichiers avec un indicateur lumineux.
++
+Passez votre souris sur l'indicateur d'ampoule pour afficher une infobulle contenant une brève description de la recommandation.
+
+. Sélectionnez le nom du cluster dans le tableau pour l'ouvrir et consulter les recommandations.
+. Consultez la recommandation concernant le SSD et le graphique de capacité.
++
+La recommandation explique la modification suggérée et la justification de celle-ci. Par exemple : _Nous recommandons d’augmenter la taille du SSD en fonction de votre utilisation du SSD au niveau du système de fichiers._
+
++
+Le graphique présente l'utilisation actuelle des SSD ainsi que les tendances historiques et vous montre comment l'algorithme de recommandation de capacité aurait ajusté la capacité au fil du temps.
+
+. En haut à droite du graphique, sélectionnez la plage horaire pour modifier la période affichée. La valeur par défaut est d'une semaine.
+
+
+
+
+=== Événements ONTAP
+
+Affiche le nombre d'événements EMS détectés sur les systèmes de fichiers concernés, classés par capacité, disponibilité et protection, et sécurité et autres.
+
+.Capacité
+Affiche le nombre de messages EMS relatifs aux problèmes de capacité, ainsi que le nombre de systèmes de fichiers affectés.
+
+Exemples d'événements EMS surveillés :
+
+* Agrégat presque plein/plein
+* Volume presque plein/plein
+* Réserve Snapshot presque pleine/pleine
 * Taille complète du répertoire
-* Groupes Flex complets
+* FlexGroup plein
 * Inodes complets
 
 
@@ -111,21 +157,15 @@ Pour une liste complète des événements EMS surveillés, voir link:https://doc
 
 La sélection de *Capacité* permet d'accéder à l'écran d'analyse de capacité dans les charges de travail de stockage.
 
-
-
-=== Disponibilité & protection
-
-La section Disponibilité & protection affiche le nombre de messages EMS relatifs à la disponibilité et à la protection des données, ainsi que le nombre de systèmes de fichiers affectés.
+.Disponibilité & protection
+Affiche le nombre de messages EMS relatifs à la disponibilité et à la protection des données, ainsi que le nombre de systèmes de fichiers affectés.
 
 Les événements surveillés comprennent les événements EMS liés à FlexCache et SnapMirror.
 
 La sélection de *Disponibilité et protection* permet d'accéder à l'écran d'analyse de la disponibilité et de la protection dans les charges de travail de stockage.
 
-
-
-=== Sécurité et autres
-
-La section « Sécurité et autres » affiche le nombre de messages EMS relatifs aux événements non classés dans les catégories « Capacité » ou « Disponibilité et protection des données », ainsi que le nombre de systèmes de fichiers affectés. Les événements surveillés incluent la protection contre les ransomwares, les échecs d'authentification NFS et d'autres.
+.Sécurité et autres
+Affiche le nombre de messages EMS relatifs aux événements non classés dans les catégories Capacité ou Disponibilité & protection, ainsi que le nombre de systèmes de fichiers affectés. Les événements surveillés incluent la protection anti-ransomware, les échecs d'authentification NFS, et d'autres.
 
 La sélection de *Security & other* permet d'accéder à l'écran d'analyse des événements dans les charges de travail de stockage.
 
@@ -133,7 +173,17 @@ La sélection de *Security & other* permet d'accéder à l'écran d'analyse des 
 
 == Tableau des clusters
 
-Le tableau des clusters présente une vue détaillée de chaque cluster FSx for ONTAP associé à vos identifiants AWS configurés, filtrée par la région active et les sélections de compte AWS. Les données sont collectées à partir des métriques CloudWatch. Le tableau prend en charge la recherche, le filtrage des colonnes, la pagination, la personnalisation des colonnes et l’exportation au format CSV.
+Fournit une vue détaillée de chaque système de fichiers FSx for ONTAP associé à vos identifiants AWS configurés, filtrée par la région active et les sélections de compte AWS. Les données sont collectées à partir des métriques CloudWatch. Le tableau prend en charge la recherche, le filtrage des colonnes, la pagination, la personnalisation des colonnes et l’exportation au format CSV.
+
+Les indicateurs clés comprennent :
+
+* Nom, région et compte AWS
+* Métriques de capacité SSD (utilisée, totale et pourcentage d'utilisation)
+* Stockage de pool de capacité
+* Métriques de débit (moyenne, P95, P99 et maximum sur les 30 derniers jours)
+
+
+Utilisez *Utilisation des SSD* pour identifier les systèmes de fichiers qui approchent de leurs limites de capacité. Utilisez *Utilisation du débit (P99)* pour comparer la demande de débit au SKU de débit provisionné. Survolez les en-têtes de colonne de débit pour afficher les détails du calcul.
 
 
 
@@ -145,51 +195,9 @@ Le tableau des clusters présente une vue détaillée de chaque cluster FSx for 
 * Le tableau est paginé. Utilisez les commandes de pagination en bas du tableau pour naviguer entre les pages.
 
 
-Le tableau comprend les colonnes suivantes. Les colonnes affichées par défaut sont indiquées dans le tableau. Vous pouvez ajouter ou supprimer des colonnes non affichées par défaut à l'aide du sélecteur de colonnes. Pour les colonnes de débit, survolez l'en-tête de la colonne pour obtenir des informations sur la période de calcul de 30 jours et la formule d'utilisation.
 
-[cols="30,10,60"]
-|===
-| Colonne | Défaut | Description 
+NOTE: Les systèmes de fichiers avec des recommandations de capacité actives affichent un indicateur d'ampoule dans le tableau. Sélectionnez n'importe quel nom de système de fichiers pour afficher les métriques de capacité SSD, les tendances d'utilisation historiques et les recommandations de capacité pour ce système de fichiers.
 
-
-| Nom du cluster | Oui | Le nom du cluster FSx for ONTAP. 
-
-
-| Région | Oui | La région AWS dans laquelle le cluster est déployé. 
-
-
-| Compte AWS | Non | Le compte AWS associé au cluster. 
-
-
-| Capacité utilisée du SSD | Oui | La quantité de stockage SSD actuellement utilisée. 
-
-
-| Capacité totale SSD | Oui | La capacité totale de stockage SSD provisionnée. 
-
-
-| Utilisation du SSD | Oui | Le pourcentage de capacité SSD utilisée. Utilisez ceci pour identifier les clusters qui approchent des limites de capacité avant qu'elles n'impactent les performances des charges de travail. 
-
-
-| Pool de capacité | Oui | La quantité de stockage dans le pool de capacité. 
-
-
-| Débit moyen | Oui | Le débit moyen au cours des 30 derniers jours. 
-
-
-| Débit P95 | Non | Le débit du 95e centile au cours des 30 derniers jours. 
-
-
-| Débit P99 | Oui | Le débit du 99e centile au cours des 30 derniers jours. 
-
-
-| Débit maximal | Non | Le débit maximal enregistré au cours des 30 derniers jours. 
-
-
-| Utilisation du débit (P99) | Oui | Débit P99 par rapport au débit provisionné SKU. Utilisez ceci pour identifier les clusters dont le débit est constamment proche ou égal à la limite provisionnée. 
-
-
-| SKU de débit | Oui | Le niveau de débit provisionné. Comparez-le à l'utilisation du débit pour évaluer si la taille du SKU actuel est appropriée. 
-|===
 
 
 === Personnaliser les colonnes
