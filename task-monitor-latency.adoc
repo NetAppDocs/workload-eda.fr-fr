@@ -37,19 +37,19 @@ Les permissions en mode _Basique_ et en mode _Lecture seule_ ne sont pas prises 
 Si vous n'avez pas configuré les informations d'identification AWS, consultez link:https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html["Ajouter les identifiants AWS"^].
 
 --
+Système de fichiers FSx pour ONTAP:: Vous devez disposer d'au moins un système de fichiers FSx for ONTAP avec des volumes déployés dans votre environnement AWS. La fonctionnalité de surveillance de la latence collecte automatiquement les métriques de tous les volumes associés à vos identifiants AWS configurés.
+Lien vers FSx pour ONTAP:: Pour consulter les informations d'analyse de base dans le tableau des événements de latence et le panneau d'analyse, vous devez associer un lien au système de fichiers FSx for ONTAP. Sans lien, les événements peuvent toujours être détectés, mais l'analyse fournit des informations limitées. Si aucun lien n'est déjà associé, sélectionnez *Associer un lien* dans EDA, choisissez de créer un nouveau lien ou d'associer un lien existant, puis sélectionnez *Continuer* pour accéder automatiquement à la page de création de lien dans Storage workloads.
++
+--
+Pour obtenir des instructions sur la création et l'association de liens, voir link:https://docs.netapp.com/us-en/workload-fsx-ontap/create-link.html["Créer un lien"^].
+
+--
 ARN du modèle Amazon Bedrock (facultatif):: Pour utiliser la fonctionnalité d'analyse par agent IA optionnelle, vous devez fournir un ARN de modèle Amazon Bedrock dans les paramètres de Workload Factory.
 +
 --
 Pour plus de détails, voir link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements["Exigences de base de GenAI"^].
 
 Si vous ne configurez pas d'ARN de modèle Bedrock, vous pouvez toujours utiliser la surveillance de la latence et l'analyse de base automatisée. L'analyse par agent IA ne sera pas disponible.
-
---
-Système de fichiers FSx pour ONTAP:: Vous devez disposer d'au moins un système de fichiers FSx for ONTAP avec des volumes déployés dans votre environnement AWS. La fonctionnalité de surveillance de la latence collecte automatiquement les métriques de tous les volumes associés à vos identifiants AWS configurés.
-Lien vers FSx pour ONTAP:: Pour consulter les informations d'analyse de base dans le tableau des événements de latence et le panneau d'analyse, vous devez associer un lien au système de fichiers FSx for ONTAP. Sans lien, les événements peuvent toujours être détectés, mais l'analyse fournit des informations limitées. Si aucun lien n'est déjà associé, sélectionnez *Associer un lien* dans EDA, choisissez de créer un nouveau lien ou d'associer un lien existant, puis sélectionnez *Continuer* pour accéder automatiquement à la page de création de lien dans Storage workloads.
-+
---
-Pour obtenir des instructions sur la création et l'association de liens, voir link:https://docs.netapp.com/us-en/workload-fsx-ontap/create-link.html["Créer un lien"^].
 
 --
 
