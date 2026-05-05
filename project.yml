@@ -31,10 +31,12 @@ sidebar:
     entries:
     - title: Gérer les opérations de stockage EDA
       url: "/task-use-overview-dashboard.html"
-  - title: Analyse de la latence FSx
+  - title: FSx pour ONTAP analyse de la latence
     entries:
-    - title: Surveillez la latence du volume FSx
+    - title: Surveiller la latence des volumes FSx pour ONTAP
       url: "/task-monitor-latency.html"
+    - title: Analyser les tendances de latence
+      url: "/task-analyze-latency-trends.html"
   - title: Analyse de l'utilisation du projet
     entries:
     - title: Analyser l'utilisation du stockage du projet

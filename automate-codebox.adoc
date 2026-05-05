@@ -4,7 +4,7 @@ permalink: automate-codebox.html
 keywords: automation, code automation, automate, codebox 
 summary: 'Avec Codebox, vous pouvez automatiser le déploiement d"hôtes, la création de bases de données et bien plus encore.' 
 ---
-= Automatisez les tâches de charge de travail EDA avec Codebox
+= Automatisez les charges de travail EDA avec Codebox
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/

@@ -2,16 +2,16 @@
 sidebar: sidebar 
 permalink: quick-start-eda.html 
 keywords: requirements, permissions, eda, builders, quick start, electronic design automation 
-summary: Les bases de données possèdent trois modes différents qui ont des exigences différentes. 
+summary: Commencez à utiliser Workload Factory pour EDA en configurant votre environnement, en activant les tableaux de bord de surveillance et en configurant l’analyse de latence. 
 ---
-= Démarrage rapide pour EDA
+= Démarrage rapide de Workload Factory pour EDA
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
 
 
 [role="lead"]
-Commencez par créer un projet EDA. Les administrateurs et les chefs d'équipe peuvent utiliser EDA pour administrer les projets et les espaces de travail des équipes de développeurs.
+Commencez à utiliser Workload Factory pour EDA en configurant votre environnement, en activant les tableaux de bord de surveillance et en configurant l'analyse de latence pour optimiser les performances FSx for ONTAP de vos charges de travail EDA.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"] Connectez-vous à Workload Factory
 [role="quick-margin-para"]
@@ -51,12 +51,12 @@ Configurez le tableau de bord du projet pour surveiller l'état du système, les
 [role="quick-margin-para"]
 link:task-configure-dashboard.html["Découvrez comment configurer le tableau de bord du projet"^].
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]Configurer l'analyse de latence FSx
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]Configurer l'analyse de latence FSx for ONTAP
 [role="quick-margin-para"]
-Définissez des seuils de latence pour identifier et résoudre proactivement les problèmes de performance avant qu'ils n'affectent la durée d'exécution de la simulation. Configurez des alertes d'avertissement et critiques, tirez parti de l'analyse de base automatisée et activez éventuellement l'analyse par agent IA pour les scénarios complexes en configurant un ARN de modèle Amazon Bedrock.
+Définissez des seuils de latence pour identifier et résoudre proactivement les problèmes de performance avant qu'ils n'affectent la durée d'exécution de la simulation. Configurez des alertes d'avertissement et critiques, paramétrez les notifications par e-mail ou SNS pour recevoir des alertes en temps réel, exploitez l'analyse de base automatisée et, si vous le souhaitez, activez l'analyse par agent IA pour les scénarios complexes en configurant un ARN de modèle Amazon Bedrock.
 
 [role="quick-margin-para"]
-link:task-monitor-latency.html["Apprenez à configurer la surveillance de la latence"^].
+link:task-monitor-latency.html["Apprenez à configurer la surveillance de la latence"^]. Une fois les événements détectés, vous pouvez link:task-analyze-latency-trends.html["analyser les tendances de latence"^] utiliser le graphique interactif.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sept"] Intégrer avec d'autres services
 [role="quick-margin-para"]

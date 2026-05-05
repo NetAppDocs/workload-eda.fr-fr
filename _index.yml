@@ -17,9 +17,9 @@ indexpage:
     links:
     - title: Gérer les opérations de stockage EDA
       url: "/task-use-overview-dashboard.html"
-  - title: Analyse de la latence FSx
+  - title: FSx pour ONTAP analyse de la latence
     links:
-    - title: Surveillez la latence du volume FSx
+    - title: Surveiller la latence des volumes FSx pour ONTAP
       url: "/task-monitor-latency.html"
   - title: Analyse de l'utilisation du projet
     links:
