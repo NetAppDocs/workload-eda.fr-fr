@@ -1,0 +1,147 @@
+---
+sidebar: sidebar 
+permalink: task-configure-latency-monitoring.html 
+keywords: latency analysis, configure thresholds, CloudWatch alarms, latency monitoring, FSx for ONTAP, warning events, critical events, latency notifications, email notifications, SNS notifications, latency configuration 
+summary: Configurez les seuils de surveillance de la latence et les paramètres de notification pour détecter et résoudre les problèmes de performance avec les volumes FSx for ONTAP. 
+---
+= Configurez la surveillance de la latence dans Workload Factory pour EDA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Configurez les seuils d'alerte et de latence critique en lecture et en écriture pour surveiller les performances des volumes FSx pour ONTAP. Configurez des notifications par e-mail ou Amazon SNS (optionnelles) pour recevoir des alertes en temps réel en cas de détection d'événements de latence.
+
+
+
+== Avant de commencer
+
+Assurez-vous de respecter les exigences suivantes avant de configurer la surveillance de la latence.
+
+
+
+=== Identifiants et autorisations AWS
+
+Vous devez ajouter des identifiants AWS à Workload Factory avec des autorisations de lecture/écriture. La fonctionnalité de surveillance de la latence nécessite l'accès aux métriques CloudWatch pour tous les volumes FSx for ONTAP associés à vos identifiants AWS.
+
+Les permissions en mode _Basique_ et en mode _Lecture seule_ ne sont pas prises en charge pour la surveillance de la latence.
+
+Si vous n'avez pas configuré les informations d'identification AWS, consultez link:https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html["Ajouter les identifiants AWS"^].
+
+
+
+=== Système de fichiers FSx pour ONTAP
+
+Vous devez disposer d'au moins un système de fichiers FSx for ONTAP avec des volumes déployés dans votre environnement AWS. La fonctionnalité de surveillance de la latence collecte automatiquement les métriques de tous les volumes associés à vos identifiants AWS configurés.
+
+
+
+=== Lien vers FSx pour ONTAP
+
+Pour consulter les analyses de base, vous devez associer un lien au système de fichiers FSx for ONTAP. Sans lien, les événements peuvent toujours être détectés, mais l’analyse fournit des informations limitées. Si aucun lien n’est déjà associé, sélectionnez *Associer un lien* dans EDA, choisissez de créer un nouveau lien ou d’associer un lien existant, puis sélectionnez *Continuer* pour accéder automatiquement à la page de création de lien dans Storage workloads.
+
+Pour obtenir des instructions sur la création et l'association de liens, voir link:https://docs.netapp.com/us-en/workload-fsx-ontap/create-link.html["Créer un lien"^].
+
+
+
+=== ARN du modèle Amazon Bedrock (facultatif)
+
+Pour utiliser la fonctionnalité d'analyse par agent IA optionnelle, vous devez fournir un ARN de modèle Amazon Bedrock dans les paramètres de Workload Factory.
+
+Pour plus de détails, voir link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements["Exigences de base de GenAI"^].
+
+Si vous ne configurez pas d'ARN de modèle Bedrock, vous pouvez toujours utiliser la surveillance de la latence et l'analyse de base automatisée, mais l'analyse par agent IA n'est pas disponible.
+
+
+
+=== Configuration des notifications (facultatif)
+
+Pour recevoir des notifications par e-mail ou Amazon SNS en cas de détection d'événements de latence, configurez les préférences de notification dans les paramètres de Workload Factory. Voir <<Configurer les notifications de latence>> pour plus de détails.
+
+
+
+== Configurer les seuils de latence
+
+Configurez les seuils d'alerte et critiques pour les opérations de lecture et d'écriture. Le système évalue ces seuils en continu et génère des alertes lorsque les conditions sont remplies.
+
+
+NOTE: Vous devez définir des seuils d'événements critiques supérieurs aux seuils d'événements d'avertissement pour garantir une remontée d'alertes correcte. Sinon, vous ne pouvez pas enregistrer votre configuration.
+
+
+NOTE: Les seuils de latence que vous définissez dans EDA s'appliquent par défaut à l'ensemble de votre compte. Vous pouvez également définir des seuils de latence individuels pour les volumes dans les charges de travail de stockage général et ces paramètres de volume sont prioritaires pour ce volume. La mise à jour des seuils au niveau du compte dans EDA ne modifie pas les paramètres au niveau du volume.
+
+.Mesures
+. Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
+. Sélectionnez le menu image:workloads-menu-icon.png["L'icône du menu hamburger"] et sélectionnez ensuite *EDA*.
+. Sélectionnez l'onglet *Latence*.
+. Sur la page de configuration de la latence EDA, configurez les seuils pour :
++
+** Latence de lecture (avertissement et critique)
+** Latence d'écriture (avertissement et critique)
+** Seuils d'IOPS pour chaque
+** Plages de temps pour l'évaluation
+
+
+. Sélectionnez *Appliquer* pour enregistrer votre configuration.
+
+
+.Résultat
+Workload Factory commence à collecter les métriques de latence pour tous les volumes FSx for ONTAP associés à vos identifiants AWS. Les métriques sont collectées au moins toutes les 20 minutes. Tout volume dépassant vos seuils configurés est affiché dans le tableau des événements de latence.
+
+
+
+== Configurer les notifications de latence
+
+Configurez les notifications par e-mail ou Amazon SNS pour recevoir des alertes lorsqu'un événement de latence est détecté. Des notifications sont envoyées chaque fois qu'un volume dépasse les seuils que vous avez configurés, fournissant une visibilité en temps réel sur les problèmes de performance.
+
+Les notifications de latence sont envoyées système de fichiers par système de fichiers. Lorsqu'un ou plusieurs volumes d'un système de fichiers dépassent les seuils de latence, vous recevez une seule notification listant tous les volumes concernés.
+
+
+NOTE: Si plus de 10 volumes sont concernés, l'e-mail affiche les 10 premiers volumes et indique combien de volumes supplémentaires sont concernés. Vous pouvez consulter tous les volumes concernés dans la console Workload Factory.
+
+Canaux de notification :
+
+* *Courriel* : Envoyé aux adresses courriel configurées dans vos paramètres de notification Workload Factory
+* *Amazon SNS* : Publié sur votre rubrique SNS configurée pour l’intégration avec d’autres systèmes
+
+
+Pour activer les notifications, consultez link:https://docs.netapp.com/us-en/workload-setup-admin/configure-notifications.html#wf-console-email-notifications["Configurer les paramètres de notification"].
+
+
+
+== Gérer la configuration de la latence
+
+Après la configuration initiale, vous pouvez modifier vos seuils selon vos besoins.
+
+.Mesures
+. Sur la page *Latency*, sélectionnez *Edit*.
+. Modifiez les valeurs de seuil selon vos besoins.
++
+
+NOTE: Veillez à ce que les seuils critiques restent supérieurs aux seuils d'alerte. Le système affiche une erreur si vous configurez des seuils critiques inférieurs aux seuils d'alerte.
+
+. Sélectionnez *Apply* pour enregistrer vos modifications.
+
+
+
+
+== Meilleures pratiques
+
+Tenez compte des recommandations suivantes lors de la configuration de la surveillance de la latence :
+
+* *Définissez des seuils réalistes* : configurez les seuils en fonction des exigences de votre charge de travail. Les valeurs par défaut constituent un point de départ mais peuvent nécessiter un ajustement pour votre environnement spécifique.
+* *Commencez par des seuils d'avertissement* : Utilisez les événements d'avertissement pour établir des attentes de performance de base avant d'affiner les seuils critiques.
+* *Considérez soigneusement les intervalles de temps* : des intervalles plus courts (5-10 minutes) détectent les problèmes plus rapidement mais peuvent générer plus d’alertes. Des intervalles plus longs (15-20 minutes) réduisent les faux positifs mais peuvent retarder la détection.
+* *Coordonnez les seuils d'IOPS et de latence* : la logique à double condition signifie que les deux doivent être dépassés. Définir des seuils d'IOPS très élevés peut empêcher les alertes même lorsque la latence est problématique.
+* *Examinez les événements rejetés* : Passez périodiquement en revue les raisons pour lesquelles les événements ont été rejetés afin d’identifier des opportunités d’ajustement des seuils ou d’amélioration de l’infrastructure.
+
+
+
+
+== Informations connexes
+
+* link:learn-latency-monitoring.html["Découvrez la surveillance de la latence"]
+* link:task-analyze-latency-issues.html["Analyser les problèmes de latence"]
+* link:task-analyze-latency-trends.html["Analyser les tendances de latence"]
+

@@ -1,0 +1,128 @@
+---
+sidebar: sidebar 
+permalink: task-use-project-dashboard.html 
+keywords: dashboard, AWS tags, CloudWatch, FSx for ONTAP, Workload Factory, EDA, volume details, top volumes, capacity utilization, throughput utilization, IOPS utilization, filter dashboard 
+summary: 'Utilisez le tableau de bord Projets pour surveiller l"utilisation du stockage, filtrer les données par projets ou équipes et analyser les performances du volume afin d"optimiser l"allocation des ressources.' 
+---
+= Utilisez le tableau de bord Projets dans Workload Factory pour EDA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez le tableau de bord Projets pour surveiller l'utilisation du stockage sur vos systèmes de fichiers FSx for ONTAP et volumes. Filtrez les données par projets, équipes ou applications, et analysez à la fois les performances agrégées et individuelles des volumes afin de prendre des décisions éclairées concernant la planification de la capacité et l'optimisation des ressources.
+
+
+
+== Avant de commencer
+
+Vous devriez avoir link:task-configure-project-dashboard.html["filtres personnalisés configurés"] pour le tableau de bord Projects. Si vous n'avez pas configuré de filtres personnalisés, vous pouvez toujours utiliser les filtres par défaut (système de fichiers, type de volume et plage de dates).
+
+
+
+== Filtrer le tableau de bord
+
+Le filtrage vous permet de vous concentrer sur des sous-ensembles spécifiques de vos ressources de stockage, facilitant ainsi l'analyse des tendances, l'identification des problèmes et la génération de rapports pour les parties prenantes. En combinant plusieurs filtres, vous pouvez répondre à des questions métier précises comme « Quelle quantité de stockage mon équipe projet ASIC utilise-t-elle ? » ou « Quels volumes dans la région US-West ont le plus d'IOPS ? »
+
+.À propos de cette tâche
+Vous pouvez filtrer les informations affichées sur le tableau de bord en utilisant une combinaison de filtres par défaut et de filtres personnalisés que vous avez configurés.
+
+.Mesures
+. Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
+. Sélectionnez le menu image:workloads-menu-icon.png["L'icône du menu hamburger"] et sélectionnez ensuite *EDA*.
+. Sélectionnez *Project*.
+. Sélectionnez les filtres que vous souhaitez appliquer parmi les options disponibles :
++
+** Filtres par défaut (système de fichiers, type de volume, plage horaire)
+** Tous les filtres personnalisés que vous avez configurés
+
+
+. Sélectionnez l'icône d'actualisation pour mettre à jour les informations du tableau de bord en fonction de vos filtres.
+. Pour obtenir une explication des informations affichées sur une carte, sélectionnez l'icône d'information correspondante.
+
+
+
+
+== Afficher les détails du volume
+
+Comprendre les performances des volumes, tant agrégés qu'individuels, vous permet de prendre des décisions éclairées concernant la planification de la capacité et l'optimisation des performances. La vue Total présente les tendances générales, tandis que la vue Volume vous aide à identifier les volumes spécifiques qui pourraient nécessiter une attention particulière, une optimisation ou des ressources supplémentaires.
+
+
+
+=== Afficher les indicateurs de volume agrégés
+
+La vue Totale affiche les métriques agrégées pour tous les volumes correspondant à vos filtres sélectionnés.
+
+.Mesures
+. Dans l'onglet *Projet*, assurez-vous que l'onglet *Total* est sélectionné (il s'agit de l'affichage par défaut).
+. Examinez les indicateurs affichés :
++
+** Capacité combinée pour tous les volumes
+** IOPS agrégées
+** Débit agrégé
+
+
+. Utilisez cette vue pour comprendre les tendances générales et planifier les besoins futurs en matière de capacité.
+
+
+
+
+=== Afficher les performances de volume individuelles
+
+La vue Volume affiche les performances de chaque volume au fil du temps, en présentant les 10 volumes principaux pour chaque indicateur.
+
+.Mesures
+. Dans l'onglet *Projet*, sélectionnez l'onglet *Volume*.
+. Examinez les indicateurs de volume :
++
+** *Capacité volumique utilisée* : Indique les volumes ayant la capacité utilisée la plus élevée
+** *IOPS* : Affiche les volumes présentant la moyenne d’IOPS la plus élevée durant la période sélectionnée
+** *Débit* : Affiche les volumes présentant le débit moyen le plus élevé durant la période sélectionnée
++
+
+NOTE: Le tableau de bord n'affiche que les 10 premiers volumes pour chaque indicateur. Si vous avez plus de 10 volumes, certains volumes pourraient ne pas être affichés dans la vue détaillée.
+
+
+
+. Passez votre souris sur n'importe quelle courbe de volume dans les graphiques pour afficher des informations détaillées :
++
+** *Capacité utilisée du volume* : Nom du volume, capacité utilisée à ce moment-là et capacité allouée
+** *IOPS* : Nom du volume, IOPS moyennes sur la période et IOPS maximales sur la période
+** *Débit* : Nom du volume, débit moyen sur la période considérée et débit maximal sur la période considérée
+
+
+. Utilisez la légende pour identifier les volumes spécifiques. Lorsque les mêmes volumes apparaissent dans plusieurs indicateurs, le tableau de bord utilise un code couleur cohérent pour faciliter leur suivi.
+
+
+.Résultat
+Ces données interactives vous aident à :
+
+* Analyser les tendances de performance des volumes
+* Identifier les goulots d'étranglement potentiels
+* Identifiez les volumes qui pourraient nécessiter un redimensionnement
+* Identifiez précisément les projets ou charges de travail qui consomment le plus de ressources
+
+
+
+
+== Meilleures pratiques
+
+Tenez compte des recommandations suivantes lors de l'utilisation du tableau de bord Projects :
+
+* *Surveillance régulière* : Consultez régulièrement le tableau de bord pour identifier les tendances avant qu’elles ne deviennent des problèmes.
+* *Combinez les filtres de manière stratégique* : Utilisez plusieurs filtres ensemble pour répondre à des questions métier spécifiques concernant l’utilisation des ressources.
+* *Comparer les vues* : Utilisez conjointement les vues Total et Volume — Total pour la planification et Volume pour le dépannage.
+* *Suivi dans le temps* : Utilisez différentes plages de temps pour déterminer si les variations de performance correspondent à des variations normales ou indiquent une tendance.
+* *Documentation des valeurs de référence* : Notez les niveaux de performance normaux de vos volumes afin de pouvoir identifier rapidement les anomalies.
+* *Exploiter les informations recueillies* : Utilisez les données de performance des volumes pour prendre des décisions proactives concernant l’allocation des ressources, leur dimensionnement ou leur optimisation avant que les problèmes n’affectent les charges de travail.
+
+
+
+
+== Informations connexes
+
+* link:learn-project-dashboard.html["Découvrez le tableau de bord Projets"]
+* link:task-configure-project-dashboard.html["Configurer le tableau de bord Projects"]
+* link:learn-latency-monitoring.html["Découvrez la surveillance de la latence"]
+

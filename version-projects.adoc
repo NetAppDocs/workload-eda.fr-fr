@@ -55,4 +55,4 @@ Le nom par défaut du clone est le nom du projet suivi de la date et de l'heure 
 
 
 .Résultat
-Workload Factory crée un nouveau clone du projet, et ce clone apparaît comme un nouveau projet sur la page Projets.
+Workload Factory crée un nouveau clone du projet, et le clone apparaît comme un nouveau projet sur la page Projets.

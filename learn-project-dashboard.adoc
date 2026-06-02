@@ -1,0 +1,137 @@
+---
+sidebar: sidebar 
+permalink: learn-project-dashboard.html 
+keywords: projects dashboard, AWS tags, CloudWatch, FSx for ONTAP, Workload Factory, EDA, electronic design automation, volume details, capacity utilization, throughput utilization, IOPS utilization, custom filters 
+summary: 'Découvrez comment le tableau de bord Projets de Workload Factory for EDA vous aide à surveiller et à analyser l"utilisation du stockage des projets sur les systèmes de fichiers FSx for ONTAP et les volumes.' 
+---
+= Découvrez le tableau de bord Projets dans Workload Factory pour EDA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Le tableau de bord Projets aide les administrateurs informatiques et les chefs de projet à observer et analyser l'utilisation des projets sur les systèmes de fichiers et volumes FSx for ONTAP. Il offre une visibilité sur les modèles d'utilisation du stockage, vous aidant ainsi à identifier les projets gourmands en ressources, à suivre les coûts et à optimiser l'allocation du stockage avant que des problèmes de capacité ou de performance n'affectent vos simulations EDA.
+
+
+
+== Fonctionnement du tableau de bord Projets
+
+Le tableau de bord Projets collecte les métriques CloudWatch pour tous les volumes FSx for ONTAP associés à vos identifiants AWS. Vous pouvez créer jusqu'à cinq filtres personnalisés basés sur vos balises AWS afin d'organiser et de filtrer les données selon vos besoins métier spécifiques, tels que les projets, les équipes ou les applications.
+
+Le tableau de bord vous aide à :
+
+* Planifier la capacité et évaluer les coûts
+* Prendre des décisions fondées sur les données concernant l'allocation des ressources
+* Identifier les projets nécessitant d'importantes ressources
+* Suivre avec précision les coûts par projet ou par équipe
+* Optimisez l'allocation de stockage avant que des problèmes ne surviennent
+
+
+Pour une surveillance proactive des performances de latence, voir link:learn-latency-monitoring.html["Découvrez la surveillance de la latence"].
+
+
+
+=== CloudWatch metrics collectées
+
+Le tableau de bord collecte et affiche les indicateurs CloudWatch suivants :
+
+* *Capacité provisionnée* : Métrique au niveau du volume représentant la capacité de stockage provisionnée.
+* *Capacité utilisée* : Métrique au niveau du volume représentant le stockage utilisé.
+* *Débit moyen/maximum* : Calculé comme la moyenne ou le maximum de la somme de DataReadBytes et DataWriteBytes sur la période spécifiée.
+* *IOPS moyennes/maximales* : Calculées comme la moyenne ou le maximum de la somme de DataReadOperations, DataWriteOperations et MetadataOperations sur la période spécifiée.
+
+
+
+
+== Filtres personnalisés
+
+Les filtres personnalisés vous permettent d'organiser les données de votre tableau de bord en fonction du fonctionnement de votre organisation. En alignant les filtres sur la structure de vos projets, vos équipes ou vos centres de coûts, vous pouvez accéder rapidement aux données spécifiques dont vous avez besoin sans naviguer à travers des informations non pertinentes. Cela rend la planification de la capacité, le suivi des coûts et la surveillance des performances plus efficaces.
+
+Vous pouvez configurer jusqu'à cinq filtres personnalisés en fonction de vos balises AWS. Chaque filtre personnalisé nécessite les composants suivants :
+
+* *Nom de l'étiquette du filtre* : Le nom d’affichage qui apparaît dans le tableau de bord
+* *Nom de la clé de balise AWS* : La clé de balise AWS réelle utilisée sur vos ressources
+* *Type de sélection* : Sélection unique ou sélection multiple
+
+
+Si vous ne configurez aucun filtre personnalisé, les filtres par défaut (système de fichiers, type de volume et plage horaire) restent disponibles afin que vous puissiez toujours consulter et interagir avec vos tableaux de bord.
+
+
+
+=== Balises AWS
+
+Les balises AWS sont des métadonnées pour vos ressources AWS. Elles vous aident à catégoriser vos ressources AWS de différentes manières, par exemple par projet, application ou unité commerciale.
+
+Pour utiliser efficacement les filtres personnalisés, configurez les balises AWS sur vos volumes FSx pour ONTAP en fonction des besoins de votre entreprise, par exemple des balises représentant des projets, des équipes ou des unités commerciales.
+
+Pour plus de détails sur le balisage, voir  https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html["Que sont les tags ?"^] et  https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html["Référence de l'API de balisage des groupes de ressources AWS"^].
+
+
+
+== Détails du volume
+
+Le tableau de bord propose différents modes d'affichage pour vous aider à analyser vos indicateurs de stockage à différents niveaux de détail.
+
+
+
+=== Vue totale
+
+La vue Totale (par défaut) affiche les métriques agrégées de tous les volumes correspondant à vos filtres sélectionnés. Cette vue offre une vue d'ensemble de haut niveau des performances globales de votre stockage, en présentant les métriques combinées de capacité, d'IOPS et de débit.
+
+Utilisez cette vue pour :
+
+* Comprendre les tendances générales
+* Planifiez les besoins futurs en capacité
+* Rapport sur la consommation totale de ressources par projet ou équipe
+
+
+
+
+=== Vue du volume
+
+La vue Volume affiche les performances de chaque volume au fil du temps, en présentant les 10 volumes principaux pour chaque indicateur. Cette vue vous aide à identifier les volumes spécifiques qui génèrent l'utilisation des ressources et à observer leur comportement sur la période sélectionnée.
+
+Utilisez cette vue pour :
+
+* Identifier les goulots d'étranglement des performances
+* Identifier les volumes qui pourraient nécessiter un redimensionnement
+* Identifiez précisément les projets ou charges de travail qui consomment le plus de ressources
+
+
+
+
+==== Indicateurs de volume affichés
+
+Lorsque vous consultez les volumes individuels, le tableau de bord affiche les 10 volumes les plus importants par rapport au nombre total de volumes pour chaque indicateur :
+
+* *Capacité volumique utilisée* : Affiche les volumes présentant la capacité actuellement utilisée la plus élevée.
+* *IOPS* : Affiche les volumes présentant la moyenne d’IOPS la plus élevée durant la période sélectionnée.
+* *Débit* : Affiche les volumes présentant le débit moyen le plus élevé durant la période sélectionnée.
+
+
+
+NOTE: Le tableau de bord n'affiche que les 10 premiers volumes pour chaque indicateur. Si vous avez plus de 10 volumes, certains volumes pourraient ne pas être affichés dans la vue détaillée.
+
+Lorsque les mêmes volumes apparaissent dans plusieurs indicateurs, le tableau de bord utilise un code couleur cohérent dans la légende afin de faciliter le suivi de volumes spécifiques dans différents indicateurs.
+
+
+
+==== Données de volume interactives
+
+Les données interactives affichées au survol fournissent des indicateurs précis à des moments spécifiques, vous aidant à corréler les variations de performance avec des événements ou des périodes particulières. Ces informations détaillées sont précieuses pour résoudre les problèmes de performance, valider les efforts d’optimisation ou expliquer les modèles d’utilisation des ressources aux parties prenantes.
+
+Lorsque vous survolez une courbe de volume dans les graphiques, vous pouvez visualiser :
+
+* *Capacité utilisée du volume* : Nom du volume, capacité utilisée à ce moment-là et capacité allouée
+* *IOPS* : Nom du volume, IOPS moyennes sur la période et IOPS maximales sur la période
+* *Débit* : Nom du volume, débit moyen sur la période considérée et débit maximal sur la période considérée
+
+
+
+
+== Informations connexes
+
+* link:task-configure-project-dashboard.html["Configurer le tableau de bord Projects"]
+* link:task-use-project-dashboard.html["Utilisez le tableau de bord Projets"]
+

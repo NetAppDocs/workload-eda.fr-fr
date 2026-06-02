@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: requirements-eda.html 
-keywords: Builders, FSx, project, projects. eda, electronic design automation, requirements, setup, workload factory 
+keywords: Builders, FSx, project, projects. eda, electronic design automation, requirements, setup, Workload Factory 
 summary: 'Assurez-vous que Workload Factory et AWS sont correctement configurés avant de commencer à utiliser NetApp Workload Factory pour l"EDA. Cela inclut vos identifiants de connexion AWS, un système de fichiers FSx pour ONTAP déployé, et plus encore.' 
 ---
 = Workload Factory pour les exigences EDA
@@ -20,7 +20,7 @@ Identifiants et autorisations AWS:: Vous devez ajouter des informations d'identi
 Les permissions en mode _Basique_ et en mode _Lecture seule_ ne sont pas prises en charge pour le moment.
 
 
-NOTE: Les informations d'identification AWS sont également requises pour utiliser la fonction de surveillance de la latence, qui collecte les métriques CloudWatch pour l'analyse des performances des volumes. Pour recevoir des notifications concernant les événements de latence, configurez les préférences de notification dans les paramètres de Workload Factory. Pour activer l'analyse optionnelle par agent IA pour les scénarios de latence complexes, vous devez également fournir un ARN de modèle Amazon Bedrock. link:task-monitor-latency.html["Découvrez la surveillance de la latence"].
+NOTE: Les informations d'identification AWS sont également requises pour utiliser la fonction de surveillance de la latence, qui collecte les métriques CloudWatch pour l'analyse des performances des volumes. Pour recevoir des notifications concernant les événements de latence, configurez les préférences de notification dans les paramètres de Workload Factory. Pour activer l'analyse optionnelle par agent IA pour les scénarios de latence complexes, vous devez également fournir un ARN de modèle Amazon Bedrock. link:learn-latency-monitoring.html["Découvrez la surveillance de la latence"].
 
 https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html["Découvrez comment ajouter des informations d'identification AWS à Workload Factory"^]
 

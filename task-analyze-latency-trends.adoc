@@ -17,7 +17,7 @@ Après avoir détecté un incident de latence, vous pouvez utiliser le graphique
 
 == Avant de commencer
 
-Vous devez avoir link:task-monitor-latency.html["surveillance de la latence configurée"] et au moins un événement de latence détecté.
+Vous devez avoir link:task-configure-latency-monitoring.html["surveillance de la latence configurée"] et au moins un événement de latence détecté.
 
 
 

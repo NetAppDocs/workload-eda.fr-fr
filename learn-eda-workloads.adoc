@@ -48,7 +48,7 @@ Vous pouvez créer un projet et lui attribuer un volume qui représente votre en
 
 == Automatisation avec Workload Factory Codebox
 
-Workload Factory introduit une automatisation intégrée avec _Codebox_. Codebox offre les avantages d'automatisation suivants :
+Workload Factory intègre l'automatisation grâce à _Codebox_. _Codebox_ offre les avantages suivants en matière d'automatisation :
 
 * *Génération d'extraits de code* : Les extraits d'infrastructure en tant que code (IaC) sont générés lors de la création de ressources, permettant une intégration transparente avec les flux de travail d'orchestration existants.
 * *Copilote Infrastructure-as-code* : Codebox est un copilote Infrastructure-as-code (IaC) qui aide les développeurs et les équipes DevOps à générer du code pour exécuter toute opération prise en charge par Workload Factory.
@@ -76,7 +76,6 @@ L'EDA est prise en charge dans toutes les régions commerciales où FSx pour ONT
 Les régions AWS suivantes ne sont pas prises en charge :
 
 * régions de Chine
-* Régions GovCloud (États-Unis)
 * Nuage secret
 * Nuage top secret
 

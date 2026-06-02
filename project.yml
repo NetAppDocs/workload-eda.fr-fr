@@ -29,18 +29,30 @@ sidebar:
       url: "/quick-start-eda.html"
   - title: Aperçu du stockage EDA
     entries:
-    - title: Gérer les opérations de stockage EDA
+    - title: Découvrez le tableau de bord Vue d'ensemble
+      url: "/learn-overview-dashboard.html"
+    - title: Activer le tableau de bord Vue d'ensemble
+      url: "/task-activate-overview-dashboard.html"
+    - title: Utilisez le tableau de bord Vue d'ensemble
       url: "/task-use-overview-dashboard.html"
   - title: FSx pour ONTAP analyse de la latence
     entries:
-    - title: Surveiller la latence des volumes FSx pour ONTAP
-      url: "/task-monitor-latency.html"
+    - title: Découvrez la surveillance de la latence
+      url: "/learn-latency-monitoring.html"
+    - title: Configurer la surveillance de la latence
+      url: "/task-configure-latency-monitoring.html"
+    - title: Analyser les problèmes de latence
+      url: "/task-analyze-latency-issues.html"
     - title: Analyser les tendances de latence
       url: "/task-analyze-latency-trends.html"
   - title: Analyse de l'utilisation du projet
     entries:
-    - title: Analyser l'utilisation du stockage du projet
-      url: "/task-configure-dashboard.html"
+    - title: Découvrez le tableau de bord Projets
+      url: "/learn-project-dashboard.html"
+    - title: Configurer le tableau de bord Projects
+      url: "/task-configure-project-dashboard.html"
+    - title: Utilisez le tableau de bord Projets
+      url: "/task-use-project-dashboard.html"
   - title: Utiliser l'intégration Perforce
     entries:
     - title: Découvrez l'intégration de Perforce

@@ -1,0 +1,70 @@
+---
+sidebar: sidebar 
+permalink: task-configure-project-dashboard.html 
+keywords: configure, dashboard, AWS tags, CloudWatch, FSx for ONTAP, Workload Factory, EDA, custom filters, project tags, team tags 
+summary: 'Configurez des filtres personnalisés pour le tableau de bord Projets afin d"organiser les indicateurs selon la structure de votre entreprise, par exemple par projets, équipes ou applications.' 
+---
+= Configurez le tableau de bord Projets dans Workload Factory pour EDA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Configurez des filtres personnalisés pour le tableau de bord Projets afin d'organiser les indicateurs selon la structure de votre entreprise, comme les projets, les équipes ou les centres de coûts. Cela vous aide à suivre les coûts avec précision, à identifier les ressources qui consomment le plus de capacité et à prendre des décisions éclairées concernant l'allocation des ressources et la planification budgétaire. En alignant les filtres sur le mode de fonctionnement de votre organisation, vous pouvez accéder rapidement aux données pertinentes et améliorer l'efficacité dans la planification de la capacité, le suivi des coûts et la surveillance des performances.
+
+
+
+== Avant de commencer
+
+Pour utiliser efficacement les filtres personnalisés, configurez les balises AWS sur vos volumes FSx pour ONTAP en fonction des besoins de votre entreprise, par exemple des balises représentant des projets, des équipes ou des unités commerciales.
+
+
+
+== Configurer les filtres personnalisés
+
+
+NOTE: Seul le premier administrateur à accéder au tableau de bord Projets peut configurer, ajouter ou supprimer des filtres personnalisés. Tous les autres utilisateurs, y compris les administrateurs suivants, disposent d'un accès en lecture seule aux filtres.
+
+.À propos de cette tâche
+Vous pouvez configurer jusqu'à cinq filtres personnalisés basés sur vos balises AWS. Chaque filtre personnalisé requiert trois éléments : un nom d'étiquette de filtre, un nom de clé de balise AWS et un type de sélection (sélection unique ou multiple).
+
+Si vous ne configurez aucun filtre personnalisé, les filtres par défaut (système de fichiers, type de volume et plage horaire) restent disponibles afin que vous puissiez toujours consulter et interagir avec vos tableaux de bord.
+
+.Mesures
+. Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
+. Sélectionnez le menu image:workloads-menu-icon.png["L'icône du menu hamburger permet d'accéder aux charges de travail telles que le stockage, l'analyse de données d'entreprise (EDA), l'intelligence artificielle (IA), les bases de données, VMware et l'administration."] puis sélectionnez *EDA*.
+. Sélectionnez *Projets*.
++
+Si vous n'avez pas encore configuré votre tableau de bord, vous serez automatiquement invité à le faire.
+
+. Sélectionnez *+ Add filters*.
+. Pour chaque filtre personnalisé que vous souhaitez créer, ajoutez les détails :
++
+** Nom du libellé du filtre (nom affiché dans le tableau de bord)
+** Nom de la clé de balise AWS (la clé de balise réelle utilisée sur vos ressources)
+** Type de sélection (sélection unique ou multiple)
++
+
+NOTE: Les filtres apparaissent sur le tableau de bord dans l'ordre où vous les configurez. Pensez à organiser vos filtres les plus utilisés en premier pour un accès plus facile.
+
+
+
+. Sélectionnez *Appliquer*.
++
+Vous pouvez supprimer un filtre personnalisé en sélectionnant l'icône de la corbeille à côté de ce filtre avant d'appliquer vos modifications.
+
+. Pour visualiser vos modifications après avoir appliqué des étiquettes ou des filtres, sélectionnez l'icône d'actualisation sur le tableau de bord.
+. Pour modifier ultérieurement la configuration du tableau de bord, sélectionnez *Configurer*.
+
+
+.Résultat
+Une fois ces balises appliquées, Workload Factory commence à collecter et à afficher les indicateurs CloudWatch pertinents. Votre tableau de bord devient alors un outil dynamique pour organiser, suivre les coûts et filtrer les ressources en fonction des besoins de votre organisation.
+
+
+
+== Informations connexes
+
+* link:learn-project-dashboard.html["Découvrez le tableau de bord Projets"]
+* link:task-use-project-dashboard.html["Utilisez le tableau de bord Projets"]
+
