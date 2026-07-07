@@ -15,6 +15,31 @@ Découvrez les nouveautés concernant les fonctionnalités EDA de Workload Facto
 
 
 
+== 5 juillet 2026
+
+
+
+=== Analyse de latence améliorée avec graphiques d'IOPS et de débit
+
+Le panneau d'analyse de latence affiche désormais des graphiques de performance synchronisés dans l'onglet *Évolution dans le temps* :
+
+* *Graphique de latence* : Affiche l’évolution de la latence au fil du temps, avec des lignes de seuil et des alertes lorsque les limites sont dépassées.
+* *Graphique IOPS* : Affiche les opérations par seconde, avec des lignes de seuil et des indicateurs de dépassements de limites antérieurs.
+* *Graphique de débit* : Affiche les taux de transfert de données (DataReadBytes ou DataWriteBytes).
+
+
+Tous les graphiques utilisent la même chronologie et affichent automatiquement les indicateurs corrects selon qu'il s'agisse d'une lecture ou d'une écriture.
+
+Un nouveau filtre vous permet de basculer entre Tout, Lecture, Écriture ou Métadonnées pour une analyse plus détaillée.
+
+Ces graphiques vous aident à visualiser les relations entre la latence, les IOPS et le débit, ce qui facilite la recherche des causes des problèmes de performance et la décision quant à leur résolution.
+
+Les graphiques de performance ne sont désormais disponibles que lorsque les identifiants AWS sont fournis. Les liens FSx for ONTAP sont nécessaires uniquement pour la répartition des composants dans l'analyse de base et l'analyse IA.
+
+https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-trends.html["Apprenez à analyser les tendances de latence à l'aide de plusieurs graphiques"^].
+
+
+
 == 31 mai 2026
 
 
@@ -125,18 +150,18 @@ https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html#capa
 
 === Analyse automatisée de la latence de l'IA
 
-L'analyse de la latence inclut désormais l'analyse des agents d'IA.
+L'analyse de latence inclut désormais l'analyse par IA.
 
-Pour les scénarios complexes impliquant des données ou une latence de cluster, vous pouvez faire appel à une analyse par agent d'IA pour obtenir :
+Pour les scénarios complexes impliquant des données ou une latence de cluster, vous pouvez faire appel à l'analyse IA pour recevoir :
 
 * Identification détaillée des causes profondes
 * Liste des clients EC2 concernés
 * Étapes de remédiation spécifiques
 
 
-L'analyse par agent d'IA nécessite la configuration ARN du modèle Amazon Bedrock et est disponible à la demande pour les scénarios où une analyse de base recommande une investigation plus approfondie. L'agent d'IA peut identifier des problèmes tels que les volumes excessifs de trafic, les configurations de points de montage non optimales, FlexGroup, les besoins de rééquilibrage et les exigences de montée en charge horizontale.
+L'analyse par IA nécessite la configuration de l'ARN du modèle Amazon Bedrock et est disponible à la demande pour les scénarios où une analyse de base recommande une investigation plus approfondie. L'agent d'IA peut identifier des problèmes tels que les volumes excessifs, les configurations de points de montage non optimales, FlexGroup, les besoins de rééquilibrage et les exigences de montée en charge.
 
-https://docs.netapp.com/us-en/workload-eda/task-monitor-latency.html#run-ai-agent-analysis["Apprenez-en davantage sur l'analyse des agents IA"^].
+https://docs.netapp.com/us-en/workload-eda/task-monitor-latency.html#run-ai-agent-analysis["En savoir plus sur l'analyse de l'IA"^].
 
 
 
@@ -182,7 +207,7 @@ link:https://docs.netapp.com/us-en/workload-setup-admin/workload-factory-overvie
 
 
 
-=== Filtrage amélioré du tableau de bord avec des balises personnalisables
+=== Filtrage amélioré des tableaux de bord avec des balises personnalisables dans les charges de travail EDA
 
 Vous pouvez désormais configurer jusqu'à cinq filtres personnalisés sur le tableau de bord EDA en fonction de vos balises AWS. Chaque filtre personnalisé comprend un nom de label, une clé de balise AWS et un type de sélection (sélection unique ou multiple).
 
@@ -248,7 +273,7 @@ BlueXP a été renommé et repensé pour mieux refléter le rôle qu'il joue dan
 
 
 
-=== Prise en charge des clones
+=== Prise en charge du clonage dans Workload Factory for Builders
 
 Vous pouvez désormais cloner un projet dans BlueXP Workload Factory for Builders. Lorsque vous clonez un projet, Builders crée un nouveau projet à partir d'un instantané, avec la même configuration que l'original. Le clonage est utile pour créer rapidement des projets similaires ou à des fins de test. Vous pouvez monter le nouveau clone de projet en suivant les instructions dans Builders.
 
@@ -260,7 +285,7 @@ https://docs.netapp.com/us-en/workload-builders/version-projects.html["Gérer le
 
 
 
-=== Terminologie des autorisations mise à jour
+=== Terminologie des permissions mise à jour dans Workload Factory pour EDA
 
 L'interface utilisateur et la documentation de Workload Factory utilisent désormais « lecture seule » pour désigner les autorisations de lecture et « lecture/écriture » pour désigner les autorisations d'automatisation.
 

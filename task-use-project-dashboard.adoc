@@ -11,7 +11,7 @@ summary: 'Utilisez le tableau de bord Projets pour surveiller l"utilisation du s
 
 
 [role="lead"]
-Utilisez le tableau de bord Projets pour surveiller l'utilisation du stockage sur vos systèmes de fichiers FSx for ONTAP et volumes. Filtrez les données par projets, équipes ou applications, et analysez à la fois les performances agrégées et individuelles des volumes afin de prendre des décisions éclairées concernant la planification de la capacité et l'optimisation des ressources.
+Utilisez le tableau de bord Projets pour suivre l'utilisation du stockage sur vos systèmes de fichiers et volumes FSx for ONTAP. Filtrez les données par projet, équipe ou application. Consultez les performances globales et par volume pour vous aider à planifier la capacité et à utiliser les ressources plus efficacement.
 
 
 
@@ -23,7 +23,7 @@ Vous devriez avoir link:task-configure-project-dashboard.html["filtres personnal
 
 == Filtrer le tableau de bord
 
-Le filtrage vous permet de vous concentrer sur des sous-ensembles spécifiques de vos ressources de stockage, facilitant ainsi l'analyse des tendances, l'identification des problèmes et la génération de rapports pour les parties prenantes. En combinant plusieurs filtres, vous pouvez répondre à des questions métier précises comme « Quelle quantité de stockage mon équipe projet ASIC utilise-t-elle ? » ou « Quels volumes dans la région US-West ont le plus d'IOPS ? »
+Le filtrage vous permet de vous concentrer sur des groupes spécifiques de ressources de stockage. Cela facilite l’identification des tendances, la détection des problèmes et la création de rapports pour les parties prenantes. En utilisant plusieurs filtres ensemble, vous pouvez répondre à des questions ciblées telles que : « Quelle quantité de stockage l’équipe du projet ASIC utilise-t-elle ? » ou « Quels volumes de la région US-West présentent les IOPS les plus élevées ? »
 
 .À propos de cette tâche
 Vous pouvez filtrer les informations affichées sur le tableau de bord en utilisant une combinaison de filtres par défaut et de filtres personnalisés que vous avez configurés.
@@ -46,16 +46,16 @@ Vous pouvez filtrer les informations affichées sur le tableau de bord en utilis
 
 == Afficher les détails du volume
 
-Comprendre les performances des volumes, tant agrégés qu'individuels, vous permet de prendre des décisions éclairées concernant la planification de la capacité et l'optimisation des performances. La vue Total présente les tendances générales, tandis que la vue Volume vous aide à identifier les volumes spécifiques qui pourraient nécessiter une attention particulière, une optimisation ou des ressources supplémentaires.
+L'analyse des performances globales et individuelles des volumes vous aide à planifier la capacité et à améliorer les performances. La vue « Total » présente les tendances générales. La vue « Volume » vous aide à identifier les volumes spécifiques qui peuvent nécessiter une attention particulière, un réglage ou des ressources supplémentaires.
 
 
 
 === Afficher les indicateurs de volume agrégés
 
-La vue Totale affiche les métriques agrégées pour tous les volumes correspondant à vos filtres sélectionnés.
+La vue Totale affiche les indicateurs combinés pour tous les volumes correspondant à vos filtres.
 
 .Mesures
-. Dans l'onglet *Projet*, assurez-vous que l'onglet *Total* est sélectionné (il s'agit de l'affichage par défaut).
+. Ouvrez l'onglet **Projet** et assurez-vous que l'onglet **Total** est sélectionné. Il s'agit de l'affichage par défaut.
 . Examinez les indicateurs affichés :
 +
 ** Capacité combinée pour tous les volumes
@@ -63,17 +63,17 @@ La vue Totale affiche les métriques agrégées pour tous les volumes correspond
 ** Débit agrégé
 
 
-. Utilisez cette vue pour comprendre les tendances générales et planifier les besoins futurs en matière de capacité.
+. Utilisez cette vue pour observer les tendances et planifier la capacité dont vous aurez besoin à l'avenir.
 
 
 
 
 === Afficher les performances de volume individuelles
 
-La vue Volume affiche les performances de chaque volume au fil du temps, en présentant les 10 volumes principaux pour chaque indicateur.
+La vue Volume montre l'évolution de chaque volume au fil du temps. Elle met en évidence les 10 meilleurs volumes pour chaque indicateur.
 
 .Mesures
-. Dans l'onglet *Projet*, sélectionnez l'onglet *Volume*.
+. Dans l'onglet **Projet**, sélectionnez l'onglet **Volume**.
 . Examinez les indicateurs de volume :
 +
 ** *Capacité volumique utilisée* : Indique les volumes ayant la capacité utilisée la plus élevée
@@ -81,7 +81,7 @@ La vue Volume affiche les performances de chaque volume au fil du temps, en pré
 ** *Débit* : Affiche les volumes présentant le débit moyen le plus élevé durant la période sélectionnée
 +
 
-NOTE: Le tableau de bord n'affiche que les 10 premiers volumes pour chaque indicateur. Si vous avez plus de 10 volumes, certains volumes pourraient ne pas être affichés dans la vue détaillée.
+NOTE: Si vous avez plus de 10 volumes, les autres n'apparaîtront pas dans la vue détaillée.
 
 
 
@@ -92,16 +92,16 @@ NOTE: Le tableau de bord n'affiche que les 10 premiers volumes pour chaque indic
 ** *Débit* : Nom du volume, débit moyen sur la période considérée et débit maximal sur la période considérée
 
 
-. Utilisez la légende pour identifier les volumes spécifiques. Lorsque les mêmes volumes apparaissent dans plusieurs indicateurs, le tableau de bord utilise un code couleur cohérent pour faciliter leur suivi.
+. Utilisez la légende pour identifier chaque volume. Les mêmes volumes utilisent les mêmes couleurs dans toutes les métriques afin que vous puissiez les suivre facilement.
 
 
 .Résultat
-Ces données interactives vous aident à :
+Utilisez ces données pour :
 
-* Analyser les tendances de performance des volumes
-* Identifier les goulots d'étranglement potentiels
-* Identifiez les volumes qui pourraient nécessiter un redimensionnement
-* Identifiez précisément les projets ou charges de travail qui consomment le plus de ressources
+* Analyser les habitudes d'utilisation
+* Repérer les éventuels goulots d'étranglement
+* Recherchez les volumes qui pourraient nécessiter un redimensionnement
+* Voyez quels projets ou charges de travail utilisent le plus de ressources
 
 
 
@@ -110,12 +110,12 @@ Ces données interactives vous aident à :
 
 Tenez compte des recommandations suivantes lors de l'utilisation du tableau de bord Projects :
 
-* *Surveillance régulière* : Consultez régulièrement le tableau de bord pour identifier les tendances avant qu’elles ne deviennent des problèmes.
-* *Combinez les filtres de manière stratégique* : Utilisez plusieurs filtres ensemble pour répondre à des questions métier spécifiques concernant l’utilisation des ressources.
-* *Comparer les vues* : Utilisez conjointement les vues Total et Volume — Total pour la planification et Volume pour le dépannage.
-* *Suivi dans le temps* : Utilisez différentes plages de temps pour déterminer si les variations de performance correspondent à des variations normales ou indiquent une tendance.
-* *Documentation des valeurs de référence* : Notez les niveaux de performance normaux de vos volumes afin de pouvoir identifier rapidement les anomalies.
-* *Exploiter les informations recueillies* : Utilisez les données de performance des volumes pour prendre des décisions proactives concernant l’allocation des ressources, leur dimensionnement ou leur optimisation avant que les problèmes n’affectent les charges de travail.
+* Consultez régulièrement le tableau de bord pour repérer les tendances avant qu'elles ne se transforment en problèmes.
+* Utilisez plusieurs filtres simultanément pour répondre à des questions spécifiques sur la façon dont les ressources sont utilisées.
+* Examinez les deux vues : utilisez Totale pour planifier la capacité et Volume pour identifier et résoudre les problèmes.
+* Modifiez la période pour voir si les changements sont normaux ou s'ils font partie d'une tendance croissante.
+* Enregistrez les niveaux de performance normaux afin qu'il soit plus facile de repérer les comportements inhabituels par la suite.
+* Utilisez les informations tirées des données pour ajuster les ressources, redimensionner les volumes ou améliorer les performances avant que les charges de travail ne soient affectées.
 
 
 

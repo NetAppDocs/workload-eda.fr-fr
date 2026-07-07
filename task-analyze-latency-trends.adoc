@@ -11,29 +11,33 @@ summary: 'Utilisez le graphique interactif de latence pour analyser les tendance
 
 
 [role="lead"]
-Après avoir détecté un incident de latence, vous pouvez utiliser le graphique interactif pour analyser l'évolution de la latence du volume au fil du temps. Cela vous aide à identifier des tendances, à comprendre si les problèmes de performance sont récurrents ou isolés, et à prendre des décisions fondées sur les données concernant la remédiation.
+Après la détection d'un incident de latence, utilisez le graphique interactif pour observer l'évolution de la latence et du volume au fil du temps. Cela vous aide à repérer des tendances, à voir si le problème se produit fréquemment ou seulement une fois, et à décider comment le corriger en fonction des données.
 
 
 
 == Avant de commencer
 
-Vous devez avoir link:task-configure-latency-monitoring.html["surveillance de la latence configurée"] et au moins un événement de latence détecté.
+Vous devez avoir link:task-configure-latency-monitoring.html["surveillance de la latence configurée"] et au moins un événement de latence détecté. Vous pouvez consulter les graphiques de performance si vous disposez d'identifiants AWS. Pour voir le détail des composants, vous avez besoin d'un lien.
 
 
 
 == Analyser les tendances de latence
 
-Le graphique de latence fournit une représentation visuelle du comportement de la latence du volume au fil du temps.
+L'onglet *Au fil du temps* fournit des graphiques de performance pour vous aider à analyser le comportement des volumes : latence, IOPS et débit.
 
 .À propos de cette tâche
-Le graphique de latence affiche les données de latence CloudWatch pour le volume concerné. Le graphique indique automatiquement la latence de lecture ou d'écriture selon l'alarme qui a déclenché l'événement. Vous pouvez ajuster la plage horaire pour visualiser le comportement de la latence sur différentes périodes.
+Les graphiques présentent les indicateurs CloudWatch pour le volume concerné. Tous les graphiques utilisent la même chronologie. Ils affichent automatiquement les indicateurs de lecture ou d'écriture selon l'alarme qui a déclenché l'événement.
 
-Il comprend :
+Vous pouvez modifier la plage horaire pour observer les performances sur différentes périodes. Vous pouvez également passer de Tout, Lecture, Écriture ou Métadonnées.
 
-* Ligne de mesure de la latence : Affiche les valeurs de latence réelles (en millisecondes) collectées depuis CloudWatch au fil du temps
-* *Lignes de seuil* : Lignes horizontales pointillées indiquant vos seuils d’avertissement et critiques configurés
-* *Indicateurs de dépassement* : Repères visuels indiquant quand et combien de fois les seuils ont été dépassés au cours de la période
-* *Détails de l'incident* : Pour chaque incident, consultez la valeur de latence médiane, le pourcentage au-dessus du seuil, les données du centre de délai QoS et le temps de détection
+La visualisation comprend :
+
+* *Graphique de latence* : Affiche les valeurs de latence réelles (en millisecondes) collectées depuis CloudWatch au fil du temps avec des lignes de seuil et des indicateurs de dépassement.
+* *Graphique IOPS* : Affiche la latence réelle en millisecondes depuis CloudWatch au fil du temps. Les lignes de seuil indiquent les limites définies, et des marqueurs signalent les dépassements de ces limites. Il affiche également les opérations par seconde avec une ligne de seuil et des marqueurs pour les dépassements antérieurs. L’activité de lecture affiche DataReadOperations, et l’activité d’écriture affiche DataWriteOperations.
+* *Graphique de débit* : Affiche les taux de transfert de données. Pour les événements de lecture, il affiche DataReadBytes. Pour les événements d’écriture, il affiche DataWriteBytes. Si **Metadata** est sélectionné dans le filtre, le graphique de débit n’affiche aucune donnée.
+* *Lignes de seuil* : Les lignes horizontales pointillées indiquent les limites d’avertissement et critiques que vous avez définies sur les graphiques de latence et d’IOPS.
+* *Indicateurs de dépassement* : Marqueurs visuels qui montrent quand les seuils ont été dépassés et combien de fois cela s'est produit au cours de la période.
+* *Détails de la violation* : Pour chaque violation, consultez le délai médian, le pourcentage au-dessus de la limite, les données du centre de délai QoS et l’heure à laquelle elle a été détectée.
 
 
 .Mesures
@@ -42,43 +46,41 @@ Il comprend :
 Le panneau d'analyse de latence s'ouvre.
 
 . Sélectionnez l'onglet *Au fil du temps*.
-. Consultez le graphique par défaut qui affiche les données de latence des 3 dernières heures.
-. Modifiez la période pour analyser différentes périodes et identifier les tendances.
-. Observez la courbe de tendance de latence par rapport aux lignes de seuil.
-. Examinez les indicateurs de violation sur le graphique :
-+
-Lorsque les seuils sont dépassés à plusieurs reprises au cours de la période affichée, des indicateurs de dépassement signalent à quel moment les seuils ont été dépassés.
-
-. Pour consulter les détails de la violation, survolez ou sélectionnez un indicateur de violation.
+. Consultez la vue par défaut, qui affiche les graphiques de performance relatifs à la latence, aux IOPS et au débit au cours des 3 dernières heures.
+. Vous pouvez utiliser le filtre *Type* pour passer de Toutes à Lecture, Écriture ou Métadonnées. La valeur par défaut correspond au type d’événement (Lecture pour les événements de lecture, Écriture pour les événements d’écriture).
+. Modifiez la période pour examiner d'autres périodes et rechercher des tendances.
+. Consultez les courbes de tendance pour la latence, les IOPS et le débit. Les graphiques des IOPS et de la latence incluent des lignes de seuil pour comparaison.
+. Recherchez les indicateurs de violation sur les graphiques. Ces marqueurs apparaissent lorsque les seuils sont dépassés à plusieurs reprises au cours de la période sélectionnée.
+. Pour afficher plus de détails, survolez ou sélectionnez un indicateur de violation.
 . Consultez le récapitulatif du nombre d'infractions :
 +
-Le graphique affiche le nombre total de violations d'alerte ou critiques détectées au cours de la période sélectionnée.
+Le graphique illustre le nombre total de défaillances d'alerte ou critiques pendant la période sélectionnée.
 
 . Utilisez les informations du graphique pour :
 +
-** Déterminer si les problèmes de latence sont isolés ou récurrents
-** Identifier les schémas horaires qui sont corrélés à une latence élevée
-** Évaluer si les pics de latence sont brefs ou prolongés
-** Corréler les événements de latence avec les modèles de charge de travail ou les modifications du système
+** Vérifiez si les problèmes de latence se produisent une fois ou de façon répétée
+** Identifier les moments de la journée où la latence est plus élevée
+** Déterminez si les pics de latence sont courts ou de longue durée
+** Comparez les événements de latence avec les modèles de charge de travail ou les modifications du système
 
 
 
 
 .Résultat
-Vous obtenez ainsi une vue d'ensemble complète de l'évolution de la latence du volume au fil du temps, ce qui vous permet de prendre des décisions éclairées quant à la nécessité d'une correction immédiate, d'un ajustement des seuils ou d'une investigation des problèmes d'infrastructure sous-jacents.
+Vous pouvez observer l'évolution de la latence du volume au fil du temps. Cela vous aide à décider s'il convient d'agir maintenant, de modifier les seuils d'alerte ou de vérifier la présence de problèmes système.
 
 
-NOTE: Le graphique de latence présente les données de métriques CloudWatch, qui peuvent légèrement différer des données du centre de délai QoS d'ONTAP en raison de méthodologies de collecte différentes. Les deux sources de données sont fournies pour une analyse complète.
+NOTE: Le graphique de latence utilise les métriques CloudWatch. Celles-ci peuvent légèrement différer des données du centre de délai QoS d'ONTAP, car elles sont collectées de manière différente. Les deux sont présentées pour offrir une vue plus complète.
 
 
 
 == Interprétation du graphique
 
-Tenez compte des recommandations suivantes lors de l'analyse des tendances de latence :
+Utilisez ces conseils lors de l'analyse des changements de temps de réponse :
 
-* *Utilisez plusieurs périodes* : Analysez le graphique sur différentes périodes afin de distinguer les pics ponctuels d’une dégradation durable des performances. Commencez par la vue 24H pour le contexte, puis zoomez sur des périodes plus courtes pour analyser des incidents spécifiques, ou élargissez à 72H pour identifier les tendances quotidiennes.
-* *Comparer visuellement les seuils* : Utilisez les lignes de seuil sur le graphique pour évaluer si les valeurs d'alerte et critiques que vous avez configurées sont appropriées à vos profils de charge. Si la latence s'approche fréquemment du seuil sans le franchir, envisagez que votre seuil soit trop élevé. Si vous constatez de nombreux franchissements brefs du seuil sans incidence sur les opérations, votre seuil est peut-être trop sensible.
-* *Identifier les tendances quotidiennes* : Utilisez les vues 24H et 72H pour identifier les variations horaires. Si des pics de latence surviennent à des moments prévisibles, vous pouvez planifier les opérations gourmandes en ressources pendant les heures creuses ou augmenter la capacité pour gérer les pics de charge.
-* *Différencier les types de pics* : des pics brefs et aigus indiquent des problèmes transitoires (comme une contention temporaire de ressources), tandis qu’une latence élevée et soutenue suggère des problèmes systémiques (comme des contraintes de capacité ou des problèmes de configuration). Chaque type requiert une approche corrective différente.
-* *Surveillez les tendances après les modifications* : Après avoir ajusté les seuils, ajouté de la capacité ou modifié les configurations, surveillez le graphique pendant au moins 72 heures pour confirmer que vos modifications ont l’effet souhaité.
+* *Utilisez plusieurs périodes* : Analysez les graphiques sur différentes plages horaires pour distinguer les pics ponctuels des ralentissements persistants. Commencez par la vue sur 24 heures pour avoir le contexte général. Zoomez ensuite sur des périodes plus courtes pour examiner des incidents spécifiques, ou passez à la vue sur 72 heures pour repérer les tendances quotidiennes.
+* *Comparer visuellement les seuils* : Utilisez les lignes de seuil sur le graphique pour vérifier si vos paramètres d’alerte et de criticité sont adaptés à votre charge de travail. Si la latence s’approche souvent du seuil sans le franchir, ce dernier est peut-être trop élevé. Si vous observez de nombreux pics brefs qui franchissent le seuil sans affecter les opérations, le seuil est peut-être trop sensible.
+* *Identifier les tendances quotidiennes* : Utilisez les vues 24 h et 72 h pour repérer les tendances au cours de la journée. Si des pics de latence surviennent aux mêmes moments, planifiez les tâches lourdes pendant les périodes plus calmes ou augmentez la capacité pendant les périodes de forte activité.
+* *Différencier les types de pics* : Les pics brefs indiquent généralement des problèmes temporaires, comme une contention de ressources passagère. Une latence élevée et persistante révèle des problèmes système plus profonds, tels qu’une capacité limitée ou des problèmes de configuration. Chaque situation requiert une solution différente.
+* *Surveillez les tendances après les modifications* : Après avoir ajusté les seuils, ajouté de la capacité ou modifié les paramètres, surveillez le graphique pendant au moins 72 heures pour vous assurer que les modifications ont fonctionné.
 

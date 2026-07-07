@@ -11,25 +11,25 @@ summary: 'Configurez des filtres personnalisés pour le tableau de bord Projets 
 
 
 [role="lead"]
-Configurez des filtres personnalisés pour le tableau de bord Projets afin d'organiser les indicateurs selon la structure de votre entreprise, comme les projets, les équipes ou les centres de coûts. Cela vous aide à suivre les coûts avec précision, à identifier les ressources qui consomment le plus de capacité et à prendre des décisions éclairées concernant l'allocation des ressources et la planification budgétaire. En alignant les filtres sur le mode de fonctionnement de votre organisation, vous pouvez accéder rapidement aux données pertinentes et améliorer l'efficacité dans la planification de la capacité, le suivi des coûts et la surveillance des performances.
+Configurez des filtres personnalisés sur le tableau de bord Projets pour organiser les données d'une manière qui correspond au fonctionnement de votre entreprise, par exemple par projet, équipe ou centre de coûts. Cela facilite la visualisation claire des coûts, permet d’identifier les ressources utilisant le plus de capacité et d’améliorer la prise de décisions concernant les budgets et les effectifs. Lorsque les filtres correspondent à la structure de votre organisation, vous pouvez rapidement trouver les données dont vous avez besoin et gérer la capacité, les coûts et les performances plus efficacement.
 
 
 
 == Avant de commencer
 
-Pour utiliser efficacement les filtres personnalisés, configurez les balises AWS sur vos volumes FSx pour ONTAP en fonction des besoins de votre entreprise, par exemple des balises représentant des projets, des équipes ou des unités commerciales.
+Pour utiliser des filtres personnalisés, ajoutez des balises AWS à vos volumes FSx for ONTAP en fonction de vos besoins, telles que des balises pour les projets, les équipes ou les unités commerciales.
 
 
 
 == Configurer les filtres personnalisés
 
 
-NOTE: Seul le premier administrateur à accéder au tableau de bord Projets peut configurer, ajouter ou supprimer des filtres personnalisés. Tous les autres utilisateurs, y compris les administrateurs suivants, disposent d'un accès en lecture seule aux filtres.
+NOTE: Seul le premier administrateur qui ouvre le tableau de bord Projets peut créer, modifier ou supprimer des filtres personnalisés. Tous les autres utilisateurs, y compris les autres administrateurs, peuvent uniquement consulter les filtres.
 
 .À propos de cette tâche
-Vous pouvez configurer jusqu'à cinq filtres personnalisés basés sur vos balises AWS. Chaque filtre personnalisé requiert trois éléments : un nom d'étiquette de filtre, un nom de clé de balise AWS et un type de sélection (sélection unique ou multiple).
+Vous pouvez configurer jusqu'à cinq filtres personnalisés à l'aide de vos balises AWS. Chaque filtre nécessite les éléments suivants : une étiquette de filtre, une clé de balise AWS et un type de sélection (unique ou multiple).
 
-Si vous ne configurez aucun filtre personnalisé, les filtres par défaut (système de fichiers, type de volume et plage horaire) restent disponibles afin que vous puissiez toujours consulter et interagir avec vos tableaux de bord.
+Si vous ne configurez aucun filtre personnalisé, les filtres par défaut, système de fichiers, type de volume et plage horaire, resteront disponibles, vous permettant ainsi de continuer à consulter et à utiliser vos tableaux de bord.
 
 .Mesures
 . Connectez-vous en utilisant l'un des link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["expériences sur console"^].
@@ -46,7 +46,7 @@ Si vous n'avez pas encore configuré votre tableau de bord, vous serez automatiq
 ** Type de sélection (sélection unique ou multiple)
 +
 
-NOTE: Les filtres apparaissent sur le tableau de bord dans l'ordre où vous les configurez. Pensez à organiser vos filtres les plus utilisés en premier pour un accès plus facile.
+NOTE: Les filtres apparaissent sur le tableau de bord dans l'ordre où vous les avez définis. Placez les filtres que vous utilisez le plus en haut afin qu'ils soient plus faciles d'accès.
 
 
 
@@ -59,7 +59,7 @@ Vous pouvez supprimer un filtre personnalisé en sélectionnant l'icône de la c
 
 
 .Résultat
-Une fois ces balises appliquées, Workload Factory commence à collecter et à afficher les indicateurs CloudWatch pertinents. Votre tableau de bord devient alors un outil dynamique pour organiser, suivre les coûts et filtrer les ressources en fonction des besoins de votre organisation.
+Lorsque vous appliquez ces balises, Workload Factory commence à collecter et à afficher les CloudWatch metrics correspondantes. Votre tableau de bord vous aide ensuite à organiser les ressources, à suivre les coûts et à filtrer les éléments selon vos besoins.
 
 
 

@@ -1,10 +1,10 @@
-= Filtrage amélioré du tableau de bord avec des balises personnalisables
+= Filtrage amélioré des tableaux de bord avec des balises personnalisables dans les charges de travail EDA
 :allow-uri-read: 
 
 
 
 
-=== Filtrage amélioré du tableau de bord avec des balises personnalisables
+=== Filtrage amélioré des tableaux de bord avec des balises personnalisables dans les charges de travail EDA
 
 Vous pouvez désormais configurer jusqu'à cinq filtres personnalisés sur le tableau de bord EDA en fonction de vos balises AWS. Chaque filtre personnalisé comprend un nom de label, une clé de balise AWS et un type de sélection (sélection unique ou multiple).
 
