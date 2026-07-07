@@ -35,7 +35,7 @@ Vous pouvez configurer des seuils distincts pour :
 * Gravité critique
 
 
-Tous les événements détectés apparaissent dans le tableau des événements de latence. Si les notifications sont configurées, vous recevez également un e-mail ou un message Amazon SNS avec des détails sur les volumes concernés.
+Tous les événements détectés apparaissent dans le tableau des événements de latence. Si les notifications sont configurées, vous recevez également un e-mail ou un message Amazon SNS avec des détails sur les volumes concernés. Vous pouvez contrôler la fréquence à laquelle vous recevez les notifications : soit quotidiennement par système de fichiers, soit toutes les 20 minutes.
 
 
 
