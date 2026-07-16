@@ -15,12 +15,14 @@ Utilisez le tableau de bord Projets pour suivre l'utilisation du stockage sur vo
 
 
 
+[[before-you-begin]]
 == Avant de commencer
 
 Vous devriez avoir link:task-configure-project-dashboard.html["filtres personnalisés configurés"] pour le tableau de bord Projects. Si vous n'avez pas configuré de filtres personnalisés, vous pouvez toujours utiliser les filtres par défaut (système de fichiers, type de volume et plage de dates).
 
 
 
+[[filter-the-dashboard]]
 == Filtrer le tableau de bord
 
 Le filtrage vous permet de vous concentrer sur des groupes spécifiques de ressources de stockage. Cela facilite l’identification des tendances, la détection des problèmes et la création de rapports pour les parties prenantes. En utilisant plusieurs filtres ensemble, vous pouvez répondre à des questions ciblées telles que : « Quelle quantité de stockage l’équipe du projet ASIC utilise-t-elle ? » ou « Quels volumes de la région US-West présentent les IOPS les plus élevées ? »
@@ -44,12 +46,14 @@ Vous pouvez filtrer les informations affichées sur le tableau de bord en utilis
 
 
 
+[[view-volume-details]]
 == Afficher les détails du volume
 
 L'analyse des performances globales et individuelles des volumes vous aide à planifier la capacité et à améliorer les performances. La vue « Total » présente les tendances générales. La vue « Volume » vous aide à identifier les volumes spécifiques qui peuvent nécessiter une attention particulière, un réglage ou des ressources supplémentaires.
 
 
 
+[[view-aggregated-volume-metrics]]
 === Afficher les indicateurs de volume agrégés
 
 La vue Totale affiche les indicateurs combinés pour tous les volumes correspondant à vos filtres.
@@ -68,6 +72,7 @@ La vue Totale affiche les indicateurs combinés pour tous les volumes correspond
 
 
 
+[[view-individual-volume-performance]]
 === Afficher les performances de volume individuelles
 
 La vue Volume montre l'évolution de chaque volume au fil du temps. Elle met en évidence les 10 meilleurs volumes pour chaque indicateur.
@@ -106,6 +111,7 @@ Utilisez ces données pour :
 
 
 
+[[best-practices]]
 == Meilleures pratiques
 
 Tenez compte des recommandations suivantes lors de l'utilisation du tableau de bord Projects :
@@ -120,6 +126,7 @@ Tenez compte des recommandations suivantes lors de l'utilisation du tableau de b
 
 
 
+[[related-information]]
 == Informations connexes
 
 * link:learn-project-dashboard.html["Découvrez le tableau de bord Projets"]

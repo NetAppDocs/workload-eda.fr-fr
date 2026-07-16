@@ -4,6 +4,7 @@
 
 
 
+[[clone-support-in-workload-factory-for-builders]]
 === Prise en charge du clonage dans Workload Factory for Builders
 
 Vous pouvez désormais cloner un projet dans BlueXP Workload Factory for Builders. Lorsque vous clonez un projet, Builders crée un nouveau projet à partir d'un instantané, avec la même configuration que l'original. Le clonage est utile pour créer rapidement des projets similaires ou à des fins de test. Vous pouvez monter le nouveau clone de projet en suivant les instructions dans Builders.

@@ -15,12 +15,14 @@ Activez le tableau de bord Vue d'ensemble pour commencer à collecter les indica
 
 
 
+[[before-you-begin]]
 == Avant de commencer
 
 Assurez-vous de remplir les exigences suivantes avant d'activer le tableau de bord.
 
 
 
+[[aws-credentials-with-view-permissions]]
 === Identifiants AWS avec autorisations de consultation
 
 Vous devez configurer les informations d'identification AWS dans Workload Factory avec au moins des autorisations de lecture (affichage) pour General Storage. _Basic_ credentials ne sont pas prises en charge.
@@ -31,6 +33,7 @@ Si vous n'avez pas configuré les informations d'identification AWS, consultez l
 
 
 
+[[activate-the-dashboard]]
 == Activer le tableau de bord
 
 Une fois que Workload Factory a vérifié les informations d'identification avec les autorisations de consultation, activez le tableau de bord pour commencer à collecter des métriques CloudWatch pour vos systèmes de fichiers FSx for ONTAP.
@@ -52,6 +55,7 @@ Workload Factory commence à collecter les métriques CloudWatch pour tous les s
 
 
 
+[[next-steps]]
 == Prochaines étapes
 
 Après avoir activé le tableau de bord, vous pouvez :
@@ -63,6 +67,7 @@ Après avoir activé le tableau de bord, vous pouvez :
 
 
 
+[[related-information]]
 == Informations connexes
 
 * link:learn-overview-dashboard.html["Découvrez le tableau de bord Vue d'ensemble"]

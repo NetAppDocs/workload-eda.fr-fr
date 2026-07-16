@@ -15,6 +15,7 @@ Les limitations connues identifient les plates-formes, les appareils ou les fonc
 
 
 
+[[operator-permissions-required]]
 == Autorisations de l'opérateur requises
 
 NetApp Workload Factory pour EDA nécessite des autorisations d'opérateur pour fonctionner correctement.

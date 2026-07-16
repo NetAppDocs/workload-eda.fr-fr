@@ -15,12 +15,14 @@ Utilisez le tableau de bord Vue d'ensemble pour vérifier l'état et la capacit�
 
 
 
+[[before-you-begin]]
 == Avant de commencer
 
 Vous devez disposer de link:task-activate-overview-dashboard.html["activé le tableau de bord Overview"] avant de pouvoir l'utiliser pour surveiller vos systèmes de fichiers.
 
 
 
+[[filter-the-dashboard]]
 == Filtrer le tableau de bord
 
 Utilisez les filtres en haut du tableau de bord pour afficher des systèmes de fichiers spécifiques. Les filtres s'appliquent aux sections latence, utilisation, événements ONTAP et au tableau des clusters.
@@ -41,6 +43,7 @@ Utilisez les filtres en haut du tableau de bord pour afficher des systèmes de f
 
 
 
+[[view-cluster-health-status]]
 == Afficher l'état de santé du cluster
 
 En haut du tableau de bord, vous voyez un résumé de l'état et de l'activité des systèmes de fichiers que vous avez sélectionnés. Cela apparaît uniquement lorsqu'au moins un lien FSx for ONTAP est connecté à vos systèmes de fichiers.
@@ -72,6 +75,7 @@ La carte d'affichage des événements ONTAP présente le nombre d'événements E
 
 
 
+[[view-and-apply-capacity-recommendations]]
 == Consulter et appliquer les recommandations de capacité
 
 Workload Factory génère automatiquement une recommandation de capacité pour chaque système de fichiers FSx for ONTAP. Vous pouvez trouver les systèmes de fichiers avec des recommandations en filtrant le tableau Clusters.
@@ -98,6 +102,7 @@ Le graphique affiche également les points de décision relatifs aux recommandat
 
 
 
+[[change-ssd-management-mode]]
 == Modifier le mode de gestion du SSD
 
 Pour chaque système de fichiers, choisissez comment la capacité SSD est gérée : recevoir des recommandations manuelles ou autoriser la mise à l’échelle automatique.
@@ -134,6 +139,7 @@ Le système de fichiers bascule immédiatement vers le nouveau mode. Si vous cho
 
 
 
+[[bulk-edit-ssd-management-parameters]]
 == Modification en masse des paramètres de gestion SSD
 
 Modifiez simultanément les paramètres de capacité SSD pour plusieurs systèmes de fichiers afin que les mêmes paramètres s'appliquent à l'ensemble de vos clusters.
@@ -166,6 +172,7 @@ Les paramètres sont mis à jour pour tous les systèmes de fichiers sélectionn
 
 
 
+[[analyze-capacity-trends-and-decision-points]]
 == Analyser les tendances de capacité et les points de décision
 
 Utilisez le graphique d'utilisation du SSD pour observer l'évolution de l'utilisation du stockage au fil du temps et repérer les tendances.
@@ -195,6 +202,7 @@ Les points de décision sur le graphique indiquent quand :
 
 
 
+[[use-the-clusters-table]]
 == Utilisez le tableau des clusters
 
 Le tableau des clusters fournit une vue détaillée de chaque système de fichiers FSx for ONTAP avec des indicateurs de performance et d'utilisation.
@@ -215,6 +223,7 @@ Survolez les en-têtes de colonne de débit pour afficher les détails du calcul
 
 
 
+[[best-practices]]
 == Meilleures pratiques
 
 Tenez compte des recommandations suivantes lors de l'utilisation du tableau de bord Overview :
@@ -230,6 +239,7 @@ Tenez compte des recommandations suivantes lors de l'utilisation du tableau de b
 
 
 
+[[related-information]]
 == Informations connexes
 
 * link:learn-overview-dashboard.html["Découvrez le tableau de bord Vue d'ensemble"]

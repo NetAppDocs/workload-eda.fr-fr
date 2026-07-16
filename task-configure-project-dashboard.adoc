@@ -15,12 +15,14 @@ Configurez des filtres personnalisés sur le tableau de bord Projets pour organi
 
 
 
+[[before-you-begin]]
 == Avant de commencer
 
 Pour utiliser des filtres personnalisés, ajoutez des balises AWS à vos volumes FSx for ONTAP en fonction de vos besoins, telles que des balises pour les projets, les équipes ou les unités commerciales.
 
 
 
+[[configure-custom-filters]]
 == Configurer les filtres personnalisés
 
 
@@ -63,6 +65,7 @@ Lorsque vous appliquez ces balises, Workload Factory commence à collecter et à
 
 
 
+[[related-information]]
 == Informations connexes
 
 * link:learn-project-dashboard.html["Découvrez le tableau de bord Projets"]

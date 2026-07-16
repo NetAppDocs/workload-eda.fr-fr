@@ -15,6 +15,7 @@ Le tableau de bord Projets permet aux administrateurs informatiques et aux chefs
 
 
 
+[[how-the-projects-dashboard-works]]
 == Fonctionnement du tableau de bord Projets
 
 Le tableau de bord Projets affiche les métriques CloudWatch pour tous les volumes FSx for ONTAP liés à vos identifiants AWS. Vous pouvez créer jusqu'à cinq filtres à l'aide de balises AWS pour organiser et visualiser les données par projet, équipe, application ou autres catégories.
@@ -32,6 +33,7 @@ Pour une surveillance proactive des performances de latence, voir link:learn-lat
 
 
 
+[[cloudwatch-metrics-collected]]
 === CloudWatch metrics collectées
 
 Le tableau de bord collecte et affiche les indicateurs CloudWatch suivants :
@@ -44,6 +46,7 @@ Le tableau de bord collecte et affiche les indicateurs CloudWatch suivants :
 
 
 
+[[custom-filters]]
 == Filtres personnalisés
 
 Les filtres personnalisés vous permettent d'organiser les données du tableau de bord en fonction du fonctionnement de votre organisation. Définissez des filtres par projet, équipe ou centre de coûts afin de trouver rapidement les données dont vous avez besoin sans avoir à trier des informations non pertinentes. Cela facilite la planification de la capacité, le suivi des coûts et la surveillance des performances.
@@ -59,6 +62,7 @@ Si vous ne configurez aucun filtre personnalisé, les filtres par défaut—syst
 
 
 
+[[aws-tags]]
 === Balises AWS
 
 Les balises AWS sont des métadonnées pour vos ressources AWS. Elles vous aident à catégoriser vos ressources AWS de différentes manières, par exemple par projet, application ou unité commerciale.
@@ -69,12 +73,14 @@ Pour plus de détails sur le balisage, voir  https://docs.aws.amazon.com/whitepa
 
 
 
+[[volume-details]]
 == Détails du volume
 
 Le tableau de bord propose différents modes d'affichage pour vous aider à analyser vos indicateurs de stockage à différents niveaux de détail.
 
 
 
+[[total-view]]
 === Vue totale
 
 La vue Totale (par défaut) affiche les métriques combinées de tous les volumes correspondant à vos filtres sélectionnés. Elle vous offre un aperçu rapide des performances globales du stockage, y compris la capacité totale, les IOPS et le débit.
@@ -88,6 +94,7 @@ Utilisez cette vue pour :
 
 
 
+[[volume-view]]
 === Vue du volume
 
 La vue Volume montre comment les volumes individuels fonctionnent au fil du temps. Elle affiche les 10 principaux volumes pour chaque indicateur. Cela vous aide à voir quels volumes utilisent le plus de ressources et comment ils se comportent pendant la période sélectionnée.
@@ -133,6 +140,7 @@ Lorsque vous survolez une courbe de volume dans les graphiques, vous pouvez visu
 
 
 
+[[related-information]]
 == Informations connexes
 
 * link:task-configure-project-dashboard.html["Configurer le tableau de bord Projects"]

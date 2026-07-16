@@ -15,12 +15,14 @@ Définissez des seuils d'alerte et de latence critique pour la lecture et l'écr
 
 
 
+[[before-you-begin]]
 == Avant de commencer
 
 Assurez-vous de respecter les exigences suivantes avant de configurer la surveillance de la latence.
 
 
 
+[[aws-credentials-and-permissions]]
 === Identifiants et autorisations AWS
 
 Vous devez ajouter des identifiants AWS à Workload Factory avec des autorisations de lecture/écriture. La fonctionnalité de surveillance de la latence nécessite l'accès aux métriques CloudWatch pour tous les volumes FSx for ONTAP associés à vos identifiants AWS.
@@ -31,12 +33,14 @@ Si vous n'avez pas configuré les informations d'identification AWS, consultez l
 
 
 
+[[fsx-for-ontap-file-system]]
 === Système de fichiers FSx pour ONTAP
 
 Vous devez disposer d'au moins un système de fichiers FSx for ONTAP avec des volumes déployés dans votre environnement AWS.
 
 
 
+[[link-to-fsx-for-ontap]]
 === Lien vers FSx pour ONTAP
 
 Pour afficher la répartition des composants dans l'analyse de base, vous devez associer un lien au système de fichiers FSx for ONTAP. Sans lien, vous pouvez toujours consulter les graphiques de latence, d'IOPS et de débit. Si aucun lien n'est déjà associé, sélectionnez *Associer un lien* dans EDA, choisissez de créer un nouveau lien ou d'associer un lien existant, puis sélectionnez *Continuer* pour accéder automatiquement à la page de création de lien dans Storage workloads.
@@ -45,6 +49,7 @@ Pour obtenir des instructions sur la création et l'association de liens, voir l
 
 
 
+[[amazon-bedrock-model-arn-optional]]
 === ARN du modèle Amazon Bedrock (facultatif)
 
 (Facultatif) Pour utiliser l'analyse par IA, indiquez l'ARN du modèle Amazon Bedrock dans les paramètres de Workload Factory. Sans cela, vous pouvez toujours utiliser la surveillance de la latence et l'analyse de base.
@@ -53,12 +58,14 @@ Pour plus de détails, voir link:https://docs.netapp.com/us-en/workload-genai/kn
 
 
 
+[[notification-configuration-optional]]
 === Configuration des notifications (facultatif)
 
 Pour recevoir des notifications par e-mail ou Amazon SNS en cas de détection d'événements de latence, configurez les préférences de notification dans les paramètres de Workload Factory. Voir <<Configurer les notifications de latence>> pour plus de détails.
 
 
 
+[[configure-latency-thresholds]]
 == Configurer les seuils de latence
 
 Définissez des seuils d'alerte et des limites critiques pour la lecture et l'écriture. Le système vérifie ces limites en permanence et envoie une alerte lorsqu'elles sont atteintes.
@@ -89,6 +96,7 @@ Workload Factory collecte les métriques de latence pour tous les volumes FSx fo
 
 
 
+[[configure-latency-notifications]]
 == Configurer les notifications de latence
 
 Configurez les notifications par e-mail ou Amazon SNS pour recevoir des alertes en cas de latence élevée. Vous pouvez contrôler la fréquence des notifications avec deux options :
@@ -112,6 +120,7 @@ Pour activer les notifications, consultez link:https://docs.netapp.com/us-en/wor
 
 
 
+[[manage-latency-configuration]]
 == Gérer la configuration de la latence
 
 Une fois la configuration terminée, vous pouvez modifier vos seuils à tout moment.
@@ -128,6 +137,7 @@ NOTE: Définissez le seuil critique à une valeur supérieure au seuil d'alerte.
 
 
 
+[[best-practices]]
 == Meilleures pratiques
 
 Tenez compte des recommandations suivantes lors de la configuration de la surveillance de la latence :
@@ -141,6 +151,7 @@ Tenez compte des recommandations suivantes lors de la configuration de la survei
 
 
 
+[[related-information]]
 == Informations connexes
 
 * link:learn-latency-monitoring.html["Découvrez la surveillance de la latence"]

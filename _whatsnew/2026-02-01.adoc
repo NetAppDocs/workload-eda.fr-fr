@@ -4,6 +4,7 @@
 
 
 
+[[enhanced-dashboard-filtering-with-customizable-tags-in-eda-workloads]]
 === Filtrage amélioré des tableaux de bord avec des balises personnalisables dans les charges de travail EDA
 
 Vous pouvez désormais configurer jusqu'à cinq filtres personnalisés sur le tableau de bord EDA en fonction de vos balises AWS. Chaque filtre personnalisé comprend un nom de label, une clé de balise AWS et un type de sélection (sélection unique ou multiple).
@@ -16,6 +17,7 @@ https://docs.netapp.com/us-en/workload-eda/task-configure-dashboard.html["En sav
 
 
 
+[[volume-details-view-for-granular-performance-analysis]]
 === Vue des détails du volume pour une analyse granulaire des performances
 
 Le tableau de bord propose désormais deux modes d'affichage : Total view et Volume view. Le mode Total view affiche des indicateurs agrégés pour l'ensemble des volumes, tandis que le mode Volume view présente les performances individuelles des 10 principaux volumes au fil du temps.
@@ -26,6 +28,7 @@ https://docs.netapp.com/us-en/workload-eda/task-configure-dashboard.html#view-vo
 
 
 
+[[latency-analysis-for-proactive-performance-monitoring]]
 === Analyse de la latence pour la surveillance proactive des performances
 
 L'analyse de latence vous permet de surveiller la latence de lecture et d'écriture des volumes sur vos systèmes de fichiers FSx for ONTAP. Vous pouvez configurer des seuils d'alerte et d'événements critiques personnalisables afin d'identifier proactivement les goulots d'étranglement des performances avant qu'ils n'affectent vos charges de travail EDA.

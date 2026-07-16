@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: task-analyze-latency-trends.html 
-keywords: latency graph, latency visualization, latency trends, breach patterns, latency spikes, latency patterns, time range analysis, breach frequency 
-summary: 'Utilisez le graphique interactif de latence pour analyser les tendances de latence du volume au fil du temps, identifier les schémas et suivre l"efficacité des mesures correctives.' 
+keywords: latency graph, latency visualization, latency trends, breach patterns, latency spikes, latency patterns, time range analysis, breach frequency, iops, throughput 
+summary: 'Utilisez les graphiques interactifs pour analyser les tendances de latence du volume au fil du temps, identifier les schémas et suivre l"efficacité des mesures correctives.' 
 ---
 = Analyser les tendances de latence pour l'EDA dans Workload Factory
 :allow-uri-read: 
@@ -11,51 +11,55 @@ summary: 'Utilisez le graphique interactif de latence pour analyser les tendance
 
 
 [role="lead"]
-Après la détection d'un incident de latence, utilisez le graphique interactif pour observer l'évolution de la latence et du volume au fil du temps. Cela vous aide à repérer des tendances, à voir si le problème se produit fréquemment ou seulement une fois, et à décider comment le corriger en fonction des données.
+Après la détection d'une violation de latence, utilisez les graphiques pour voir comment la latence du volume, les IOPS et le débit évoluent au fil du temps. Cela vous aide à repérer des schémas et à vérifier si la remédiation a amélioré les performances.
 
 
 
+[[before-you-begin]]
 == Avant de commencer
 
-Vous devez avoir link:task-configure-latency-monitoring.html["surveillance de la latence configurée"] et au moins un événement de latence détecté. Vous pouvez consulter les graphiques de performance si vous disposez d'identifiants AWS. Pour voir le détail des composants, vous avez besoin d'un lien.
+Vous devez disposer de link:task-configure-latency-monitoring.html["surveillance de la latence configurée"] et d'au moins une brèche détectée. Pour consulter les graphiques, assurez-vous que les identifiants AWS sont disponibles. Pour afficher la répartition des composants de latence QoS, assurez-vous que le système de fichiers est lié.
 
 
 
+[[analyze-latency-trends]]
 == Analyser les tendances de latence
 
-L'onglet *Au fil du temps* fournit des graphiques de performance pour vous aider à analyser le comportement des volumes : latence, IOPS et débit.
+La page *Analyse détaillée de la latence* fournit des graphiques de performance pour vous aider à analyser le comportement du volume au fil du temps : latence, IOPS et débit.
 
 .À propos de cette tâche
-Les graphiques présentent les indicateurs CloudWatch pour le volume concerné. Tous les graphiques utilisent la même chronologie. Ils affichent automatiquement les indicateurs de lecture ou d'écriture selon l'alarme qui a déclenché l'événement.
+Les graphiques présentent les indicateurs CloudWatch pour le volume concerné. Tous les graphiques utilisent la même chronologie. Ils affichent automatiquement les indicateurs en fonction de l’alarme qui a déclenché l’événement.
 
 Vous pouvez modifier la plage horaire pour observer les performances sur différentes périodes. Vous pouvez également passer de Tout, Lecture, Écriture ou Métadonnées.
 
 La visualisation comprend :
 
-* *Graphique de latence* : Affiche les valeurs de latence réelles (en millisecondes) collectées depuis CloudWatch au fil du temps avec des lignes de seuil et des indicateurs de dépassement.
-* *Graphique IOPS* : Affiche la latence réelle en millisecondes depuis CloudWatch au fil du temps. Les lignes de seuil indiquent les limites définies, et des marqueurs signalent les dépassements de ces limites. Il affiche également les opérations par seconde avec une ligne de seuil et des marqueurs pour les dépassements antérieurs. L’activité de lecture affiche DataReadOperations, et l’activité d’écriture affiche DataWriteOperations.
-* *Graphique de débit* : Affiche les taux de transfert de données. Pour les événements de lecture, il affiche DataReadBytes. Pour les événements d’écriture, il affiche DataWriteBytes. Si **Metadata** est sélectionné dans le filtre, le graphique de débit n’affiche aucune donnée.
-* *Lignes de seuil* : Les lignes horizontales pointillées indiquent les limites d’avertissement et critiques que vous avez définies sur les graphiques de latence et d’IOPS.
-* *Indicateurs de dépassement* : Marqueurs visuels qui montrent quand les seuils ont été dépassés et combien de fois cela s'est produit au cours de la période.
-* *Détails de la violation* : Pour chaque violation, consultez le délai médian, le pourcentage au-dessus de la limite, les données du centre de délai QoS et l’heure à laquelle elle a été détectée.
+* *Graphique de latence* : Affiche la latence du volume (ms) au fil du temps avec des lignes de seuil d’avertissement et de seuil critique et des marqueurs de dépassement.
+* *Graphique IOPS* : Affiche les IOPS au fil du temps, avec des seuils et des indicateurs de dépassement (si configuré).
+* *Graphique de débit* : Affiche le débit au fil du temps pour la période sélectionnée. Si **Métadonnées** est sélectionné dans le filtre, le graphique de débit n'affiche aucune donnée.
+* *Lignes de seuil* : Les lignes horizontales pointillées indiquent les seuils d’avertissement et critiques.
+* *Indicateurs de violation* : Des indicateurs visuels signalent les violations détectées. Survolez un indicateur pour afficher la gravité, l’heure de détection, la latence médiane CloudWatch (ms) et la répartition des composantes de latence QoS.
 
 
 .Mesures
-. Dans l'onglet *Latence*, sélectionnez un événement de latence dans le tableau des événements.
+. Dans l'onglet *Latence*, sélectionnez l'événement dans la colonne Gravité.
 +
 Le panneau d'analyse de latence s'ouvre.
 
-. Sélectionnez l'onglet *Au fil du temps*.
-. Consultez la vue par défaut, qui affiche les graphiques de performance relatifs à la latence, aux IOPS et au débit au cours des 3 dernières heures.
-. Vous pouvez utiliser le filtre *Type* pour passer de Toutes à Lecture, Écriture ou Métadonnées. La valeur par défaut correspond au type d’événement (Lecture pour les événements de lecture, Écriture pour les événements d’écriture).
+. Examinez le graphique de latence et le résumé des violations pour la *période* et le *type* sélectionnés.
+. Sélectionnez *Afficher l'analyse complète* pour ouvrir *Analyse détaillée de la latence*.
+. Dans les graphiques de *latence*, utilisez la *période* (par exemple, 72 heures) et le *type* (Lecture/Écriture/Métadonnées) pour ajuster les graphiques.
+. Examinez les graphiques pour :
++
+** *Latence* (ms) avec lignes de seuil d'alerte/critique
+** *IOPS* avec lignes de seuil (si configuré)
+** *Débit* sur la même période
+
+
+. Utilisez les marqueurs de pic et le résumé de la violation (par exemple, « 1 violation critique détectée dans cette période ») pour corréler les augmentations de latence avec les changements d'IOPS et de débit.
 . Modifiez la période pour examiner d'autres périodes et rechercher des tendances.
 . Consultez les courbes de tendance pour la latence, les IOPS et le débit. Les graphiques des IOPS et de la latence incluent des lignes de seuil pour comparaison.
-. Recherchez les indicateurs de violation sur les graphiques. Ces marqueurs apparaissent lorsque les seuils sont dépassés à plusieurs reprises au cours de la période sélectionnée.
-. Pour afficher plus de détails, survolez ou sélectionnez un indicateur de violation.
-. Consultez le récapitulatif du nombre d'infractions :
-+
-Le graphique illustre le nombre total de défaillances d'alerte ou critiques pendant la période sélectionnée.
-
+. Placez le pointeur de votre souris sur un marqueur de violation pour afficher les détails de la violation (gravité, heure de détection, latence médiane CW et composantes de latence QoS).
 . Utilisez les informations du graphique pour :
 +
 ** Vérifiez si les problèmes de latence se produisent une fois ou de façon répétée
@@ -70,10 +74,11 @@ Le graphique illustre le nombre total de défaillances d'alerte ou critiques pen
 Vous pouvez observer l'évolution de la latence du volume au fil du temps. Cela vous aide à décider s'il convient d'agir maintenant, de modifier les seuils d'alerte ou de vérifier la présence de problèmes système.
 
 
-NOTE: Le graphique de latence utilise les métriques CloudWatch. Celles-ci peuvent légèrement différer des données du centre de délai QoS d'ONTAP, car elles sont collectées de manière différente. Les deux sont présentées pour offrir une vue plus complète.
+NOTE: Les graphiques utilisent des métriques CloudWatch. Celles-ci peuvent différer légèrement des composantes de latence rapportées par la QoS, car elles sont collectées de différentes manières.
 
 
 
+[[graph-interpretation]]
 == Interprétation du graphique
 
 Utilisez ces conseils lors de l'analyse des changements de temps de réponse :

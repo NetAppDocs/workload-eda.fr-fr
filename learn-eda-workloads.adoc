@@ -17,6 +17,7 @@ L'intégration continue et le déploiement continu (CI/CD) dans EDA sont un outi
 
 
 
+[[what-is-cicd]]
 == Qu'est-ce que l'CI/CD ?
 
 L'utilisation de l'intégration continue et de la livraison continue (CI/CD) permet de rationaliser la façon dont les développeurs gèrent et interagissent avec les différentes versions de leurs logiciels. Il fonctionne avec Perforce Helix Core pour cloner instantanément les versions logicielles et créer des espaces de travail pour le développement, l'assurance qualité et l'intégration continue/la livraison continue.
@@ -27,6 +28,7 @@ Grâce aux fonctionnalités de snapshot et de clonage de NetApp ONTAP, vous pouv
 
 
 
+[[cicd-features]]
 == Fonctionnalités CI/CD
 
 * Créer, modifier et supprimer des projets. Voir link:manage-projects.html["Gérer des projets"].
@@ -40,12 +42,14 @@ Grâce aux fonctionnalités de snapshot et de clonage de NetApp ONTAP, vous pouv
 
 
 
+[[projects-and-workspaces-in-eda]]
 == Projets et espaces de travail dans EDA
 
 Vous pouvez créer un projet et lui attribuer un volume qui représente votre environnement logiciel et ses artefacts. À chaque création d'une nouvelle version du logiciel, vous devez resynchroniser les données du volume et créer un instantané du projet pour marquer l'état du volume comme une version connue. Le volume source du projet peut faire l'objet de mises à jour continues et comporter plusieurs instantanés pour marquer les différentes versions. Chaque instantané peut être utilisé immédiatement comme clone instantané, comme un référentiel modifiable dédié ou partagé, mis à la disposition des développeurs, des processus d'assurance qualité ou de compilation. Dans le contexte d'une version logicielle spécifique, un clone est un espace de travail.
 
 
 
+[[automation-with-workload-factory-codebox]]
 == Automatisation avec Workload Factory Codebox
 
 Workload Factory intègre l'automatisation grâce à _Codebox_. _Codebox_ offre les avantages suivants en matière d'automatisation :
@@ -57,18 +61,21 @@ Workload Factory intègre l'automatisation grâce à _Codebox_. _Codebox_ offre 
 
 
 
+[[cost]]
 == Coût
 
 L'utilisation des fonctionnalités CI/CD de Workload Factory est gratuite.
 
 
 
+[[licensing]]
 == Licences
 
 Aucune licence spéciale de NetApp n'est requise pour utiliser les fonctionnalités CI/CD de Workload Factory.
 
 
 
+[[regions]]
 == Régions
 
 L'EDA est prise en charge dans toutes les régions commerciales où FSx pour ONTAP est pris en charge. https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/["Afficher les régions Amazon prises en charge."^]
@@ -82,6 +89,7 @@ Les régions AWS suivantes ne sont pas prises en charge :
 
 
 
+[[getting-help]]
 == Obtenir de l'aide
 
 Amazon FSx for NetApp ONTAP est une solution AWS propriétaire. Pour obtenir de l'aide, utilisez le Centre de support de votre console de gestion AWS pour ouvrir un ticket. Sélectionnez « FSx pour ONTAP» et la catégorie, puis fournissez les informations requises.

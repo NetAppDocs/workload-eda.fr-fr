@@ -4,6 +4,7 @@
 
 
 
+[[eda-capacity-recommendations]]
 === Recommandations en matière de capacité EDA
 
 Workload Factory analyse désormais automatiquement la capacité SSD de chaque cluster FSx for ONTAP dans votre inventaire EDA et génère des recommandations de capacité lorsque des ajustements sont nécessaires. L'algorithme s'exécute toutes les 24 heures pour chaque cluster.
@@ -21,6 +22,7 @@ https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html#capa
 
 
 
+[[automated-ai-latency-analysis]]
 === Analyse automatisée de la latence de l'IA
 
 L'analyse de latence inclut désormais l'analyse par IA.

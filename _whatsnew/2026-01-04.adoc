@@ -4,6 +4,7 @@
 
 
 
+[[netapp-workload-factory-for-builders-now-netapp-workload-factory-for-eda]]
 === NetApp Workload Factory for Builders devient NetApp Workload Factory for EDA
 
 Workload Factory for Builders s'appelle désormais Workload Factory for EDA. Ce changement de nom reflète l'accent mis sur les charges de travail d'automatisation de la conception électronique (EDA).
@@ -12,6 +13,7 @@ Workload Factory pour EDA vous aide à optimiser FSx pour ONTAP sur plusieurs sy
 
 
 
+[[ask-me-ai-assistant-home-page-integration]]
 === Intégration de l'assistant IA à la page d'accueil de Ask me
 
 La page d'accueil de la console Workload Factory intègre l'assistant IA Ask me, vous permettant de poser des questions sur votre propre infrastructure de stockage, d'obtenir des informations personnalisées directement à partir de votre environnement et de consulter les conversations précédentes. Vous pouvez interagir avec « Demandez-moi » pour comprendre vos charges de travail, résoudre les problèmes et en savoir plus sur Workload Factory, le tout sans quitter la console.
