@@ -29,7 +29,7 @@ Vous devez ajouter des identifiants AWS à Workload Factory avec des autorisatio
 
 Les permissions en mode _Basique_ et en mode _Lecture seule_ ne sont pas prises en charge pour la surveillance de la latence.
 
-Si vous n'avez pas configuré les informations d'identification AWS, consultez link:https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html["Ajouter les identifiants AWS"^].
+Si vous n'avez pas configuré vos informations d'identification AWS, veuillez consulter link:https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html["Ajouter les identifiants AWS"^].
 
 
 
@@ -45,16 +45,14 @@ Vous devez disposer d'au moins un système de fichiers FSx for ONTAP avec des vo
 
 Pour afficher la répartition des composants dans l'analyse de base, vous devez associer un lien au système de fichiers FSx for ONTAP. Sans lien, vous pouvez toujours consulter les graphiques de latence, d'IOPS et de débit. Si aucun lien n'est déjà associé, sélectionnez *Associer un lien* dans EDA, choisissez de créer un nouveau lien ou d'associer un lien existant, puis sélectionnez *Continuer* pour accéder automatiquement à la page de création de lien dans Storage workloads.
 
-Pour obtenir des instructions sur la création et l'association de liens, voir link:https://docs.netapp.com/us-en/workload-fsx-ontap/create-link.html["Créer un lien"^].
+Pour obtenir des instructions sur la création et l'association de liens, veuillez vous référer à link:https://docs.netapp.com/us-en/workload-fsx-ontap/create-link.html["Créer un lien"^].
 
 
 
-[[amazon-bedrock-model-arn-optional]]
-=== ARN du modèle Amazon Bedrock (facultatif)
+[[turn-on-ai-settings]]
+=== Activer les paramètres d'IA
 
-(Facultatif) Pour utiliser l'analyse par IA, indiquez l'ARN du modèle Amazon Bedrock dans les paramètres de Workload Factory. Sans cela, vous pouvez toujours utiliser la surveillance de la latence et l'analyse de base.
-
-Pour plus de détails, voir link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements["Exigences de base de GenAI"^].
+Si l'administrateur de votre compte a désactivé les fonctionnalités d'IA, un message s'affichera et vous ne pourrez pas utiliser l'analyse par IA. Contactez votre administrateur ou consultez link:https://docs.netapp.com/us-en/workload-setup-admin/manage-genai-features.html["Découvrez l'administration de l'IA"^].
 
 
 
@@ -92,7 +90,7 @@ NOTE: Les seuils de latence que vous définissez dans EDA s'appliquent par défa
 
 
 .Résultat
-Workload Factory collecte les métriques de latence pour tous les volumes FSx for ONTAP liés à vos identifiants AWS. Il recueille ces métriques au moins toutes les 20 minutes. Les volumes qui dépassent les seuils que vous avez définis apparaissent dans le tableau des événements de latence.
+Workload Factory collecte les métriques de latence pour tous les volumes FSx for ONTAP liés à vos identifiants AWS. Les volumes qui dépassent les seuils que vous avez définis apparaissent dans le tableau des événements de latence.
 
 
 
@@ -116,7 +114,7 @@ Canaux de notification :
 * *Amazon SNS* : Publié sur votre rubrique SNS configurée pour l’intégration avec d’autres systèmes
 
 
-Pour activer les notifications, consultez link:https://docs.netapp.com/us-en/workload-setup-admin/configure-notifications.html#wf-console-email-notifications["Configurer les paramètres de notification"].
+Pour activer les notifications, veuillez consulter link:https://docs.netapp.com/us-en/workload-setup-admin/configure-notifications.html#wf-console-email-notifications["Configurer les paramètres de notification"].
 
 
 

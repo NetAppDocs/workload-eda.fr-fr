@@ -13,6 +13,8 @@ indexpage:
       url: "/learn-eda.html"
     - title: Démarrage rapide
       url: "/quick-start-eda.html"
+    - title: Exigences
+      url: "/requirements-eda.html"
   - title: Aperçu du stockage EDA
     links:
     - title: Découvrez le tableau de bord Vue d'ensemble
@@ -41,8 +43,6 @@ indexpage:
     links:
     - title: Découvrez l'intégration de Perforce
       url: "/learn-eda-workloads.html"
-    - title: Exigences
-      url: "/requirements-eda.html"
     - title: Automatisez avec Codebox
       url: "/automate-codebox.html"
   - title: Connaissances et soutien

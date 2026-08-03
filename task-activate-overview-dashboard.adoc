@@ -25,7 +25,7 @@ Assurez-vous de remplir les exigences suivantes avant d'activer le tableau de bo
 [[aws-credentials-with-view-permissions]]
 === Identifiants AWS avec autorisations de consultation
 
-Vous devez configurer les informations d'identification AWS dans Workload Factory avec au moins des autorisations de lecture (affichage) pour General Storage. _Basic_ credentials ne sont pas prises en charge.
+Vous devez configurer des identifiants AWS dans Workload Factory avec au moins des autorisations de lecture (visualisation) pour General Storage. Les identifiants _Basic_ ne sont pas pris en charge car ils n'incluent pas les autorisations de lecture nécessaires pour les métriques CloudWatch.
 
 Si vous n'avez pas configuré d'identifiants avec des autorisations de consultation, vous êtes redirigé vers la page de configuration des identifiants AWS lorsque vous ouvrez l'onglet Overview.
 
@@ -61,15 +61,7 @@ Workload Factory commence à collecter les métriques CloudWatch pour tous les s
 Après avoir activé le tableau de bord, vous pouvez :
 
 * link:task-use-overview-dashboard.html["Utilisez le tableau de bord Vue d'ensemble"] surveiller la santé et la capacité du cluster
-* Configurer les modes de gestion de la capacité SSD (Automatique, Recommandé ou Aucun)
+* link:task-use-overview-dashboard.html#change-ssd-management-mode["Activer et configurer les modes de gestion de la capacité SSD"] (Recommander, automatiser ou aucun)
+* link:task-use-overview-dashboard.html#change-throughput-management-mode["Activer et configurer les modes de gestion du débit"] (Recommander, Automatiser ou Aucun)
 * Configurez des filtres pour vous concentrer sur des régions ou des comptes AWS spécifiques
-
-
-
-
-[[related-information]]
-== Informations connexes
-
-* link:learn-overview-dashboard.html["Découvrez le tableau de bord Vue d'ensemble"]
-* link:task-use-overview-dashboard.html["Utilisez le tableau de bord Vue d'ensemble"]
 

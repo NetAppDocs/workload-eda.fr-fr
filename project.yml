@@ -27,6 +27,8 @@ sidebar:
       url: "/learn-eda.html"
     - title: Démarrage rapide
       url: "/quick-start-eda.html"
+    - title: Exigences
+      url: "/requirements-eda.html"
   - title: Aperçu du stockage EDA
     entries:
     - title: Découvrez le tableau de bord Vue d'ensemble
@@ -57,8 +59,6 @@ sidebar:
     entries:
     - title: Découvrez l'intégration de Perforce
       url: "/learn-eda-workloads.html"
-    - title: Exigences
-      url: "/requirements-eda.html"
     - title: Gérer des projets
       url: "/manage-projects.html"
     - title: Gérer les versions du projet

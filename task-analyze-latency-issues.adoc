@@ -25,11 +25,10 @@ Vous devez avoir link:task-configure-latency-monitoring.html["surveillance de la
 [[view-volumes-with-latency-above-threshold]]
 == Afficher les volumes avec une latence supérieure au seuil
 
-Le tableau « Volumes avec une latence supérieure au seuil » affiche les volumes qui ont dépassé le seuil de latence d'alerte ou critique au cours des 72 dernières heures.
+Le tableau « Volumes avec latence supérieure au seuil » affiche les volumes qui ont dépassé le seuil de latence d'avertissement ou critique.
 
 .À propos de cette tâche
 * Seule la violation la plus récente pour chaque volume est affichée. Les violations antérieures pour le même volume ne sont pas affichées.
-* Les événements sont automatiquement supprimés après 72 heures.
 * Seuls 200 événements au maximum sont affichés. Les événements les plus anciens sont supprimés au fur et à mesure que de nouveaux sont ajoutés.
 * Les événements apparaissent même sans lien vers le système de fichiers. Un lien est nécessaire pour consulter les détails d’analyse de base ou exécuter une analyse par IA.
 
@@ -51,8 +50,10 @@ Le tableau « Volumes avec une latence supérieure au seuil » affiche les volum
 [[analyze-a-latency-event]]
 == Analyser un événement de latence
 
-.Avant de commencer
-Configurez un ARN de modèle Amazon Bedrock dans les paramètres de Workload Factory, voir link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements["Exigences de base de GenAI"^].
+L'analyse de latence vous aide à identifier rapidement ce qui cause les ralentissements sans avoir à enquêter manuellement.
+
+
+NOTE: Pour utiliser l'analyse par IA, vous devez avoir activé l'IA gérée par NetApp. Pour plus d'informations, consultez link:https://docs.netapp.com/us-en/workload-setup-admin/manage-genai-features.html["Gérer les fonctionnalités d'IA"^].
 
 Une analyse de base vous aide à identifier rapidement la cause des ralentissements sans avoir à enquêter manuellement.
 
@@ -63,7 +64,7 @@ Une analyse de base vous aide à identifier rapidement la cause des ralentisseme
 
 Sélectionnez un événement de latence dans la colonne *Gravité* pour ouvrir le panneau d'analyse de latence correspondant. Le panneau comprend des onglets qui offrent différentes vues de l'événement de latence.
 
-Si un ARN de modèle Amazon Bedrock est configuré, vous pouvez exécuter des analyses d'IA sur les données et les scénarios de cluster. Si Bedrock n'est pas configuré, un lien vers la page de configuration des charges de travail de stockage pour ce système de fichiers est fourni, où vous pouvez configurer l'accès à Bedrock.
+La disponibilité de l'analyse IA dépend de la configuration de votre compte. Si l'IA gérée par NetApp est activée, vous pouvez exécuter une analyse IA sans configurer Bedrock. L'analyse IA est indisponible si la limite de crédit mensuelle est atteinte ou si votre administrateur désactive les fonctionnalités IA.
 
 * *Basique* : Affiche les résultats d'une analyse automatique. S'il est lié au système de fichiers, il présente le détail des composants et indique celui qui est à l'origine du délai. En l'absence de lien, vous êtes invité à en ajouter un. Un graphique interactif de latence des métriques CloudWatch pour le volume concerné s'affiche. Il présente soit les métriques de lecture, soit celles d'écriture, selon l'alarme qui a déclenché l'événement. Vous pouvez choisir différentes plages temporelles et utiliser un filtre pour afficher toutes les opérations, les opérations de lecture, d'écriture ou de métadonnées.
 * *Analyse par IA* : Affiche une investigation plus approfondie pour déterminer la cause profonde spécifique et les mesures correctives potentielles.
@@ -80,7 +81,7 @@ Pour des instructions détaillées sur l'utilisation des graphiques, voir link:t
 . Dans l'onglet *Latence*, repérez l'événement que vous souhaitez analyser.
 . Dans la colonne *Gravité*, sélectionnez un événement de latence pour ouvrir un panneau d'analyse pour cet événement.
 . Consultez l'onglet *Basic*. Si un lien est connecté, ouvrez le détail des composants pour voir d'où provient le délai. Si aucun lien n'est connecté, sélectionnez l'invite pour en lier un afin de pouvoir analyser les composants.
-. Dans l'onglet *Analyse IA*, sélectionnez *Analyser* pour consulter les résultats d'une analyse plus approfondie, tels que d'éventuels problèmes de données ou de cluster. Cela vous aide à déterminer la cause première spécifique et les étapes potentielles de remédiation.
+. Dans l'onglet *Analyse IA*, sélectionnez *Analyser* (si disponible) pour consulter les résultats d'une analyse plus approfondie, tels que d'éventuels problèmes liés aux données ou aux clusters. Cela vous aide à déterminer la cause première spécifique et les étapes potentielles de remédiation.
 +
 Examinez les résultats, notamment :
 

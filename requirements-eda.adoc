@@ -20,7 +20,7 @@ Identifiants et autorisations AWS:: Vous devez ajouter des informations d'identi
 Les permissions en mode _Basique_ et en mode _Lecture seule_ ne sont pas prises en charge pour le moment.
 
 
-NOTE: Des identifiants AWS sont également requis pour utiliser la fonctionnalité de surveillance de la latence, qui collecte les métriques CloudWatch pour l'analyse des performances des volumes. Pour recevoir des notifications pour les événements de latence, configurez les préférences de notification dans les paramètres de Workload Factory. Pour activer l'analyse IA facultative pour les scénarios de latence complexes, vous devez également fournir un ARN de modèle Amazon Bedrock. link:learn-latency-monitoring.html["Découvrez la surveillance de la latence"].
+NOTE: Des identifiants AWS sont également requis pour utiliser la fonctionnalité de surveillance de la latence, qui collecte les métriques CloudWatch pour l'analyse des performances des volumes. Pour recevoir des notifications pour les événements de latence, configurez les préférences de notification dans les paramètres de Workload Factory. L'analyse IA facultative pour les scénarios de latence complexes est disponible lorsque l'analyse IA gérée par NetApp est activée. link:learn-latency-monitoring.html["Découvrez la surveillance de la latence"].
 
 https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html["Découvrez comment ajouter des informations d'identification AWS à Workload Factory"^]
 
@@ -35,7 +35,7 @@ Ce système de fichiers FSx pour ONTAP doit utiliser des volumes FlexVol . Les v
 * Vous aurez besoin d'au moins un volume dans le système de fichiers avec la configuration suivante :
 +
 ** Le volume doit être configuré comme un partage NFS.
-** Le système de fichiers doit être configuré avec un lien. https://docs.netapp.com/us-en/workload-fsx-ontap/links-overview.html["En savoir plus sur les liens"^].
+** Le système de fichiers doit être configuré avec un lien. link:https://docs.netapp.com/us-en/workload-fsx-ontap/links-overview.html["En savoir plus sur les liens"^].
 
 
 * Vous devrez prendre en compte les paires clé/valeur de balise que vous souhaitez appliquer aux ressources AWS qui font partie de ce déploiement (facultatif).

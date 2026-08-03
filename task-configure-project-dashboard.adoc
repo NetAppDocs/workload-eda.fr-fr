@@ -40,7 +40,7 @@ Si vous ne configurez aucun filtre personnalisé, les filtres par défaut, syst�
 +
 Si vous n'avez pas encore configuré votre tableau de bord, vous serez automatiquement invité à le faire.
 
-. Sélectionnez *+ Add filters*.
+. Sélectionnez *Ajouter des filtres*.
 . Pour chaque filtre personnalisé que vous souhaitez créer, ajoutez les détails :
 +
 ** Nom du libellé du filtre (nom affiché dans le tableau de bord)

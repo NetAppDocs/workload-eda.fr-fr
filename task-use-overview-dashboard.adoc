@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: task-use-overview-dashboard.html 
-keywords: cluster overview, filter dashboard, cluster health, capacity recommendations, SSD management, bulk edit, decision points, clusters table, ONTAP events, latency events 
-summary: 'Utilisez le tableau de bord Vue d"ensemble pour surveiller l"état du cluster, consulter les recommandations de capacité, gérer les paramètres de capacité SSD et analyser les tendances de performance de vos systèmes de fichiers FSx pour ONTAP.' 
+keywords: cluster overview, filter dashboard, cluster health, capacity recommendations, SSD management, throughput management, bulk edit, decision points, clusters table, ONTAP events, latency events 
+summary: 'Utilisez le tableau de bord Vue d"ensemble pour surveiller l"état du cluster, consulter les recommandations de capacité, gérer les paramètres SSD et de débit, et analyser les tendances de performance de vos systèmes de fichiers FSx for ONTAP.' 
 ---
 = Utilisez le tableau de bord Vue d'ensemble dans Workload Factory pour EDA
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Utilisez le tableau de bord Vue d"ensemble pour surveiller l"état du 
 
 
 [role="lead"]
-Utilisez le tableau de bord Vue d'ensemble pour vérifier l'état et la capacité de vos systèmes de fichiers FSx for ONTAP. Vous pouvez filtrer les données, consulter les recommandations de capacité, ajuster les paramètres de capacité des SSD et analyser les tendances de performance afin de déterminer où placer les volumes et quand augmenter la capacité.
+Utilisez le tableau de bord Vue d'ensemble pour vérifier l'état et la capacité de vos systèmes de fichiers FSx for ONTAP. Vous pouvez filtrer les données, consulter les recommandations de capacité, ajuster les paramètres SSD et de débit, et analyser les tendances de performance afin de déterminer où placer les volumes et quand augmenter la capacité.
 
 
 
@@ -52,7 +52,12 @@ En haut du tableau de bord, vous voyez un résumé de l'état et de l'activité 
 L'état sanitaire du cluster comprend les domaines clés suivants :
 
 * *Latence* : Nombre d’événements de latence détectés
-* *Mode de capacité SSD* : état d’utilisation du SSD et systèmes de fichiers avec recommandations de capacité active
+* *Élasticité du système de fichiers* :
++
+** *Capacité SSD* : Indique combien de systèmes de fichiers utilisent Automate, Recommend ou None pour gérer la capacité SSD.
+** *Débit* : Indique combien de systèmes de fichiers utilisent Automate, Recommend ou None pour gérer le débit.
+
+
 * *Événements ONTAP* : Nombre d’événements EMS par catégorie (Capacité, Disponibilité et protection, Sécurité et autres)
 
 
@@ -75,25 +80,25 @@ La carte d'affichage des événements ONTAP présente le nombre d'événements E
 
 
 
-[[view-and-apply-capacity-recommendations]]
-== Consulter et appliquer les recommandations de capacité
+[[view-and-apply-capacity-or-throughput-recommendations]]
+== Consultez et appliquez les recommandations de capacité ou de débit
 
-Workload Factory génère automatiquement une recommandation de capacité pour chaque système de fichiers FSx for ONTAP. Vous pouvez trouver les systèmes de fichiers avec des recommandations en filtrant le tableau Clusters.
+Workload Factory exécute automatiquement des recommandations pour chaque système de fichiers FSx for ONTAP. Vous pouvez trouver les systèmes de fichiers avec des recommandations en filtrant le tableau Clusters.
 
 .Mesures
-. Dans le tableau *Clusters*, filtrez par les colonnes *Horodatage de la dernière augmentation SSD* ou *Description de la dernière augmentation SSD*.
+. Dans le tableau *Clusters*, filtrez par les colonnes de temps ou de détails pertinentes.
 +
-Les systèmes de fichiers avec recommandations de capacité apparaissent en haut du tableau.
+Les systèmes de fichiers avec des recommandations de capacité ou de débit apparaissent en haut du tableau.
 
-. Sélectionnez un nom de système de fichiers dans le tableau pour l’ouvrir et afficher les recommandations.
-. Consultez la recommandation concernant le SSD et le graphique de capacité.
+. Sélectionnez un nom de système de fichiers dans le tableau pour ouvrir les détails du cluster.
+. Examinez la recommandation et le graphique.
 +
 La recommandation explique la modification suggérée et la justification de celle-ci. Par exemple : _Nous recommandons d’augmenter la taille du SSD en fonction de votre utilisation du SSD au niveau du système de fichiers._
 
 +
-Le graphique présente l'utilisation actuelle des SSD ainsi que les tendances historiques et vous montre comment l'algorithme de recommandation de capacité aurait ajusté la capacité au fil du temps.
+Le graphique présente l'utilisation actuelle ainsi que les tendances historiques.
 
-. En haut à droite du graphique, sélectionnez la plage horaire pour modifier la période affichée. La valeur par défaut est d'une semaine.
+. En haut à droite du graphique, sélectionnez la plage horaire pour modifier la période affichée.
 +
 Le graphique affiche également les points de décision relatifs aux recommandations et à l'automatisation (si le mode d'automatisation est activé). Survolez un point de décision pour afficher les détails de la recommandation de capacité ou de l'action d'automatisation à ce moment-là.
 
@@ -107,28 +112,20 @@ Le graphique affiche également les points de décision relatifs aux recommandat
 
 Pour chaque système de fichiers, choisissez comment la capacité SSD est gérée : recevoir des recommandations manuelles ou autoriser la mise à l’échelle automatique.
 
-.À propos de cette tâche
-Les modes de gestion des SSD incluent :
-
-* *Automate* : Augmente automatiquement la capacité du SSD en fonction de seuils prédéfinis
-* *Recommander* : Obtenez des recommandations de capacité que vous examinez et appliquez manuellement
-* *Aucun* : aucune recommandation de capacité ni action automatisée
-
-
-Si vous sélectionnez le mode Automate, vous pouvez configurer les paramètres Seuil, Rétrospective et Anticipation qui contrôlent la façon dont le système de gestion de la capacité analyse l'utilisation de votre SSD et prend des décisions d'automatisation. Si vous sélectionnez le mode Recommander, vous ne pouvez configurer que le paramètre Seuil.
-
-* *Seuil* (10-90%) : Pourcentage d’utilisation du SSD déclenchant des recommandations de capacité ou des actions automatisées
-* *Lookback* (1 à 200 heures) : la période utilisée pour analyser les tendances historiques d'utilisation des SSD
-* *À venir* (1-200 heures) : Période utilisée pour prévoir les besoins futurs en capacité
-
-
 .Mesures
 . Dans le tableau Clusters, repérez le nom du système de fichiers. À côté, ouvrez image:icon-action.png["l'icône du menu d'actions"] et sélectionnez *Modifier la gestion de la capacité SSD*.
+. Sélectionnez *Enable SSD capacity management* puis *Apply*.
 . Choisissez votre mode préféré :
 +
-** *Aucun* : Désactiver la gestion de la capacité
-** *Recommandé* : Définissez le paramètre Threshold pour l’analyse des recommandations
-** *Automatisez* : Définissez les paramètres de seuil, de période de référence et de prévision pour l'évolutivité de la capacité
+** *Notification uniquement (mode recommandé)*
+** *Automatiser*
+
+
+. Configurez les paramètres de gestion de la capacité SSD :
++
+** *Seuil (%)* : Pourcentage d’utilisation du SSD déclenchant une recommandation
+** *Lookback (%)* : Période de données d'utilisation historiques pour l'analyse
+** *Prévisions (%)* : Utilisation projetée pour la planification de la capacité
 
 
 . Sélectionnez *Appliquer*.
@@ -139,18 +136,42 @@ Le système de fichiers bascule immédiatement vers le nouveau mode. Si vous cho
 
 
 
-[[bulk-edit-ssd-management-parameters]]
-== Modification en masse des paramètres de gestion SSD
+[[change-throughput-management-mode]]
+== Modifier le mode de gestion du débit
 
-Modifiez simultanément les paramètres de capacité SSD pour plusieurs systèmes de fichiers afin que les mêmes paramètres s'appliquent à l'ensemble de vos clusters.
+Pour chaque système de fichiers, choisissez comment l’augmentation du débit est gérée.
 
-.À propos de cette tâche
-Lorsque vous sélectionnez plusieurs systèmes de fichiers pour une modification en masse :
+.Mesures
+. Dans l'onglet *Aperçu*, sélectionnez un ou plusieurs systèmes de fichiers dans le tableau Clusters.
+. Sélectionnez *Modifier la gestion du débit*.
+. Sélectionnez *Activer la gestion du débit* puis *Appliquer*.
+. Choisissez votre mode préféré :
++
+** *Notification uniquement (mode recommandé)*
+** *Automatiser*
 
-* Si tous les systèmes de fichiers sélectionnés utilisent les mêmes paramètres, ces paramètres apparaissent comme paramètres par défaut dans la boîte de dialogue d'édition.
-* Si un système de fichiers sélectionné est en mode Aucun, les valeurs par défaut sont affichées dans la boîte de dialogue.
-* Si les valeurs des paramètres diffèrent selon les systèmes de fichiers sélectionnés, des valeurs par défaut sont affichées dans la boîte de dialogue.
 
+. Dans la boîte de dialogue, configurez les paramètres de gestion du débit :
++
+** *Période d'évaluation (heures)* : Période pour analyser les profils de débit
+** *Indicateurs non respectés (%)* : Seuil de pourcentage pour déterminer une violation
+** *Fenêtre de violation consécutive (heures)* : Durée des violations consécutives avant intervention
+** *Latence minimale (ms)* : seuil de latence utilisé pour déterminer l’augmentation du débit
+** *Débit maximal (SKU)* : SKU ayant le débit maximal autorisé
+
+
+. Sélectionnez *Appliquer*.
+
+
+.Résultat
+Les systèmes de fichiers sélectionnés passent immédiatement au nouveau mode de débit.
+
+
+
+[[bulk-edit-management-parameters]]
+== Modifier en masse les paramètres de gestion
+
+Modifiez simultanément les paramètres de plusieurs systèmes de fichiers afin que les mêmes paramètres s'appliquent à l'ensemble de vos clusters.
 
 .Mesures
 . Dans l'onglet *Aperçu*, sélectionnez les systèmes de fichiers que vous souhaitez modifier dans le tableau.
@@ -158,9 +179,9 @@ Lorsque vous sélectionnez plusieurs systèmes de fichiers pour une modification
 
 TIP: Vous pouvez sélectionner des systèmes de fichiers individuels ou utiliser la case à cocher d'en-tête pour sélectionner tous les systèmes de fichiers visibles.
 
-. Sélectionnez *Modifier gestion de la capacité SSD* au-dessus du tableau.
+. Sélectionnez *Modifier la gestion de la capacité* ou *Modifier la gestion du débit* au-dessus du tableau.
 . Choisissez votre mode préféré.
-. Dans la boîte de dialogue d'édition, ajustez les paramètres Threshold, Lookback et Ahead selon vos besoins.
+. Dans la boîte de dialogue d'édition, ajustez les paramètres selon vos besoins.
 +
 Chaque champ de paramètre comporte une infobulle décrivant sa fonction et sa plage de valeurs valides. La boîte de dialogue affiche les valeurs actuelles ou les valeurs par défaut en fonction de votre sélection.
 
@@ -168,7 +189,7 @@ Chaque champ de paramètre comporte une infobulle décrivant sa fonction et sa p
 
 
 .Résultat
-Les paramètres sont mis à jour pour tous les systèmes de fichiers sélectionnés. Les systèmes de fichiers en mode Recommandation ou Automatisation utilisent immédiatement les nouveaux paramètres pour l'analyse de la capacité et la prise de décision.
+Les paramètres sont mis à jour pour tous les systèmes de fichiers sélectionnés. Les systèmes de fichiers en mode Recommend ou Automate utilisent immédiatement les nouveaux paramètres pour l’analyse et la prise de décision.
 
 
 
@@ -180,7 +201,7 @@ Utilisez le graphique d'utilisation du SSD pour observer l'évolution de l'utili
 .À propos de cette tâche
 Les points de décision sur le graphique indiquent quand :
 
-* *Points de décision de recommandation* : L’algorithme de recommandation de capacité a identifié qu’une capacité SSD supplémentaire est nécessaire. Cela peut se produire aussi fréquemment que toutes les 30 minutes si la capacité SSD n’a pas été augmentée.
+* *Points de décision de recommandation* : L’algorithme de recommandation de capacité a identifié qu’une capacité SSD supplémentaire est nécessaire.
 * *Points de décision d'automatisation* : Le système d'automatisation a tenté d'augmenter la capacité SSD. Ces points indiquent si l'action a réussi ou échoué.
 
 
@@ -218,7 +239,6 @@ Survolez les en-têtes de colonne de débit pour afficher les détails du calcul
 
 . Pour personnaliser les colonnes, sélectionnez l'icône des paramètres de colonne et choisissez les colonnes à afficher.
 . Pour exporter des données, sélectionnez l'icône d'exportation pour télécharger un fichier CSV.
-. Pour effectuer des opérations en masse, sélectionnez plusieurs systèmes de fichiers à l'aide des cases à cocher, puis sélectionnez *Modifier les paramètres*.
 
 
 
@@ -229,12 +249,12 @@ Survolez les en-têtes de colonne de débit pour afficher les détails du calcul
 Tenez compte des recommandations suivantes lors de l'utilisation du tableau de bord Overview :
 
 * *Surveillance régulière* : Consultez fréquemment le tableau de bord pour repérer les tendances avant qu’elles ne deviennent des problèmes.
-* **Définissez des seuils clairs** : choisissez des seuils de gestion SSD adaptés à votre charge de travail et à vos plans de capacité.
+* **Définissez des seuils clairs** : Choisissez des seuils d’utilisation SSD et des paramètres de débit adaptés à votre charge de travail et à vos plans de capacité.
 * **Utilisez des filtres** : Appliquez des filtres de région et de compte pour vous concentrer sur les parties de votre infrastructure que vous souhaitez examiner.
-* **Consultez rapidement les recommandations** : Filtrez le tableau Clusters par **Last SSD increase timestamp** ou par description pour trouver les systèmes de fichiers avec des recommandations de capacité. Vérifiez-les et agissez en conséquence pour éviter une saturation de l’espace disque.
-* **Choisissez le bon mode** : utilisez le mode **Recommend** si vous souhaitez approuver vous-même les modifications de capacité. Utilisez le mode **Automation** si vous souhaitez que le système gère la capacité automatiquement.
+* **Consultez rapidement les recommandations** : Filtrez le tableau des clusters pour trouver les systèmes de fichiers avec des recommandations de capacité ou de débit. Vérifiez-les et agissez en conséquence pour éviter de manquer d’espace.
+* **Choisissez le bon mode** : utilisez le mode **Recommend** si vous souhaitez approuver vous-même les modifications de capacité ou de débit. Utilisez le mode **Automate** si vous souhaitez que le système gère automatiquement la capacité ou le débit.
 * **Surveillez les points de décision** : Consultez les points de décision sur les graphiques de capacité pour voir comment le système prend ses décisions et confirmez que les paramètres correspondent à vos besoins.
-* **Modification en masse** : Lorsque vous gérez plusieurs systèmes de fichiers, utilisez la modification en masse pour maintenir la cohérence des paramètres de capacité.
+* **Modification en masse** : Lorsque vous gérez plusieurs systèmes de fichiers, utilisez la modification en masse pour garantir la cohérence des paramètres.
 
 
 
