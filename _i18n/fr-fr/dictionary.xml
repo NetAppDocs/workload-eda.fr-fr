@@ -453,7 +453,6 @@
   <block id="7b0ddde1961cce4426c7f0cf5da65e0d" category="doc">Recommandations en matière de capacité EDA</block>
   <block id="edb815136867c3359e368e3f925ae387" category="paragraph">Workload Factory analyse désormais automatiquement la capacité SSD de chaque cluster FSx for ONTAP dans votre inventaire EDA et génère des recommandations de capacité lorsque des ajustements sont nécessaires. L'algorithme s'exécute toutes les 24 heures pour chaque cluster.</block>
   <block id="1f9c155d60450baccee27bca630b6497" category="paragraph">Lorsqu'une recommandation est identifiée :</block>
-  <block id="8d65ccbe024d7453ace82bd13b7980d8" category="list-text">Vous recevez immédiatement un e-mail ou une notification WAD (non incluse dans le résumé hebdomadaire).</block>
   <block id="8e5fe5a1e14c6d69b9c457c33f0204a7" category="list-text">Un indicateur lumineux apparaît sur le cluster concerné dans le tableau des clusters.</block>
   <block id="c38bddc25aeb4374d71816e0b71a53a0" category="list-text">Un résumé sur le tableau de bord Vue d'ensemble affiche le nombre total de clusters avec des recommandations actives.</block>
   <block id="1471ae7120155f3a06fa9c0a62a7f3f5" category="paragraph">Sélectionnez un cluster comportant une recommandation active pour consulter la recommandation, qui explique la modification suggérée et la justification.</block>
@@ -1093,4 +1092,5 @@
   <block id="0ecfcdfed86b687b39299cccc3380def" category="list-text">**Choisissez le bon mode** : utilisez le mode **Recommend** si vous souhaitez approuver vous-même les modifications de capacité ou de débit. Utilisez le mode **Automate** si vous souhaitez que le système gère automatiquement la capacité ou le débit.</block>
   <block id="88a7c4b8bd498e193a117097af5581b1" category="list-text">**Modification en masse** : Lorsque vous gérez plusieurs systèmes de fichiers, utilisez la modification en masse pour garantir la cohérence des paramètres.</block>
   <block id="951a51b60db3d63eb71726cd5fe6fbad" category="section-title">3 août 2026</block>
+  <block id="73c57946c156d22b4a35f2e089180ab4" category="list-text">Vous recevez immédiatement un e-mail ou une notification bien architecturée (qui ne fait pas partie du résumé hebdomadaire).</block>
 </blocks>

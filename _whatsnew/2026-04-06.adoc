@@ -11,7 +11,7 @@ Workload Factory analyse désormais automatiquement la capacité SSD de chaque c
 
 Lorsqu'une recommandation est identifiée :
 
-* Vous recevez immédiatement un e-mail ou une notification WAD (non incluse dans le résumé hebdomadaire).
+* Vous recevez immédiatement un e-mail ou une notification bien architecturée (qui ne fait pas partie du résumé hebdomadaire).
 * Un indicateur lumineux apparaît sur le cluster concerné dans le tableau des clusters.
 * Un résumé sur le tableau de bord Vue d'ensemble affiche le nombre total de clusters avec des recommandations actives.
 
