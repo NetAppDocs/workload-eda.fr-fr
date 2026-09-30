@@ -113,11 +113,10 @@ Le graphique affiche également les points de décision relatifs aux recommandat
 Pour chaque système de fichiers, choisissez comment la capacité SSD est gérée : recevoir des recommandations manuelles ou autoriser la mise à l’échelle automatique.
 
 .Mesures
-. Dans le tableau Clusters, repérez le nom du système de fichiers. À côté, ouvrez image:icon-action.png["l'icône du menu d'actions"] et sélectionnez *Modifier la gestion de la capacité SSD*.
-. Sélectionnez *Enable SSD capacity management* puis *Apply*.
+. Dans le tableau Clusters, recherchez et sélectionnez le nom du système de fichiers, puis sélectionnez *Modifier la gestion de la capacité SSD*.
 . Choisissez votre mode préféré :
 +
-** *Notification uniquement (mode recommandé)*
+** *Recommander*
 ** *Automatiser*
 
 
@@ -144,18 +143,20 @@ Pour chaque système de fichiers, choisissez comment l’augmentation du débit 
 .Mesures
 . Dans l'onglet *Aperçu*, sélectionnez un ou plusieurs systèmes de fichiers dans le tableau Clusters.
 . Sélectionnez *Modifier la gestion du débit*.
-. Sélectionnez *Activer la gestion du débit* puis *Appliquer*.
+. Sélectionnez *Activer la gestion du débit*.
 . Choisissez votre mode préféré :
 +
 ** *Notification uniquement (mode recommandé)*
 ** *Automatiser*
 
 
-. Dans la boîte de dialogue, configurez les paramètres de gestion du débit :
+. Dans *Seuil d'utilisation (%)*, définissez le niveau d'utilisation qui déclenche des recommandations ou des actions d'automatisation.
+. Dans *Advanced configuration*, configurez les paramètres de gestion du débit :
 +
 ** *Période d'évaluation (heures)* : Période pour analyser les profils de débit
 ** *Indicateurs non respectés (%)* : Seuil de pourcentage pour déterminer une violation
 ** *Fenêtre de violation consécutive (heures)* : Durée des violations consécutives avant intervention
+** *Mesures des dépassements consécutifs (%)* : seuil de pourcentage pour déterminer les dépassements consécutifs
 ** *Latence minimale (ms)* : seuil de latence utilisé pour déterminer l’augmentation du débit
 ** *Débit maximal (SKU)* : SKU ayant le débit maximal autorisé
 
@@ -165,31 +166,6 @@ Pour chaque système de fichiers, choisissez comment l’augmentation du débit 
 
 .Résultat
 Les systèmes de fichiers sélectionnés passent immédiatement au nouveau mode de débit.
-
-
-
-[[bulk-edit-management-parameters]]
-== Modifier en masse les paramètres de gestion
-
-Modifiez simultanément les paramètres de plusieurs systèmes de fichiers afin que les mêmes paramètres s'appliquent à l'ensemble de vos clusters.
-
-.Mesures
-. Dans l'onglet *Aperçu*, sélectionnez les systèmes de fichiers que vous souhaitez modifier dans le tableau.
-+
-
-TIP: Vous pouvez sélectionner des systèmes de fichiers individuels ou utiliser la case à cocher d'en-tête pour sélectionner tous les systèmes de fichiers visibles.
-
-. Sélectionnez *Modifier la gestion de la capacité* ou *Modifier la gestion du débit* au-dessus du tableau.
-. Choisissez votre mode préféré.
-. Dans la boîte de dialogue d'édition, ajustez les paramètres selon vos besoins.
-+
-Chaque champ de paramètre comporte une infobulle décrivant sa fonction et sa plage de valeurs valides. La boîte de dialogue affiche les valeurs actuelles ou les valeurs par défaut en fonction de votre sélection.
-
-. Sélectionnez *Appliquer* pour appliquer les modifications à tous les systèmes de fichiers sélectionnés.
-
-
-.Résultat
-Les paramètres sont mis à jour pour tous les systèmes de fichiers sélectionnés. Les systèmes de fichiers en mode Recommend ou Automate utilisent immédiatement les nouveaux paramètres pour l’analyse et la prise de décision.
 
 
 
@@ -203,23 +179,20 @@ Les points de décision sur le graphique indiquent quand :
 
 * *Points de décision de recommandation* : L’algorithme de recommandation de capacité a identifié qu’une capacité SSD supplémentaire est nécessaire.
 * *Points de décision d'automatisation* : Le système d'automatisation a tenté d'augmenter la capacité SSD. Ces points indiquent si l'action a réussi ou échoué.
++
+Si la gestion de la capacité SSD est désactivée, le graphique affiche uniquement l'utilisation passée et n'affiche ni les recommandations ni les décisions d'automatisation.
+
 
 
 .Mesures
-. Dans l'onglet *Aperçu*, sélectionnez un nom de système de fichiers dans le tableau.
-. Consultez le graphique d'utilisation des SSD présentant les tendances historiques de capacité.
-. Sélectionnez différentes plages horaires pour visualiser l'évolution de la capacité sur diverses périodes.
-. Passez votre souris sur les points de décision du graphique pour afficher des détails sur les recommandations ou les actions d'automatisation à des moments précis.
-. Utilisez les informations tirées du graphique pour :
-+
-** Comprendre la fréquence à laquelle des ajustements de capacité sont nécessaires
-** Évaluez si le mode d'automatisation ou le mode de recommandation correspond mieux à vos modèles de charge de travail
-** Identifier les contraintes de capacité récurrentes
-** Planifiez les besoins futurs en capacité en fonction des tendances de croissance
-** Dépanner les tentatives d'automatisation ayant échoué
+. Dans l'onglet *Vue d'ensemble*, sélectionnez un nom de système de fichiers dans le tableau. Dans la vue des détails du cluster, sélectionnez l'option *Débit* ou *Capacité SSD* pour modifier l'affichage du graphique.
 
 
+Si vous sélectionnez *Débit*, le graphique affiche le débit du client et son utilisation afin que vous puissiez comparer la demande au niveau de débit configuré et aux seuils.
 
+Si vous sélectionnez *Capacité SSD*, le graphique affiche l'utilisation du SSD, y compris les tendances historiques de capacité et les points de décision en matière de capacité.
+
+Sélectionnez différentes plages horaires pour visualiser les tendances de débit ou de capacité sur différentes périodes. . Survolez les points de décision sur le graphique pour afficher des détails sur les recommandations ou les actions d'automatisation à des moments précis. . Utilisez les informations du graphique pour : * Comprendre la fréquence à laquelle des ajustements de capacité sont nécessaires * Évaluer si le mode d'automatisation ou de recommandation correspond le mieux à vos modèles de charge de travail * Identifier les contraintes de capacité récurrentes * Planifier les besoins futurs en capacité en fonction des tendances de croissance * Résoudre les problèmes liés aux tentatives d'automatisation ayant échoué
 
 
 
