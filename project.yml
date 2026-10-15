@@ -71,6 +71,8 @@ sidebar:
       url: "/integrate-perforce.html"
   - title: Connaissances et soutien
     entries:
+    - title: FAQ pour NetApp Workload Factory pour EDA
+      url: "/faq-eda.html"
     - title: Inscrivez-vous pour obtenir de l'aide
       url: "/support-registration.html"
     - title: Obtenir de l'aide
