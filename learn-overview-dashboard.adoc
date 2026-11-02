@@ -185,6 +185,26 @@ Utilisez le graphique d'historique d'utilisation du SSD pour :
 
 
 
+[[understanding-throughput-decision-points]]
+=== Comprendre les points de décision relatifs au débit
+
+Le graphique de débit du client indique quand le système a recommandé des modifications de débit ou a automatiquement ajusté le débit. Ces marqueurs apparaissent également dans la légende du graphique. Si la gestion du débit est désactivée, le graphique affiche uniquement le débit passé et n’affiche ni recommandations ni modifications automatiques.
+
+*Points de décision pour les recommandations*:: Affiché lorsque le système détecte que le débit doit augmenter. Survolez un point de décision pour afficher les détails. Si plusieurs recommandations se produisent au même horodatage, le point affiche le nombre de recommandations et les détails de la plus récente.
+*Points de décision en matière d'automatisation*:: Affiché lorsque le système d'automatisation tente d'augmenter le débit. Survolez un point de décision pour afficher les détails. En cas de succès, la nouvelle référence produit (SKU) est également affichée. En cas d'échec, une brève explication est fournie. Si plusieurs échecs surviennent simultanément, le point affiche le nombre d'échecs et les détails du plus récent.
+
+
+Utilisez le graphique de débit client pour:
+
+* Observez à quelle fréquence vous avez besoin d'un débit plus élevé
+* Choisissez si le mode d'automatisation ou de recommandation correspond mieux à vos besoins
+* Identifier les limites de débit récurrentes
+* Planifiez les besoins futurs en débit à mesure que l'utilisation augmente au fil du temps
+* Enquêter sur les raisons de l'échec des tentatives d'automatisation
+
+
+
+
 [[related-information]]
 == Informations connexes
 

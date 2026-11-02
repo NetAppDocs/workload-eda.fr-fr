@@ -720,9 +720,6 @@
   <block id="b6c7799b0c3cb63df1897b6e33e5ffe9" category="list-text">*Identifiants* : Filtrez par identifiants AWS spécifiques si vous en avez plusieurs configurés</block>
   <block id="dd10257a52cc4af5c67ff37ab0bb4d74" category="list-text">*Régions* : Filtrer par une ou plusieurs régions AWS</block>
   <block id="fb3123e7d905f809c3bdf82e3ceca6af" category="section-title">Afficher l'état de santé du cluster</block>
-  <block id="7da261fafbc98c685b2c0c780ccdbcf1" category="paragraph">L'état sanitaire du cluster comprend les domaines clés suivants :</block>
-  <block id="ac97fe213f96cc9db6b4ee38d70f798b" category="list-text">*Latence* : Nombre d’événements de latence détectés</block>
-  <block id="a51f6183fddbec434723cff9a6cb22f0" category="list-text">*Événements ONTAP* : Nombre d’événements EMS par catégorie (Capacité, Disponibilité et protection, Sécurité et autres)</block>
   <block id="c569953f651916e8d6fb2a2e26996486" category="list-text">Consultez l'état de santé du cluster en haut du tableau de bord.</block>
   <block id="45cd3072594a40004f1648f957b11b4f" category="list-text">Pour consulter les événements de latence :</block>
   <block id="9bab24fe4c951c13841b658922a21a8b" category="list-text">Sélectionnez *Review* pour accéder à l'onglet *Latence*</block>
@@ -735,8 +732,6 @@
   <block id="37b5b20fd94de2275a255ae79e7ac8f0" category="list-text">Pour appliquer la recommandation, suivez les instructions fournies dans le message de recommandation.</block>
   <block id="95138c66b91ee03084dfba9068536d5e" category="section-title">Modifier le mode de gestion du SSD</block>
   <block id="b689124bbd04a08329d8f616990fa06d" category="list-text">Choisissez votre mode préféré :</block>
-  <block id="84a7874f129070a914f70dd3d70a6716" category="section-title">Analyser les tendances de capacité et les points de décision</block>
-  <block id="4dbca2bab9fb0222adee0d079e0d2127" category="paragraph">Les points de décision sur le graphique indiquent quand :</block>
   <block id="e307894bdae8efc4f4fdacf666cf2573" category="section-title">Utilisez le tableau des clusters</block>
   <block id="88dc1144edaa697995919551780b6e93" category="list-text">Dans l'onglet *Aperçu*, consultez le tableau des clusters.</block>
   <block id="8e6be07248fc78ed27f8d01305999436" category="list-text">Utilisez le champ de recherche pour trouver des systèmes de fichiers spécifiques par leur nom.</block>
@@ -890,7 +885,6 @@
   <block id="5b9d5469c481b2fd86bb70731779a54a" category="paragraph">Pour chaque système de fichiers, choisissez comment la capacité SSD est gérée : recevoir des recommandations manuelles ou autoriser la mise à l’échelle automatique.</block>
   <block id="75be33f2f4cc39082bea6e44e8406df7" category="paragraph">Le système de fichiers bascule immédiatement vers le nouveau mode. Si vous choisissez Recommander ou Automatiser, le système utilise les paramètres définis pour analyser la capacité de stockage et prendre des décisions.</block>
   <block id="65bd457971cf8d44b2a0e065d040b668" category="paragraph">Utilisez le graphique d'utilisation du SSD pour observer l'évolution de l'utilisation du stockage au fil du temps et repérer les tendances.</block>
-  <block id="adcae559988943cef6bf4b9ce78904b2" category="list-text">*Points de décision d'automatisation* : Le système d'automatisation a tenté d'augmenter la capacité SSD. Ces points indiquent si l'action a réussi ou échoué.</block>
   <block id="27e86a81d2f78cd7f4181479163bbbeb" category="paragraph">Le tableau des clusters fournit une vue détaillée de chaque système de fichiers FSx for ONTAP avec des indicateurs de performance et d'utilisation.</block>
   <block id="27a39463cff24c056326230d2490c6d4" category="list-text">*Surveillance régulière* : Consultez fréquemment le tableau de bord pour repérer les tendances avant qu’elles ne deviennent des problèmes.</block>
   <block id="5f387dd12e491b49648cab4ae9d1263e" category="list-text">**Utilisez des filtres** : Appliquez des filtres de région et de compte pour vous concentrer sur les parties de votre infrastructure que vous souhaitez examiner.</block>
@@ -935,7 +929,6 @@
   <block id="7e9591a005bdef4cdf16dfd575186f3b" category="paragraph">Vous pouvez ajuster l'affichage et corréler les pics de latence avec les variations d'IOPS et de débit. Les indicateurs de violation et les détails affichés au survol vous permettent de voir quand les seuils ont été dépassés et d'examiner les indicateurs clés de la violation détectée.</block>
   <block id="94865ed9933801afc860536ada02e496" category="summary">Visualisez et analysez les événements de latence pour identifier les problèmes de performance avec les volumes FSx for ONTAP. Utilisez l'analyse de base et, en option, l'analyse IA pour identifier la cause première et les correctifs suggérés.</block>
   <block id="939c818555e5fa65655d447cc97817ae" category="section-title">Afficher les volumes avec une latence supérieure au seuil</block>
-  <block id="f06921222f3510361d45443110e72880" category="list-text">Examinez les informations relatives à chaque événement dans le tableau.</block>
   <block id="3cd32cbc73706e6bc220ece19622d604" category="list-text">Le panneau d'analyse de latence offre un aperçu rapide de la violation, incluant un graphique de latence et des contrôles pour la période et le type. Sélectionnez *Afficher l'analyse complète* pour ouvrir la page d'analyse de latence détaillée avec une analyse de base, une analyse par IA (facultative) et des graphiques supplémentaires. Voir <block ref="6ebd25eb4c135c18dd20612e63ec5166" category="inline-link-macro-rx"></block> pour plus de détails.</block>
   <block id="0665519f24690502dfcb8f5913d6b056" category="paragraph">Sélectionnez un événement de latence dans la colonne *Gravité* pour ouvrir le panneau d'analyse de latence correspondant. Le panneau comprend des onglets qui offrent différentes vues de l'événement de latence.</block>
   <block id="0f76eb72044a145a7b1eb778e6653a96" category="list-text">*Basique* : Affiche les résultats d'une analyse automatique. S'il est lié au système de fichiers, il présente le détail des composants et indique celui qui est à l'origine du délai. En l'absence de lien, vous êtes invité à en ajouter un. Un graphique interactif de latence des métriques CloudWatch pour le volume concerné s'affiche. Il présente soit les métriques de lecture, soit celles d'écriture, selon l'alarme qui a déclenché l'événement. Vous pouvez choisir différentes plages temporelles et utiliser un filtre pour afficher toutes les opérations, les opérations de lecture, d'écriture ou de métadonnées.</block>
@@ -1035,7 +1028,6 @@
   <block id="42e48676b85dbff1f2792294e6831dc0" category="list-text">Sélectionnez *Ajouter des filtres*.</block>
   <block id="c71e0da6508887a77f334a554ab5495a" category="summary">Utilisez le tableau de bord Vue d'ensemble pour surveiller l'état du cluster, consulter les recommandations de capacité, gérer les paramètres SSD et de débit, et analyser les tendances de performance de vos systèmes de fichiers FSx for ONTAP.</block>
   <block id="4c3cb97ad8dafb44b4527de840549941" category="paragraph">Utilisez le tableau de bord Vue d'ensemble pour vérifier l'état et la capacité de vos systèmes de fichiers FSx for ONTAP. Vous pouvez filtrer les données, consulter les recommandations de capacité, ajuster les paramètres SSD et de débit, et analyser les tendances de performance afin de déterminer où placer les volumes et quand augmenter la capacité.</block>
-  <block id="3e245db3deb2fe7b566f9dfe8f122ad3" category="list-text">*Élasticité du système de fichiers* :</block>
   <block id="f3e0de8b6d05c856fde2eaa835f504ef" category="section-title">Consultez et appliquez les recommandations de capacité ou de débit</block>
   <block id="e07b408f972ad269d9fed5451f31d8c9" category="paragraph">Workload Factory exécute automatiquement des recommandations pour chaque système de fichiers FSx for ONTAP. Vous pouvez trouver les systèmes de fichiers avec des recommandations en filtrant le tableau Clusters.</block>
   <block id="134805f5ae47607c74a2fad588bcc889" category="list-text">Dans le tableau *Clusters*, filtrez par les colonnes de temps ou de détails pertinentes.</block>
@@ -1057,7 +1049,6 @@
   <block id="91455d18a42b79b1a34df0d97bfbaffd" category="list-text">*Latence minimale (ms)* : seuil de latence utilisé pour déterminer l’augmentation du débit</block>
   <block id="0a2daf37cc4cac8c9a3da95290e9a399" category="list-text">*Débit maximal (SKU)* : SKU ayant le débit maximal autorisé</block>
   <block id="6b482ace535080820ca5dea3bb557cb6" category="paragraph">Les systèmes de fichiers sélectionnés passent immédiatement au nouveau mode de débit.</block>
-  <block id="232af3ec8ca37d39f0b49ddb6c81830a" category="list-text">*Points de décision de recommandation* : L’algorithme de recommandation de capacité a identifié qu’une capacité SSD supplémentaire est nécessaire.</block>
   <block id="0d606a9207ef786e2b3dc99ea3fe3ad8" category="list-text">**Définissez des seuils clairs** : Choisissez des seuils d’utilisation SSD et des paramètres de débit adaptés à votre charge de travail et à vos plans de capacité.</block>
   <block id="c6e183b5112db7515b7bc4904a3b374b" category="list-text">**Consultez rapidement les recommandations** : Filtrez le tableau des clusters pour trouver les systèmes de fichiers avec des recommandations de capacité ou de débit. Vérifiez-les et agissez en conséquence pour éviter de manquer d’espace.</block>
   <block id="0ecfcdfed86b687b39299cccc3380def" category="list-text">**Choisissez le bon mode** : utilisez le mode **Recommend** si vous souhaitez approuver vous-même les modifications de capacité ou de débit. Utilisez le mode **Automate** si vous souhaitez que le système gère automatiquement la capacité ou le débit.</block>
@@ -1084,11 +1075,8 @@
   <block id="e920df7cb27871af178ff85a428a8b4e" category="list-text">Dans *Advanced configuration*, configurez les paramètres de gestion du débit :</block>
   <block id="39122245b5363dc3871538d2ef59784e" category="list-text">*Fenêtre de violation consécutive (heures)* : Durée des violations consécutives avant intervention</block>
   <block id="a9d111294543c201d767519d991c1b8d" category="list-text">*Mesures des dépassements consécutifs (%)* : seuil de pourcentage pour déterminer les dépassements consécutifs</block>
-  <block id="d385fd0ac858ff17553d407851f64c48" category="paragraph">Si la gestion de la capacité SSD est désactivée, le graphique affiche uniquement l'utilisation passée et n'affiche ni les recommandations ni les décisions d'automatisation.</block>
-  <block id="1de4de358ec9c3a1cd36180e2c13a443" category="list-text">Dans l'onglet *Vue d'ensemble*, sélectionnez un nom de système de fichiers dans le tableau. Dans la vue des détails du cluster, sélectionnez l'option *Débit* ou *Capacité SSD* pour modifier l'affichage du graphique.</block>
   <block id="a01346bc61a98c025144199b0893e264" category="paragraph">Si vous sélectionnez *Débit*, le graphique affiche le débit du client et son utilisation afin que vous puissiez comparer la demande au niveau de débit configuré et aux seuils.</block>
   <block id="e56ecd5b4053d7385c23bb7c3422bdd5" category="paragraph">Si vous sélectionnez *Capacité SSD*, le graphique affiche l'utilisation du SSD, y compris les tendances historiques de capacité et les points de décision en matière de capacité.</block>
-  <block id="d73906b15c9fc84c1806084ce8720a42" category="paragraph">Sélectionnez différentes plages horaires pour visualiser les tendances de débit ou de capacité sur différentes périodes. . Survolez les points de décision sur le graphique pour afficher des détails sur les recommandations ou les actions d'automatisation à des moments précis. . Utilisez les informations du graphique pour : * Comprendre la fréquence à laquelle des ajustements de capacité sont nécessaires * Évaluer si le mode d'automatisation ou de recommandation correspond le mieux à vos modèles de charge de travail * Identifier les contraintes de capacité récurrentes * Planifier les besoins futurs en capacité en fonction des tendances de croissance * Résoudre les problèmes liés aux tentatives d'automatisation ayant échoué</block>
   <block id="74bc5d714652a3ae18c64ee93e4ba085" category="section-title">30 septembre 2026</block>
   <block id="e52235241b1ae81de07e54f4309b150e" category="summary">Questions fréquentes concernant NetApp Workload Factory pour EDA.</block>
   <block id="f66051160a7d32c47d92cf8ad2688857" category="doc">FAQ pour Workload Factory pour EDA</block>
@@ -1137,4 +1125,42 @@
   <block id="944e61de0f91bfc0cd15e211ebfe75af" category="inline-link-macro">obtenir de l'aide pour l'EDA</block>
   <block id="1b3bafacd5fad351f7d20e33c6af1735" category="paragraph">Amazon FSx for NetApp ONTAP est une solution AWS propriétaire ; pour obtenir de l'aide, utilisez le Support Center dans votre AWS Management Console et ouvrez un dossier en sélectionnant « FSx for ONTAP ». Pour toute question d'ordre général concernant Workload Factory ou ses applications et services, consultez <block ref="b373eb075b7d6f2dc82d0ceae72b0277" category="inline-link-macro-rx"></block>.</block>
   <block id="7e286d8febc5746f20c7282a62edee9c" category="sidebar">FAQ pour NetApp Workload Factory pour EDA</block>
+  <block id="c13ffbb74415f75e6bfbceb28746aa00" category="doc">Détails du volume dans l'analyse de latence</block>
+  <block id="e702df4af5908b691938e2a636bf0d11" category="paragraph">Vous pouvez maintenant consulter les détails supplémentaires du volume *Type de volume* (RW/DP), *Style de volume* (FlexVol et FlexGroup) sur la page *Analyse détaillée de la latence*.</block>
+  <block id="84040e078366ab4b302c9f45a3caa89d" category="section-title">Vérification de la pression du système de fichiers pour les événements de latence</block>
+  <block id="06aefa6560003b3171cd7662ef2b3d9d" category="paragraph">Pour les volumes présentant une alerte de latence, vous pouvez désormais vérifier si le système de fichiers était soumis à une pression suffisante pour affecter les performances au moment où l'événement s'est produit. Vous pouvez consulter les données CloudWatch des 40 minutes précédant l'événement et suivre un lien vers le système de fichiers pour approfondir l'analyse.</block>
+  <block id="3e7850720206a5fe00f7310f49f139ef" category="inline-link-macro">Découvrez comment analyser les tendances de latence</block>
+  <block id="4082bd9c59dc64a78f083ec07f0f1ade" category="paragraph"><block ref="e0c19bfe1186d72bb091851a5915268f" category="inline-link-macro-rx"></block>.</block>
+  <block id="84ae0158deb3f95e6027fdf8d5ff467d" category="section-title">Points de décision relatifs au débit</block>
+  <block id="d561222faafa1c2e107d8307549a4372" category="paragraph">Vous pouvez désormais consulter les recommandations de débit client et les points de décision d'automatisation. Survolez un point de décision pour afficher des détails, tels que le SKU actuel et recommandé ou les métriques dont les seuils sont dépassés dans la fenêtre temporelle (%).</block>
+  <block id="e7e1d8130eb396a11055ef0aad27b20c" category="inline-link-macro">Découvrez les points de décision</block>
+  <block id="b1b6afda8cefc68653435f204de78f32" category="paragraph"><block ref="c182c1de3b13ab1f612ac32dab94169a" category="inline-link-macro-rx"></block>.</block>
+  <block id="1e67c2facf6c9ccaed8c578497980ba2" category="section-title">Réexécuter l'analyse de latence</block>
+  <block id="95386ac844fe5334b9e7743d6098dfab" category="paragraph">Vous pouvez désormais sélectionner *Relancer l'analyse* pour effectuer une nouvelle analyse de latence pour un volume et actualiser les résultats à la demande.</block>
+  <block id="1e2beb43d53ce6e7e78ce598ad680f34" category="inline-link-macro">Apprenez-en davantage sur l'analyse des problèmes de latence</block>
+  <block id="7ab17ff19aa466bc8531cc7568dea5a6" category="paragraph"><block ref="13291cb64cb4778475d22fb041bce2e0" category="inline-link-macro-rx"></block>.</block>
+  <block id="faffdafc286086cc0dbf1bbb1be9ad24" category="section-title">Pression du système de fichiers</block>
+  <block id="b174f2d4d910ae1039afecd55cf7605d" category="paragraph">Pour les volumes présentant une alerte de latence, vous pouvez exécuter une vérification à la demande afin de déterminer si le système de fichiers subissait une pression suffisante pour affecter les performances au moment où l'événement s'est produit. Cette vérification analyse les 40 minutes de données CloudWatch précédant l'événement et renvoie « Sous pression » ou « Pas sous pression ». Un résultat « Sous pression » signifie qu'il y a plus de 80 % de chances que la pression exercée sur le système de fichiers ait affecté les performances et la latence. La vérification inclut également un lien vers la ressource FSx for ONTAP afin que vous puissiez consulter les métriques associées.</block>
+  <block id="e886df54588d52e0380fc881467880b0" category="section-title">Comprendre les points de décision relatifs au débit</block>
+  <block id="d5b00b16ab6db83fdf23282158c24ffc" category="paragraph">Le graphique de débit du client indique quand le système a recommandé des modifications de débit ou a automatiquement ajusté le débit. Ces marqueurs apparaissent également dans la légende du graphique. Si la gestion du débit est désactivée, le graphique affiche uniquement le débit passé et n’affiche ni recommandations ni modifications automatiques.</block>
+  <block id="1478d9dba08b46cdbef08e98cdb80335" category="list-text">Affiché lorsque le système détecte que le débit doit augmenter. Survolez un point de décision pour afficher les détails. Si plusieurs recommandations se produisent au même horodatage, le point affiche le nombre de recommandations et les détails de la plus récente.</block>
+  <block id="0c990789e7c8c34746cdf8245924ae90" category="list-text">Affiché lorsque le système d'automatisation tente d'augmenter le débit. Survolez un point de décision pour afficher les détails. En cas de succès, la nouvelle référence produit (SKU) est également affichée. En cas d'échec, une brève explication est fournie. Si plusieurs échecs surviennent simultanément, le point affiche le nombre d'échecs et les détails du plus récent.</block>
+  <block id="c6f02cbeb83957a98e034aa44ac8d06b" category="paragraph">Utilisez le graphique de débit client pour:</block>
+  <block id="bcc32ea0c2c748a56864977ad681aae4" category="list-text">Observez à quelle fréquence vous avez besoin d'un débit plus élevé</block>
+  <block id="627aca367632fb159e4a6c08e87b8226" category="list-text">Choisissez si le mode d'automatisation ou de recommandation correspond mieux à vos besoins</block>
+  <block id="c44c2990e89eee02f130dbf8adf9df07" category="list-text">Identifier les limites de débit récurrentes</block>
+  <block id="47c3141ddd1f9f9483f34cdb8af8ae43" category="list-text">Planifiez les besoins futurs en débit à mesure que l'utilisation augmente au fil du temps</block>
+  <block id="77940ad0aaabd15b52dda5e8a86f480b" category="list-text">Pour mettre à jour les résultats, sélectionnez *Relancer l'analyse*. Une nouvelle analyse démarre pour le volume, et le panneau se met à jour lorsque l'analyse est terminée.</block>
+  <block id="6f751f6512545197043d490e308e9992" category="section-title">Analyser les tendances en matière de capacité et de débit, ainsi que les points de décision</block>
+  <block id="322cceacdd52c951c88a1d93df7f0dd8" category="list-text">Dans l'onglet *Vue d'ensemble*, sélectionnez un nom de système de fichiers dans le tableau.</block>
+  <block id="ddbda74454b43f792ee3816b12e08af9" category="list-text">Dans la vue Détails du cluster, sélectionnez l'option *Débit* ou *Capacité SSD* pour modifier l'affichage du graphique.</block>
+  <block id="d92136d041599b752e93710c829f0583" category="list-text">Sélectionnez différentes plages horaires pour visualiser les tendances de débit ou de capacité sur différentes périodes.</block>
+  <block id="8d33ce28efafbfe7600930c556bcfd55" category="list-text">Survolez les points de décision sur le graphique pour afficher des détails sur les recommandations ou les actions d'automatisation à des moments précis.</block>
+  <block id="4d43a6d1e695bf0a99e5bc33d3ca3fda" category="list-text">Utilisez les informations tirées du graphique pour :</block>
+  <block id="8aa0b0a22cf225f503177c8f1de7df3c" category="list-text">Comprendre la fréquence à laquelle des ajustements de capacité sont nécessaires</block>
+  <block id="dc036d0aefd6c43f7e0e90f879128e16" category="list-text">Évaluez si le mode d'automatisation ou le mode de recommandation correspond mieux à vos modèles de charge de travail</block>
+  <block id="274e06045627d8934cd9bb52e8c64f53" category="list-text">Identifier les contraintes de capacité récurrentes</block>
+  <block id="38e979158d55ae25a36aba4d97b0a8b4" category="list-text">Planifiez les besoins futurs en capacité en fonction des tendances de croissance</block>
+  <block id="2814ccd9bf1ef1faffa5931e29ee7f74" category="list-text">Dépanner les tentatives d'automatisation ayant échoué</block>
+  <block id="7dc50386b3284326e1114e4e7f4eb3fd" category="section-title">1er novembre 2026</block>
 </blocks>
